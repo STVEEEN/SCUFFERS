@@ -1,15 +1,4 @@
 import {Schema, model} from "mongoose";
-/*
-    Fields:
-        name
-        birtday 
-        email
-        address
-        hireDate
-        password
-        phoneNumber
-        dui
-         */
 
 const employeeSchema = new Schema({
     name: {
@@ -66,9 +55,15 @@ const employeeSchema = new Schema({
             "El formato del DUI debe ser 12345678-9"
         ]
     },
+    Role: {
+        type: String,
+        enum: ["Employee", "Admin"],
+        default: "Employee"
+    }   
 }, {
     timestamps: true,
     strict: true
-});
+}
+);
 
 export default model("employees", employeeSchema);
