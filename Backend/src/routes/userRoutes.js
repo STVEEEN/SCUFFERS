@@ -4,10 +4,10 @@ import userController from "../controllers/userController.js"
 const router = express.Router();
 
 router.route("/")
-    .get(userController.postEmployees)
-    .post(userController.postEmployees)
+    .get(userController.getUsers)
+    .post(userController.postUsers)
 router.route("/:id")
-    .put(userController.putEmployees)
-    .delete(userController.deleteEmployees)
+    .put(userController.putUsers)
+    .delete(userController.deleteUsers)
 
 export default router;

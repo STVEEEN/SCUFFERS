@@ -57,7 +57,7 @@ const userSchema = new Schema({
         type: Number,
         required: true,
         min: [1, "El nivel de membresía debe ser al menos 1"]
-    }
+    } 
 }, {
     timestamps: true,
     strict: true
