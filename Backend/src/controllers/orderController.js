@@ -16,7 +16,7 @@ orderController.getOrders = async (req, res) => {
     }
 };
 
-orderController.createOrder = async (req, res) => {
+orderController.postOrder = async (req, res) => {
     try {
         const { cartId, paymentId } = req.body;
 
@@ -46,7 +46,7 @@ orderController.createOrder = async (req, res) => {
     }
 };
 
-orderController.updateOrder = async (req, res) => {
+orderController.updatedOrder = async (req, res) => {
     try {
         const updatedOrder = await OrderModel.findByIdAndUpdate(
             req.params.id,
@@ -64,7 +64,7 @@ orderController.updateOrder = async (req, res) => {
     }
 };
 
-orderController.removeOrder = async (req, res) => {
+orderController.deleteOrder = async (req, res) => {
     try {
         const deletedOrder = await OrderModel.findByIdAndDelete(req.params.id);
 
