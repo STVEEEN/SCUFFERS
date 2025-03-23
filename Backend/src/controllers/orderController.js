@@ -1,59 +1,52 @@
-const orderController = {};
-import OrderModel from "../models/order.js";
+import OrderModel from "../models/Order.js";
 import CartModel from "../models/cart.js";
 
-// Obtener todas las órdenes
+const orderController = {};
+
 orderController.getOrders = async (req, res) => {
     try {
         const orders = await OrderModel.find()
-            .populate("idUser")
-            .populate("items.idProduct")
-            .populate("idPayment");
+            .populate("userId") 
+            .populate("items.productId") 
+            .populate("paymentId"); 
 
         res.json(orders);
     } catch (error) {
-        res.status(500).json({ message: "Internal Server Error", error });
+        res.status(500).json({ message: "Error", error });
     }
 };
 
-// Crear una nueva orden a partir del carrito
-orderController.postOrderFromCart = async (req, res) => {
+orderController.createOrder = async (req, res) => {
     try {
-        const { idCart, idPayment } = req.body;
+        const { cartId, paymentId } = req.body;
 
         // Buscar el carrito
-        const cart = await CartModel.findById(idCart).populate("Product.idProduct");
-
-        if (!cart) {
-            return res.status(404).json({ message: "Carrito no encontrado" });
+        const cart = await CartModel.findById(cartId);
+        if (!cart || cart.status !== "pending") {
+            return res.status(400).json({ message: "Carrito no disponible" });
         }
 
-        // Transformar el carrito en una orden
+        // Crear la nueva orden con los productos del carrito
         const newOrder = new OrderModel({
-            idUser: cart.idCustomer,
-            items: cart.products.map(item => ({
-                idProducts: item.idProduct._id,
-                quantity: item.quantity,
-                unitPrice: item.price
-            })),
-            total: cart.totalAmount,
-            estado: "Pendiente",
-            idPayment
+            userId: cart.userId,  
+            cartId: cart._id,      
+            items: cart.products,  
+            total: cart.totalAmount, 
+            status: "Processing",  
+            paymentId,             
+            createdAt: new Date() 
         });
-
         await newOrder.save();
 
-        // Eliminar el carrito después de crear la orden
-        await CartModel.findByIdAndDelete(idCart);
-
-        res.status(201).json({ message: "Orden creada exitosamente", newOrder });
+        // Marcar el carrito como completado
+        await CartModel.findByIdAndUpdate(cartId, { status: "completed" });
+        res.status(201).json({ message: "Order creado", order: newOrder });
     } catch (error) {
-        res.status(400).json({ message: "Bad Request", error });
+        res.status(500).json({ message: "Error creando order", error });
     }
 };
 
-// Actualizar una orden
-orderController.putOrder = async (req, res) => {
+orderController.updateOrder = async (req, res) => {
     try {
         const updatedOrder = await OrderModel.findByIdAndUpdate(
             req.params.id,
@@ -62,27 +55,26 @@ orderController.putOrder = async (req, res) => {
         );
 
         if (!updatedOrder) {
-            return res.status(404).json({ message: "Orden no encontrada" });
+            return res.status(404).json({ message: "Order no encontrado" });
         }
 
-        res.json({ message: "Orden actualizada", updatedOrder });
+        res.json({ message: "Order actualizado correctamente", updatedOrder });
     } catch (error) {
         res.status(400).json({ message: "Bad Request", error });
     }
 };
 
-// Eliminar una orden
-orderController.deleteOrder = async (req, res) => {
+orderController.removeOrder = async (req, res) => {
     try {
         const deletedOrder = await OrderModel.findByIdAndDelete(req.params.id);
 
         if (!deletedOrder) {
-            return res.status(404).json({ message: "Orden no encontrada" });
+            return res.status(404).json({ message: "Order no encontrado" });
         }
 
-        res.json({ message: "Orden eliminada exitosamente" });
+        res.json({ message: "Order eliminado correctamente" });
     } catch (error) {
-        res.status(500).json({ message: "Internal Server Error", error });
+        res.status(500).json({ message: "   Bad Request", error });
     }
 };
 

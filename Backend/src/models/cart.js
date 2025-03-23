@@ -8,7 +8,7 @@ const cartSchema = new Schema({
     },
     products: [
         {
-            idProduct: {
+            productId: {
                 type: Schema.Types.ObjectId,
                 ref: "Product", 
                 required: true
@@ -32,8 +32,8 @@ const cartSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ["activo", "procesado"],
-        default: "activo"
+        enum: ["pending", "completed", "cancelled"],
+        default: "pending"
     }
 }, {
     timestamps: true 

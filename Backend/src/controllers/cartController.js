@@ -3,7 +3,7 @@ import CartModel from "../models/cart.js";
 
 cartController.getCarts = async (req, res) => {
     try {
-        const carts = await CartModel.find().populate("idUser").populate("products.idProduct");
+        const carts = await CartModel.find().populate("userId").populate("products.idProduct");
         res.json(carts);
     } catch (error) {
         res.status(500).json({ message: "Internal Server Error", error });
@@ -12,10 +12,10 @@ cartController.getCarts = async (req, res) => {
 
 cartController.postCart = async (req, res) => {
     try {
-        const { idUser, products, totalAmount, status } = req.body;
+        const { userId, products, totalAmount, status } = req.body;
 
         const newCart = new CartModel({
-            idUser,
+            userId,
             products,
             totalAmount,
             status

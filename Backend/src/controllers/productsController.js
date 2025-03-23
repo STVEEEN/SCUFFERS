@@ -3,7 +3,7 @@ import ProductModel from "../models/products.js";
 
 productsController.getProducts = async (req, res) => {
     try {
-        const products = await ProductModel.find().populate("idCategory");
+        const products = await ProductModel.find().populate("categoryId");
         res.json(products);
     } catch (error) {
         res.status(500).json({ message: "Internal Server Error", error });
@@ -12,10 +12,10 @@ productsController.getProducts = async (req, res) => {
 
 productsController.postProducts = async (req, res) => {
     try {
-        const { idCategory, name, price, discount } = req.body;
+        const { categoryId, name, price, discount } = req.body;
 
         const newProduct = new ProductModel({
-            idCategory,
+            categoryId,
             name,
             price,
             discount

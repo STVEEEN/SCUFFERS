@@ -1,47 +1,56 @@
 import { Schema, model } from "mongoose";
 
-const orderSchema = new Schema({
-    idCliente: {
-        type: Schema.Types.ObjectId,
-        ref: "users", // Referencia a la colección de clientes
+const orderSchema = new Schema(
+  {
+    idUser: {
+      type: Schema.Types.ObjectId,
+      ref: "users",
+      required: true,
+    },
+    idCart: {
+        type: Schema.Types.ObjectId, 
+        ref: "Cart", 
         required: true
     },
     items: [
-        {
-            idProducto: {
-                type: Schema.Types.ObjectId,
-                ref: "Product", // Referencia a la colección de productos
-                required: true
-            },
-            quantity: {
-                type: Number,
-                required: true,
-                min: [1, "La cantidad debe ser al menos 1"]
-            },
-            UnitPrice: {
-                type: Number,
-                required: true,
-                min: [0, "El precio unitario no puede ser negativo"]
-            }
-        }
+      {
+        productId: {
+          type: Schema.Types.ObjectId,
+          ref: "Product",
+          required: true,
+        },
+        productName: {
+          type: String,
+          required: true,
+        },
+        quantity: {
+          type: Number,
+          required: true,
+          min: [1, "Quantity must be at least 1"],
+        },
+        unitPrice: {
+          type: Number,
+          required: true,
+        },
+      },
     ],
     total: {
-        type: Number,
-        required: true,
-        min: [0, "El total no puede ser negativo"]
+      type: Number,
+      required: true,
+      min: [0, "Total cannot be negative"],
     },
     status: {
-        type: String,
-        enum: ["Pendiente", "En preparación", "Enviado", "Entregado", "Cancelado"],
-        default: "Pendiente"
+      type: String,
+      enum: ["Processing", "Shipped", "Delivered", "Cancelled"],
+      default: "Processing",
     },
-    idPayment: {
-        type: Schema.Types.ObjectId,
-        ref: "Payments",
-        required: true
-    }
-}, {
-    timestamps: { createdAt: "fechaCreacion", updatedAt: "fechaActualizacion" } 
-});
+    paymentId: {
+      type: Schema.Types.ObjectId,
+      ref: "Payments",
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
 
 export default model("Order", orderSchema);
