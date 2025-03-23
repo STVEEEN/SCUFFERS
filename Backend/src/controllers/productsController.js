@@ -37,7 +37,7 @@ productsController.putProducts = async (req, res) => {
         );
 
         if (!updatedProduct) {
-            return res.status(404).json({ message: "Producto no encontrado" });
+            return res.status(404).json({ message: "Product not found" });
         }
 
         res.json({ message: "Producto actualizado", updatedProduct });
@@ -51,10 +51,10 @@ productsController.deleteProducts = async (req, res) => {
         const deletedProduct = await ProductModel.findByIdAndDelete(req.params.id);
 
         if (!deletedProduct) {
-            return res.status(404).json({ message: "Producto no encontrado" });
+            return res.status(404).json({ message: "Product not found" });
         }
 
-        res.json({ message: "Producto eliminado exitosamente" });
+        res.json({ message: "Product deleted" });
     } catch (error) {
         res.status(500).json({ message: "Internal Server Error", error });
     }

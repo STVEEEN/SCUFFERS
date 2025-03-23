@@ -12,7 +12,7 @@ orderController.getOrders = async (req, res) => {
 
         res.json(orders);
     } catch (error) {
-        res.status(500).json({ message: "Error", error });
+        res.status(500).json({ message: "Internal Server Error", error });
     }
 };
 
@@ -23,7 +23,7 @@ orderController.postOrder = async (req, res) => {
         // Buscar el carrito
         const cart = await CartModel.findById(cartId);
         if (!cart || cart.status !== "pending") {
-            return res.status(400).json({ message: "Carrito no disponible" });
+            return res.status(400).json({ message: "Cart not found" });
         }
 
         // Crear la nueva orden con los productos del carrito
@@ -46,7 +46,7 @@ orderController.postOrder = async (req, res) => {
     }
 };
 
-orderController.updatedOrder = async (req, res) => {
+orderController.putOrder = async (req, res) => {
     try {
         const updatedOrder = await OrderModel.findByIdAndUpdate(
             req.params.id,
@@ -55,7 +55,7 @@ orderController.updatedOrder = async (req, res) => {
         );
 
         if (!updatedOrder) {
-            return res.status(404).json({ message: "Order no encontrado" });
+            return res.status(404).json({ message: "Order not found" });
         }
 
         res.json({ message: "Order actualizado correctamente", updatedOrder });
@@ -69,12 +69,12 @@ orderController.deleteOrder = async (req, res) => {
         const deletedOrder = await OrderModel.findByIdAndDelete(req.params.id);
 
         if (!deletedOrder) {
-            return res.status(404).json({ message: "Order no encontrado" });
+            return res.status(404).json({ message: "Order not found" });
         }
 
-        res.json({ message: "Order eliminado correctamente" });
+        res.json({ message: "Order deleted" });
     } catch (error) {
-        res.status(500).json({ message: "   Bad Request", error });
+        res.status(500).json({ message: "Internal Server Error", error });
     }
 };
 
