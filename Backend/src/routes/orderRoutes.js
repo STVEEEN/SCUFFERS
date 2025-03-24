@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.route("/")
     .get( orderController.getOrders)
-    .post( orderController.postOrderFromCart)
+    .post( orderController.postOrder)
 router.route("/:id")
     .put( orderController.putOrder)
     .delete( orderController.deleteOrder)
