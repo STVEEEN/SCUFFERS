@@ -1,0 +1,35 @@
+@import './styles/styles.css';
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+button {
+  background-color: #fff;
+  color: #000;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background-color: #ccc;
+}
