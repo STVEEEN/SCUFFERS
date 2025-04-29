@@ -4,7 +4,7 @@
     "name": "Bermudas Azul Gigante",
     "category": "Shorts",
     "price": 69.00,
-    "image": "/assets/products/bermudas-azul.png",
+    "image": "/rick.jpg",
     "tags": ["Best Sellers"]
   },
   {
@@ -12,7 +12,7 @@
     "name": "Camiseta Burdeos Brillante",
     "category": "T-Shirts",
     "price": 75.00,
-    "image": "/assets/products/camiseta-burdeos.png",
+    "image": "/rick.jpg",
     "tags": ["New Arrivals"]
   },
   {
@@ -20,7 +20,7 @@
     "name": "Hoodie Burgundy Scuffers",
     "category": "Hoodies",
     "price": 150.00,
-    "image": "/assets/products/hoodie-burgundy.png",
+    "image": "/rick.jpg",
     "tags": ["Best Sellers"]
   },
   {
@@ -28,7 +28,7 @@
     "name": "Pantalón Ripstop Camo",
     "category": "Pants",
     "price": 89.00,
-    "image": "/assets/products/pantalon-camo.png",
+    "image": "/rick.jpg",
     "tags": ["Back in Stock"]
   },
   {
@@ -36,7 +36,7 @@
     "name": "Camiseta Blanca Scuffers",
     "category": "T-Shirts",
     "price": 120.00,
-    "image": "/assets/products/camiseta-blanca.png",
+    "image": "/rick.jpg",
     "tags": ["New Arrivals"]
   },
   {
@@ -44,7 +44,7 @@
     "name": "Sneakers Iconic Black",
     "category": "Sneakers",
     "price": 200.00,
-    "image": "../public/Hombre.jpg",
+    "image": "/rick.jpg",
     "tags": ["Best Sellers"]
   },
   {
@@ -52,7 +52,7 @@
     "name": "Sudadera Amarilla Urbana",
     "category": "Sweatshirts",
     "price": 147.00,
-    "image": "/assets/products/sudadera-amarilla.png",
+    "image": "/rick.jpg",
     "tags": ["New Arrivals"]
   },
   {
@@ -60,7 +60,7 @@
     "name": "Pantalón Navy Scuffers",
     "category": "Pants",
     "price": 79.00,
-    "image": "/assets/products/pantalon-navy.png",
+    "image": "/rick.jpg",
     "tags": ["Back in Stock"]
   },
   {
@@ -68,7 +68,7 @@
     "name": "Hoodie Green Scuffers",
     "category": "Hoodies",
     "price": 150.00,
-    "image": "/assets/products/hoodie-green.png",
+    "image": "/rick.jpg",
     "tags": ["Best Sellers"]
   },
   {
@@ -76,7 +76,7 @@
     "name": "Camiseta Dark Blue",
     "category": "T-Shirts",
     "price": 100.00,
-    "image": "/assets/products/camiseta-dark-blue.png",
+    "image": "/rick.jpg",
     "tags": ["New Arrivals"]
   }
 ]

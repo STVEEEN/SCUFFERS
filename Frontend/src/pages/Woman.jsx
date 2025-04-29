@@ -2,11 +2,11 @@ import React from 'react';
 import '../styles/styles.css';
 
 /// Importación directa desde src/assets
-import imgWomenPants from '../assets/PortadaPantalonesMujer.PNG';
-import imgWomenLongsleeves from '../assets/PortadaLongsleevesMujer.PNG';
-import imgWomenJackets from '../assets/PortadaJacketsMujer.PNG';
-import imgWomenAccesories from '../assets/PortadaAccesoriosMujeres.PNG';
-import imgWomenTshirts from '../assets/PortadaCamisasMujer.PNG';
+import imgWomenPants from '../../public/PortadaPantalonesMujer.PNG';
+import imgWomenLongsleeves from '../../public/PortadaLongsleevesMujer.PNG';
+import imgWomenJackets from '../../public/PortadaJacketsMujer.PNG';
+import imgWomenAccesories from '../../public/PortadaAccesoriosMujeres.PNG';
+import imgWomenTshirts from '../../public/PortadaCamisasMujer.PNG';
 
 const categories = [
   { id: 1, name: 'T-shirts', route: '/man', image: imgWomenTshirts },

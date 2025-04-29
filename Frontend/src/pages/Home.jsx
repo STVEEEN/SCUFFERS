@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/styles.css';
 
 // Importación directa desde src/assets
-import imgMan from '../assets/hombreportada.JPG';
-import imgCollections from '../assets/hombreportada2.JPG';
-import imgWoman from '../assets/portadaWomen.PNG';
+import imgMan from '../../public/hombreportada.JPG';
+import imgCollections from '../../public/hombreportada2.JPG';
+import imgWoman from '../../public/portadaWomen.PNG';
 
 const categories = [
   { id: 1, name: 'MAN', route: '/man', image: imgMan },

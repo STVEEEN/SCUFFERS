@@ -2,11 +2,11 @@ import React from 'react';
 import '../styles/styles.css';
 
 // Importación directa desde src/assets
-import imgManPants from '../assets/PortadaPantalonesHombres.PNG';
-import imgManLongsleeves from '../assets/PortadaLongsleevesHombres.PNG';
-import imgManJackets from '../assets/PortadaJacketsHombres.PNG';
-import imgManAccesories from '../assets/PortadaAccesoriosHombres.PNG';
-import imgManTshirts from '../assets/PortadaCamisasHombres.PNG';
+import imgManPants from '../../public/PortadaPantalonesHombres.PNG';
+import imgManLongsleeves from '../../public/PortadaLongsleevesHombres.PNG';
+import imgManJackets from '../../public/PortadaJacketsHombres.PNG';
+import imgManAccesories from '../../public/PortadaAccesoriosHombres.PNG';
+import imgManTshirts from '../../public/PortadaCamisasHombres.PNG';
 
 const categories = [
   { id: 1, name: 'T-shirts', route: '/man', image: imgManTshirts },
