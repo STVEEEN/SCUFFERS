@@ -3,6 +3,9 @@ import axios from 'axios';
 import '../styles/styles.css';
 import ProductCard from '../components/ProductCard';
 
+
+
+
 export default function Products() {
   const [products, setProducts] = useState([]);
 

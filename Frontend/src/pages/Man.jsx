@@ -1,11 +1,19 @@
 import React from 'react';
 import '../styles/styles.css';
 
+// Importación directa desde src/assets
+import imgManPants from '../assets/PortadaPantalonesHombres.PNG';
+import imgManLongsleeves from '../assets/PortadaLongsleevesHombres.PNG';
+import imgManJackets from '../assets/PortadaJacketsHombres.PNG';
+import imgManAccesories from '../assets/PortadaAccesoriosHombres.PNG';
+import imgManTshirts from '../assets/PortadaCamisasHombres.PNG';
+
 const categories = [
-  { id: 1, name: 'PANTS', image: '/assets/pants.jpg' },
-  { id: 2, name: 'LONGSLEEVES', image: '/assets/longsleeves.jpg' },
-  { id: 3, name: 'JACKETS', image: '/assets/jackets.jpg' },
-  { id: 4, name: 'ACCESSORIES', image: '/assets/accessories.jpg' },
+  { id: 1, name: 'T-shirts', route: '/man', image: imgManTshirts },
+  { id: 2, name: 'Pants', route: '/collections', image: imgManPants },
+  { id: 3, name: 'Jackets', route: '/woman', image: imgManJackets },
+  { id: 4, name: 'Longsleeves', route: '/woman', image: imgManLongsleeves },
+  { id: 5, name: 'Accesories', route: '/woman', image: imgManAccesories },
 ];
 
 export default function Man() {

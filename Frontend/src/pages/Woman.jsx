@@ -1,13 +1,20 @@
 import React from 'react';
 import '../styles/styles.css';
 
-const categories = [
-  { id: 1, name: 'PANTS', image: '/assets/pants.jpg' },
-  { id: 2, name: 'LONGSLEEVES', image: '/assets/longsleeves.jpg' },
-  { id: 3, name: 'JACKETS', image: '/assets/jackets.jpg' },
-  { id: 4, name: 'ACCESSORIES', image: '/assets/accessories.jpg' },
-];
+/// Importación directa desde src/assets
+import imgWomenPants from '../assets/PortadaPantalonesMujer.PNG';
+import imgWomenLongsleeves from '../assets/PortadaLongsleevesMujer.PNG';
+import imgWomenJackets from '../assets/PortadaJacketsMujer.PNG';
+import imgWomenAccesories from '../assets/PortadaAccesoriosMujeres.PNG';
+import imgWomenTshirts from '../assets/PortadaCamisasMujer.PNG';
 
+const categories = [
+  { id: 1, name: 'T-shirts', route: '/man', image: imgWomenTshirts },
+  { id: 2, name: 'Pants', route: '/collections', image: imgWomenPants },
+  { id: 3, name: 'Jackets', route: '/woman', image: imgWomenJackets },
+  { id: 4, name: 'Longsleeves', route: '/woman', image: imgWomenLongsleeves },
+  { id: 5, name: 'Accesories', route: '/woman', image: imgWomenAccesories },
+]
 export default function Woman() {
   return (
     <div className="category-page container">
