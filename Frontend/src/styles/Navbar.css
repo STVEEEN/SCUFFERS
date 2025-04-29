@@ -1,0 +1,57 @@
+/* Estilos simplificados para el Navbar */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap');
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  border-bottom: 1px solid #eee;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.navbar-left, .navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu-btn {
+  background: #000000;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+.nav-link, .bag-link {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-link:hover, .bag-link:hover {
+  color: #ffffff;
+}
+
+.logo {
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+.logo a {
+  color: #333;
+  text-decoration: none;
+}
+
+.search-icon {
+  font-size: 18px;
+  margin-left: 12px;
+  cursor: pointer;
+}

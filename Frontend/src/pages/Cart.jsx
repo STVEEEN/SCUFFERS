@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { CartContext } from '../context/CartContext';
-import '../styles/styles.css';
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import "../styles/styles.css";
 
 export default function Cart() {
-  const { cart, total } = useContext(CartContext);
+  const { cart, total, removeFromCart } = useContext(CartContext);
 
   if (cart.length === 0) {
     return <p className="cart-empty">Your cart is empty.</p>;
@@ -13,11 +13,12 @@ export default function Cart() {
     <div className="cart-page container">
       <h1>Your Cart</h1>
       <ul className="cart-items">
-        {cart.map(item => (
+        {cart.map((item) => (
           <li key={item.id} className="cart-item">
-            <img src={item.image} alt={item.name} className="cart-image"/>
+            <img src={item.image} alt={item.name} className="cart-image" />
             <span>{item.name}</span>
             <span>${item.price}</span>
+            <button className="remove-btn" onClick={() => removeFromCart(item.id)}>✖</button>
           </li>
         ))}
       </ul>

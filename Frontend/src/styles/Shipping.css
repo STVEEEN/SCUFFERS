@@ -1,0 +1,34 @@
+.shipping-page {
+    text-align: center;
+    padding: 60px;
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .shipping-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .shipping-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+  }
+  
+  .shipping-item {
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .shipping-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .shipping-footer {
+    margin-top: 40px;
+    font-size: 1.2rem;
+  }
+  
