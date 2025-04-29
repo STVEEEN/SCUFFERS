@@ -7,6 +7,7 @@ import "../styles/styles.css";
 export default function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(""); // Estado para la talla seleccionada
   const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
@@ -20,6 +21,19 @@ export default function ProductDetail() {
       .catch((err) => console.error("Error al cargar producto:", err));
   }, [id]);
 
+  const handleSizeSelect = (size) => {
+    setSelectedSize(size);
+  };
+
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      alert("Por favor, selecciona una talla antes de agregar al carrito.");
+      return;
+    }
+    addToCart({ ...product, size: selectedSize }); // Agregar producto con talla seleccionada
+  };
+  <div/>
+
   if (!product) return <p className="text-center">Loading…</p>;
 
   return (
@@ -28,7 +42,18 @@ export default function ProductDetail() {
       <div className="product-info">
         <h1>{product.name}</h1>
         <p className="price">${product.price}</p>
-        <button onClick={() => addToCart(product)}>Add to Cart</button>
+        <div className="size-buttons">
+          {["XS", "S", "M", "L", "XL"].map((size) => (
+            <button
+              key={size}
+              className={`size-button ${selectedSize === size ? "selected" : ""}`}
+              onClick={() => handleSizeSelect(size)}
+            >
+              {size}
+            </button>
+          ))}
+        </div>
+        <button onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </div>
   );

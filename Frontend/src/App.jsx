@@ -7,6 +7,7 @@ import Man from "./pages/Man";
 import Collections from "./pages/Collections";
 import Woman from "./pages/Woman";
 import Products from "./pages/Products";
+import Shipping from "./pages/Shipping"
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
@@ -18,7 +19,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shipping" element={<p>Shipping info</p>} />
+        <Route path="/shipping" element={<Shipping />} />
         <Route path="/login" element={<Login />} />
         <Route path="/products" element={<Products />} />
         <Route path="/man" element={<Man />} />

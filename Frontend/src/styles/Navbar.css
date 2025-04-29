@@ -9,24 +9,13 @@
   border-bottom: 1px solid #eee;
   font-family: 'Cormorant Garamond', serif;
   font-size: 12px;
-  letter-spacing: 1px;
+  letter-spacing: 1.1px;
 }
 
 .navbar-left, .navbar-right {
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.menu-btn {
-  background: #000000;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  font-size: 11px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  margin-right: 12px;
 }
 
 .nav-link, .bag-link {
@@ -46,7 +35,7 @@
 }
 
 .logo a {
-  color: #333;
+  color: #000000;
   text-decoration: none;
 }
 

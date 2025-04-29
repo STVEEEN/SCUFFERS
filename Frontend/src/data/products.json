@@ -1,38 +1,82 @@
 [
   {
-    "name": "Rick",
-    "image": "/assets/products/rick.JPG"
+    "id": 3,
+    "name": "Bermudas Azul Gigante",
+    "category": "Shorts",
+    "price": 69.00,
+    "image": "/assets/products/bermudas-azul.png",
+    "tags": ["Best Sellers"]
   },
   {
-    "name": "Hoodie Burgundy",
-    "image": "/assets/products/rick.JPG"
+    "id": 4,
+    "name": "Camiseta Burdeos Brillante",
+    "category": "T-Shirts",
+    "price": 75.00,
+    "image": "/assets/products/camiseta-burdeos.png",
+    "tags": ["New Arrivals"]
   },
   {
-    "name": "Pantalon Camo",
-    "image": "/assets/products/rick.JPG"
+    "id": 5,
+    "name": "Hoodie Burgundy Scuffers",
+    "category": "Hoodies",
+    "price": 150.00,
+    "image": "/assets/products/hoodie-burgundy.png",
+    "tags": ["Best Sellers"]
   },
   {
-    "name": "Camiseta Blanca",
-    "image": "/assets/products/rick.JPG"
+    "id": 6,
+    "name": "Pantalón Ripstop Camo",
+    "category": "Pants",
+    "price": 89.00,
+    "image": "/assets/products/pantalon-camo.png",
+    "tags": ["Back in Stock"]
   },
   {
-    "name": "Sneakers Black",
-    "image": "/assets/products/rick.JPG"
+    "id": 7,
+    "name": "Camiseta Blanca Scuffers",
+    "category": "T-Shirts",
+    "price": 120.00,
+    "image": "/assets/products/camiseta-blanca.png",
+    "tags": ["New Arrivals"]
   },
   {
-    "name": "Sudadera Amarilla",
-    "image": "/assets/products/rick.JPG"
+    "id": 8,
+    "name": "Sneakers Iconic Black",
+    "category": "Sneakers",
+    "price": 200.00,
+    "image": "/assets/products/sneakers-black.png",
+    "tags": ["Best Sellers"]
   },
   {
-    "name": "Pantalon Navy",
-    "image": "/assets/products/rick.JPG"
+    "id": 9,
+    "name": "Sudadera Amarilla Urbana",
+    "category": "Sweatshirts",
+    "price": 147.00,
+    "image": "/assets/products/sudadera-amarilla.png",
+    "tags": ["New Arrivals"]
   },
   {
-    "name": "Hoodie Green",
-    "image": "/assets/products/rick.JPG"
+    "id": 10,
+    "name": "Pantalón Navy Scuffers",
+    "category": "Pants",
+    "price": 79.00,
+    "image": "/assets/products/pantalon-navy.png",
+    "tags": ["Back in Stock"]
   },
   {
+    "id": 11,
+    "name": "Hoodie Green Scuffers",
+    "category": "Hoodies",
+    "price": 150.00,
+    "image": "/assets/products/hoodie-green.png",
+    "tags": ["Best Sellers"]
+  },
+  {
+    "id": 12,
     "name": "Camiseta Dark Blue",
-    "image": "/assets/products/rick.JPG"
+    "category": "T-Shirts",
+    "price": 100.00,
+    "image": "/assets/products/camiseta-dark-blue.png",
+    "tags": ["New Arrivals"]
   }
 ]
