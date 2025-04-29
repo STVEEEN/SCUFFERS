@@ -44,7 +44,7 @@
     "name": "Sneakers Iconic Black",
     "category": "Sneakers",
     "price": 200.00,
-    "image": "/assets/products/sneakers-black.png",
+    "image": "../public/Hombre.jpg",
     "tags": ["Best Sellers"]
   },
   {
