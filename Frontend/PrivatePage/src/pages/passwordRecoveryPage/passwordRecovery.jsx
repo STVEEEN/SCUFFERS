@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./PasswordRecovery.css";
+import "./PasswordRecovery.css"; // Asegúrate de que la ruta es correcta
 
 export default function PasswordRecovery() {
   const navigate = useNavigate();
@@ -9,47 +9,45 @@ export default function PasswordRecovery() {
 
   const handleRecovery = () => {
     if (!email) {
-      setError("Please enter your email."); // Mensaje en inglés
+      setError("Please enter your email.");
     } else {
       setError("");
-      navigate("/confirmation"); // Redirige a la página de confirmación
+      navigate("/confirmation");
     }
   };
 
   return (
     <div className="password-recovery-page">
-      {/* Flecha de retroceso reutilizada */}
-      <div className="back-arrow" onClick={() => navigate(-1)}>
+      {/* Flecha en la esquina superior izquierda redirige a la pantalla de Login */}
+      <div className="back-arrow" onClick={() => navigate("/login")}>
         <img src="/path/to/your/arrow-icon.png" alt="Back" />
       </div>
 
-      {/* Logo en el centro superior reutilizado */}
+      {/* Contenedor del logo, centrado en la parte superior */}
       <div className="logo-container">
         <img src="/path/to/your/logo.png" alt="Logo" />
       </div>
 
-      <div className="password-recovery-container">
-        {/* Nueva información dentro del cuadro */}
-        <h1 className="recovery-title">RECOVER YOUR PASSWORD</h1>
-        <p className="recovery-text">
-          Enter your email address and we will send you a link to reset your password.
-        </p>
-
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="recovery-input"
-        />
-
-        {/* Mensaje de error en inglés */}
-        {error && <p className="error-message">{error}</p>}
-
-        {/* Botón de recuperación */}
-        <button className="recovery-button" onClick={handleRecovery}>
-          SEND LINK
-        </button>
+      {/* Contenedor principal del formulario */}
+      <div className="recovery-container">
+        <div className="recovery-form">
+          <h2>RECOVER YOUR ACCOUNT</h2>
+          <p className="label-text">ENTER YOUR EMAIL</p>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="recovery-input"
+          />
+          {error && <p className="error-message">{error}</p>}
+          <p className="notification-text">
+            WE MAY SEND YOU NOTIFICATIONS TO YOUR<br />
+            GMAIL FOR SECURITY AND LOGIN PURPOSES.
+          </p>
+          <button className="recovery-button" onClick={handleRecovery}>
+            CONTINUE
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -8,8 +8,8 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    // Redirecciona a la pantalla passwordRecovery
-    navigate("/passwordRecovery");
+    // Puedes agregar validaciones o lógica adicional
+    navigate("/home");
   };
 
   return (
@@ -19,18 +19,18 @@ export default function Login() {
         <img src="/path/to/your/arrow-icon.png" alt="Back" />
       </div>
 
-      {/* Contenedor del logo, posicionado en el centro superior */}
+      {/* Contenedor del logo, centrado en la parte superior */}
       <div className="logo-container">
         <img src="/path/to/your/logo.png" alt="Logo" />
       </div>
 
       <div className="login-container">
-        {/* Sección de imagen, a la izquierda */}
+        {/* Sección de imagen (izquierda) */}
         <div className="login-image">
           <img src="/path/to/your/login-image.jpg" alt="Login" />
         </div>
 
-        {/* Sección del formulario, a la derecha */}
+        {/* Sección del formulario (derecha) */}
         <div className="login-form">
           <h2>
             LOGIN WITH YOUR <br /> CREDENTIALS
@@ -39,6 +39,10 @@ export default function Login() {
             type="email"
             placeholder="EMAIL"
             value={email}
+            onFocus={(e) => (e.target.placeholder = "")}
+            onBlur={(e) => {
+              if (e.target.value === "") e.target.placeholder = "EMAIL";
+            }}
             onChange={(e) => setEmail(e.target.value)}
           />
 
@@ -46,10 +50,14 @@ export default function Login() {
             type="password"
             placeholder="PASSWORD"
             value={password}
+            onFocus={(e) => (e.target.placeholder = "")}
+            onBlur={(e) => {
+              if (e.target.value === "") e.target.placeholder = "PASSWORD";
+            }}
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <a href="/forgot-password" className="forgot-password">
+          <a href="/passwordRecovery" className="forgot-password">
             Forgot your password?
           </a>
 
