@@ -1,0 +1,113 @@
+/* Página completa centrada con fondo blanco */
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff; /* Cambiado a blanco */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+/* Flecha en la esquina superior izquierda */
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+.back-arrow img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Contenedor del logo, posicionado en el centro superior */
+.logo-container {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.logo-container img {
+  height: 40px; /* Ajusta el tamaño según necesites */
+  width: auto;
+}
+
+/* Contenedor principal del cuadro de login */
+.login-container {
+  width: 80%;
+  max-width: 900px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+}
+
+/* Sección de imagen */
+.login-image {
+  width: 50%;
+}
+.login-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Sección del formulario */
+.login-form {
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #000;
+  text-align: center;
+}
+
+/* Entradas: EMAIL y PASSWORD, un poco más pequeñas, fondo blanco, bordes redondeados y leve sombra */
+.login-form input {
+  width: 75%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  background-color: #fff;
+  font-size: 14px;
+  color: #000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Enlace "Forgot your password?" en color negro, alineado a la derecha */
+.forgot-password {
+  width: 75%;
+  text-align: right;
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
+  margin-top: -6px;
+  margin-bottom: 20px;
+}
+
+/* Botón START: mitad del ancho de los campos y con menor padding */
+.start-button {
+  width: 50%;
+  padding: 8px;
+  font-size: 18px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+.start-button:hover {
+  background-color: #333;
+}

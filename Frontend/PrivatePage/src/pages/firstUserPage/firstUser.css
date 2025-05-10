@@ -1,0 +1,64 @@
+/* Contenedor que cubre toda la pantalla con la imagen de fondo */
+.first-user-page {
+  width: 100vw;
+  height: 100vh;
+  background: url('/path/to/your/first-user-bg.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Overlay para mejorar la legibilidad del texto */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Ajusta la opacidad según necesites */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor del contenido */
+.content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Texto de bienvenida */
+.welcome-text {
+  color: #fff;
+  font-size: 64px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin-bottom: 40px; /* Espacio extra para separar el botón */
+}
+
+/* Contenedor del botón para asegurar que esté debajo */
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Botón START */
+.start-button {
+  background-color: #28a745;
+  border: none;
+  padding: 15px 40px;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.start-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
