@@ -73,8 +73,8 @@ export default function CodeConfirmation() {
             DIDN'T RECEIVE THE CODE?
           </a>
 
-          {/* Botón CONTINUE */}
-          <button className="confirmation-button" onClick={() => navigate("/home")}>
+          {/* Botón CONTINUE que ahora redirige a NewPassword */}
+          <button className="confirmation-button" onClick={() => navigate("/newPassword")}>
             CONTINUE
           </button>
         </div>
