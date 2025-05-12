@@ -1,108 +1,140 @@
-/* Contenedor general */
+/* Página completa centrada con fondo blanco */
+.code-confirmation-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff; /* Fondo blanco */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+/* Flecha en la esquina superior izquierda */
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+.back-arrow img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Contenedor del logo, centrado en la parte superior */
+.logo-container {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.logo-container img {
+  height: 40px;
+  width: auto;
+}
+
+/* Contenedor principal del formulario */
 .confirmation-container {
+  width: 400px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  padding: 60px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 550px;
+}
+
+/* Contenedor interno del formulario */
+.confirmation-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  width: 100%;
+}
+
+/* Título con mayor separación */
+.confirmation-form h2 {
+  font-size: 20px;
+  margin-bottom: 70px;
   color: #000;
-  font-family: sans-serif;
-  min-height: 100vh;
-  padding-bottom: 20px;
-}
-
-/* Cabecera */
-.confirmation-header {
-  width: 100%;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.back-section {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.back-arrow {
-  font-size: 24px;
-  margin-right: 8px;
-}
-
-.back-text {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.logo-section {
-  flex-grow: 1;
   text-align: center;
 }
 
-.logo {
-  height: 40px; /* Ajusta el tamaño según necesites */
-}
-
-/* Contenido principal */
-.confirmation-main {
-  width: 100%;
-  max-width: 400px;
+/* Texto de instrucciones en dos líneas */
+.instruction-text {
+  font-size: 14px;
+  color: #777;
   text-align: center;
-  padding: 20px;
-  margin-top: 40px;
+  width: 90%;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  line-height: 1.5;
 }
 
-.confirmation-main h1 {
-  font-size: 24px;
+/* Contenedor de los inputs del código */
+.code-inputs {
+  display: flex;
+  gap: 10px;
   margin-bottom: 10px;
 }
 
-.confirmation-main p {
-  font-size: 14px;
-  margin-bottom: 20px;
+/* Contenedor individual de cada input */
+.code-input-container {
+  position: relative;
 }
 
-/* Campos de código */
-.code-inputs {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
+/* Inputs individuales del código con bordes más redondeados y sombra */
 .code-input {
   width: 45px;
   height: 45px;
-  font-size: 24px;
   text-align: center;
+  font-size: 18px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 15px; /* Bordes más redondeados */
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra agregada */
+  color: #000;
+  font-weight: bold;
 }
 
-/* Enlace para reenviar el código */
+/* Barra negra debajo del input activo */
+.active-bar {
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+/* Enlace para reenviar código, alineado a la derecha debajo de los cuadros */
 .resend-code {
-  display: block;
-  margin-bottom: 20px;
   font-size: 14px;
+  color: #000;
   text-decoration: none;
-  color: #007BFF;
-  cursor: pointer;
+  margin-top: 5px;
+  align-self: flex-end; /* Lo mueve a la derecha */
+}
+.resend-code:hover {
+  text-decoration: underline;
 }
 
 /* Botón CONTINUE */
-.continue-button {
-  width: 100%;
-  padding: 12px;
+.confirmation-button {
+  width: 50%;
+  padding: 8px;
+  font-size: 18px;
   background-color: #000;
   color: #fff;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-top: 30px;
 }
-
-.continue-button:hover {
+.confirmation-button:hover {
   background-color: #333;
 }

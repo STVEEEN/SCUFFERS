@@ -12,7 +12,7 @@ export default function PasswordRecovery() {
       setError("Please enter your email.");
     } else {
       setError("");
-      navigate("/confirmation");
+      navigate("/codeConfirmation"); // Redirige a CodeConfirmation
     }
   };
 
