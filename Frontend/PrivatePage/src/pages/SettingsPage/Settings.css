@@ -1,0 +1,169 @@
+/* Página completa con fondo blanco */
+.settings-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff; /* Fondo blanco */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra todo */
+  justify-content: center; /* Mueve todo al centro */
+  font-family: Arial, sans-serif;
+  color: #000; /* Texto negro */
+  padding: 20px;
+}
+ 
+/* Flecha en la esquina superior izquierda */
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start; /* Alinea a la izquierda */
+  padding-left: 20px; /* Mantiene la flecha en su lugar */
+}
+ 
+.back-arrow {
+  cursor: pointer;
+  margin-right: 10px;
+}
+ 
+.icon-placeholder {
+  width: 30px;
+  height: 30px;
+  background-color: #ccc; /* Espacio para ícono */
+  border-radius: 50%;
+}
+ 
+/* Contenedor principal centrado */
+.container {
+  display: flex;
+  justify-content: center; /* Centra ambas secciones */
+  align-items: center; /* Centra verticalmente */
+  width: 80%;
+  gap: 40px; /* Espacio entre las secciones */
+}
+ 
+/* Sección izquierda: Cambio de datos con fondo blanco */
+.data-section {
+  width: 45%;
+  padding: 30px;
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+ 
+/* Título centrado */
+.data-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000;
+}
+ 
+/* Grupo de input con etiqueta encima pero alineada ligeramente a la izquierda */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Mantiene la alineación hacia la izquierda */
+  margin-bottom: 15px;
+  width: 100%;
+}
+ 
+/* Etiquetas alineadas encima pero desplazadas hacia la izquierda */
+.input-group label {
+  font-size: 14px;
+  color: #000;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  margin-left: 5px; /* Desplazamiento leve hacia la izquierda */
+}
+ 
+/* Inputs sin cambios de tamaño */
+.input-group input {
+  width: 50%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #000;
+  text-align: left;
+}
+ 
+/* Input de PASSWORD con fondo blanco */
+.password-input {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+ 
+/* Botón centrado con estilo igual a la imagen */
+.change-button {
+  width: 50%;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  margin-top: 20px; /* Botón un poco más abajo */
+}
+ 
+.change-button:hover {
+  background-color: #333;
+}
+ 
+/* Sección derecha: Perfil del usuario */
+.profile-section {
+  width: 45%;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Centra el texto */
+  color: #000;
+}
+ 
+/* Ícono arriba del nombre */
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #ccc; /* Espacio para ícono */
+  border-radius: 50%;
+  margin: 0 auto 8px auto; /* Centrado con espacio abajo */
+}
+ 
+.profile-section h2 {
+  margin-bottom: 20px;
+  text-align: center; /* Centra el nombre */
+  color: #000;
+}
+ 
+/* Espaciado entre íconos y texto */
+.profile-item {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espacio entre íconos y texto */
+  margin-bottom: 15px; /* Espacio entre elementos */
+  color: #000;
+}
+ 
+/* Botón de logout en la esquina inferior derecha */
+.logout-button {
+  position: absolute;
+  bottom: 20px; /* Bajado a la esquina inferior derecha */
+  right: 20px;
+  width: 150px;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #000; /* Botón negro */
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+ 
+.logout-button:hover {
+  background-color: #333;
+}

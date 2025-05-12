@@ -9,7 +9,7 @@ export default function Login() {
 
   const handleLogin = () => {
     // Puedes agregar validaciones o lógica adicional
-    navigate("/home");
+    navigate("/Stats");
   };
 
   return (

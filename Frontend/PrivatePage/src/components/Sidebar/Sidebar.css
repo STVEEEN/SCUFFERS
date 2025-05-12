@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap');
+
+.sidebar {
+  width: 300
+  px;
+  height: 94vh;
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  font-family: "Mulish", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-placeholder {
+  width: 50px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.bigger {
+  width: 40px;
+  height: 40px;
+}
+
+.large {
+  width: 80;
+  height: 60px;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #007bff;
+}
+
+.logout-container {
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #000000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #f5f5f5;
+}
