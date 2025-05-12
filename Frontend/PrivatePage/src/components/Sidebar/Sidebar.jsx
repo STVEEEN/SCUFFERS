@@ -20,7 +20,7 @@ const Sidebar = () => {
         <ul>
           <li>
             <div className="icon-placeholder bigger"></div>
-            <Link to="/">STATS</Link>
+            <Link to="">STATS</Link>
           </li>
           <li>
             <div className="icon-placeholder bigger"></div>

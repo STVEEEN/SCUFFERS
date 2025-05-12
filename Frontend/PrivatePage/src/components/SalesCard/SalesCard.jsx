@@ -1,40 +1,66 @@
 import React, { useState } from "react";
+import { Line } from "react-chartjs-2";
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 import "./SalesCard.css";
 
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+
 const SalesCard = () => {
-  const [selectedDate, setSelectedDate] = useState("Julio 2025");
-  const [graphImage, setGraphImage] = useState("/default-graph.png");
-
-  const handleDateChange = (event) => {
-    const newDate = event.target.value;
-    setSelectedDate(newDate);
-    setGraphImage(`/graphs/${newDate}.png`);
-  };
-
-  const metrics = [
-    { name: "REVENUE", value: "$2465", change: "+11.5%", color: "green" },
-    { name: "EXPENSES", value: "$1567", change: "-7.6%", color: "red" },
-    { name: "BALANCE", value: "$898", change: "+4.8%", color: "blue" },
-  ];
+  const [salesData, setSalesData] = useState({
+    labels: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
+    datasets: [
+      {
+        label: "REVENUE",
+        data: [1500, 2700, 3400, 2900, 4300, 5100, 4900], 
+        borderColor: "#007bff",
+        backgroundColor: "rgba(0, 123, 255, 0.2)",
+        tension: 0.4, 
+        pointRadius: 4, 
+      },
+      {
+        label: "EXPENSES",
+        data: [1000, 1600, 2100, 2300, 3100, 3700, 3500], 
+        borderColor: "#dc3545",
+        backgroundColor: "rgba(220, 53, 69, 0.2)",
+        tension: 0.4,
+        pointRadius: 4, 
+      },
+      {
+        label: "BALANCE",
+        data: [500, 1100, 1300, 600, 1200, 1400, 1400], 
+        borderColor: "#28a745",
+        backgroundColor: "rgba(40, 167, 69, 0.2)",
+        tension: 0.4,
+        pointRadius: 4, 
+      },
+    ],
+  });
 
   return (
     <div className="sales-card">
-      <div className="sales-header">
-        <h2>SALES ANALITIC</h2>
-        <input type="month" value={selectedDate} onChange={handleDateChange} className="date-selector" />
-      </div>
-
-      <div className="metrics">
-        {metrics.map((metric, index) => (
-          <div key={index} className="metric">
-            <h3>{metric.name}</h3>
-            <p>{metric.value} <span className={`change ${metric.color}`}>{metric.change}</span></p>
-          </div>
-        ))}
+      <div className="card-header">
+        <h2>SALES ANALITICS</h2>
       </div>
 
       <div className="chart-container">
-        <img src={graphImage} alt="Sales Graph" className="sales-graph" />
+        <Line 
+          data={salesData} 
+          options={{
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: false, 
+                min: 500, 
+                max: 6000, 
+              },
+            },
+            plugins: {
+              legend: {
+                position: "top", 
+              },
+            },
+          }}
+        />
       </div>
     </div>
   );

@@ -1,0 +1,57 @@
+.top-selling-products {
+  width: 100%;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+
+  
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.products-list {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  justify-content: space-between;
+}
+
+.product-card {
+  display: flex;
+  align-items: center;
+  background-color: #EDEDED;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+  margin-left: 10px;
+}
+
+.product-name {
+  font-weight: bold;
+}
+
+.product-price {
+  color: #555;
+}
+
+.product-sold {
+  color: #333;
+}
+
+.product-change.green {
+  color: green;
+}
+
+.product-change.red {
+  color: red;
+}
