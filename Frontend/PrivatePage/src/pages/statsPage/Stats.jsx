@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import "./Stats.css";
 import SalesCard from "../../components/SalesCard/SalesCard";
-import SettingsButton from "../../components/SettingsButton/SettingsButton"; // Nuevo botón de configuración
+import SettingsButton from "../../components/SettingsButton/SettingsButton"; // Botón de configuración
 
 const Stats = () => {
   return (
@@ -11,7 +11,6 @@ const Stats = () => {
       <div className="stats-content">
         <div className="header">
           <h1>OVERVIEW</h1>
-          {/* Botón de configuración en la esquina superior derecha */}
           <SettingsButton />
         </div>
 
@@ -40,8 +39,10 @@ const Stats = () => {
           </div>
         </div>
 
-        {/* Nueva SalesCard integrada */}
-        <SalesCard />
+        {/* Separación visual */}
+        <div className="sales-analytics-container">
+          <SalesCard />
+        </div>
       </div>
     </div>
   );

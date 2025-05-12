@@ -12,15 +12,15 @@ const SalesCard = () => {
   };
 
   const metrics = [
-    { name: "Ingresos", value: "$2465", change: "+11.5%", color: "green" },
-    { name: "Gastos", value: "$1567", change: "-7.6%", color: "red" },
-    { name: "Balance", value: "$898", change: "+4.8%", color: "blue" },
+    { name: "REVENUE", value: "$2465", change: "+11.5%", color: "green" },
+    { name: "EXPENSES", value: "$1567", change: "-7.6%", color: "red" },
+    { name: "BALANCE", value: "$898", change: "+4.8%", color: "blue" },
   ];
 
   return (
     <div className="sales-card">
       <div className="sales-header">
-        <h2>Análisis de Ventas</h2>
+        <h2>SALES ANALITIC</h2>
         <input type="month" value={selectedDate} onChange={handleDateChange} className="date-selector" />
       </div>
 

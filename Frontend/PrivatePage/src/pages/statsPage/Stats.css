@@ -21,6 +21,20 @@ h1 {
 }
 
 .top-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 40px; /* Espaciado extra para separación */
+}
+
+.sales-analytics-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content:left;
+  width: 100%;
+}
+
+.top-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
@@ -47,3 +61,5 @@ h1 {
   height: 100px;
   width: 380px;
 }
+
+
