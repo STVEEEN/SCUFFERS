@@ -6,6 +6,7 @@ export default function CodeConfirmation() {
   const navigate = useNavigate();
   const [code, setCode] = useState(["", "", "", "", "", ""]);
   const [activeIndex, setActiveIndex] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
   const inputRefs = useRef([]);
 
   const handleChange = (index, value) => {
@@ -24,6 +25,14 @@ export default function CodeConfirmation() {
   const handleKeyDown = (index, e) => {
     if (e.key === "Backspace" && code[index] === "" && index > 0) {
       inputRefs.current[index - 1].focus();
+    }
+  };
+
+  const handleContinue = () => {
+    if (code.every(digit => digit !== "")) {
+      navigate("/newPassword");
+    } else {
+      setErrorMessage("INVALID CODE");
     }
   };
 
@@ -73,10 +82,13 @@ export default function CodeConfirmation() {
             DIDN'T RECEIVE THE CODE?
           </a>
 
-          {/* Botón CONTINUE que ahora redirige a NewPassword */}
-          <button className="confirmation-button" onClick={() => navigate("/newPassword")}>
+          {/* Botón CONTINUE con validación */}
+          <button className="confirmation-button" onClick={handleContinue}>
             CONTINUE
           </button>
+
+          {/* Mensaje de error debajo del botón */}
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>
       </div>
     </div>

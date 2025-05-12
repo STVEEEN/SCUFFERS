@@ -87,6 +87,14 @@
   text-align: left; /* Alineación a la izquierda */
 }
 
+/* Mensaje de error */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Enlace de recuperación de contraseña */
 .forgot-password {
   width: 75%;
   text-align: right;
@@ -96,6 +104,7 @@
   margin-bottom: 20px;
 }
 
+/* Botón de inicio */
 .start-button {
   width: 50%;
   padding: 8px;

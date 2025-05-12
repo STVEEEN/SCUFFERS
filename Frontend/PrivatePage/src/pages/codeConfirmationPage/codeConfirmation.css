@@ -110,13 +110,13 @@
   left: 0;
 }
 
-/* Enlace para reenviar código, alineado a la derecha debajo de los cuadros */
+/* Enlace para reenviar código */
 .resend-code {
   font-size: 14px;
   color: #000;
   text-decoration: none;
   margin-top: 5px;
-  align-self: flex-end; /* Lo mueve a la derecha */
+  align-self: flex-end;
 }
 .resend-code:hover {
   text-decoration: underline;
@@ -137,4 +137,12 @@
 }
 .confirmation-button:hover {
   background-color: #333;
+}
+
+/* Mensaje de error debajo del botón */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
 }

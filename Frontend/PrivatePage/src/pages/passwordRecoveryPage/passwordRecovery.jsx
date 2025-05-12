@@ -10,6 +10,8 @@ export default function PasswordRecovery() {
   const handleRecovery = () => {
     if (!email) {
       setError("Please enter your email.");
+    } else if (!email.endsWith("@gmail.com")) {
+      setError("Please enter a valid Gmail address.");
     } else {
       setError("");
       navigate("/codeConfirmation"); // Redirige a CodeConfirmation

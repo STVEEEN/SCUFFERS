@@ -6,9 +6,17 @@ export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleLogin = () => {
-    // Puedes agregar validaciones o lógica adicional
+    if (!email || !password) {
+      setErrorMessage("INVALID DATA");
+      return;
+    }
+    if (!email.includes("@gmail.com")) {
+      setErrorMessage("INVALID EMAIL FORMAT");
+      return;
+    }
     navigate("/Stats");
   };
 
@@ -35,6 +43,8 @@ export default function Login() {
           <h2>
             LOGIN WITH YOUR <br /> CREDENTIALS
           </h2>
+
+          {/* Campo de Email con validación */}
           <input
             type="email"
             placeholder="EMAIL"
@@ -46,13 +56,16 @@ export default function Login() {
             onChange={(e) => setEmail(e.target.value)}
           />
 
+          {/* Campo de Password con texto dentro */}
           <input
-            type="password"
+            type="text"
             placeholder="PASSWORD"
             value={password}
-            onFocus={(e) => (e.target.placeholder = "")}
+            onFocus={(e) => {
+              if (e.target.value === "PASSWORD") setPassword("");
+            }}
             onBlur={(e) => {
-              if (e.target.value === "") e.target.placeholder = "PASSWORD";
+              if (e.target.value === "") setPassword("PASSWORD");
             }}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -61,9 +74,13 @@ export default function Login() {
             Forgot your password?
           </a>
 
+          {/* Botón de inicio con validación */}
           <button className="start-button" onClick={handleLogin}>
             START
           </button>
+
+          {/* Mensaje de error si los datos son inválidos */}
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>
       </div>
     </div>

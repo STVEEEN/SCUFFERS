@@ -8,14 +8,18 @@ export default function NewPassword() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
+  const passwordRequirements = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/;
+
   const handleContinue = () => {
     if (!password || !confirmPassword) {
       setError("Please fill in both fields.");
     } else if (password !== confirmPassword) {
       setError("Passwords do not match.");
+    } else if (!passwordRequirements.test(password)) {
+      setError("YOUR PASSWORD DOES NOT MEET THE REQUIREMENTS");
     } else {
       setError("");
-      navigate("/home"); // Redirige a la pantalla principal después de crear la contraseña
+      navigate("/stats"); // Redirige a la pantalla de Stats después de crear la contraseña
     }
   };
 
@@ -41,7 +45,7 @@ export default function NewPassword() {
             - Uppercase and lowercase letters
           </p>
 
-          {/* Input de nueva contraseña con placeholder */}
+          {/* Input de nueva contraseña con validación */}
           <input
             type="password"
             placeholder="NEW PASSWORD"
@@ -50,7 +54,7 @@ export default function NewPassword() {
             className="password-input"
           />
 
-          {/* Input de confirmación de contraseña con placeholder */}
+          {/* Input de confirmación de contraseña */}
           <input
             type="password"
             placeholder="CONFIRM PASSWORD"
@@ -59,13 +63,13 @@ export default function NewPassword() {
             className="password-input"
           />
 
-          {/* Mensaje de error */}
-          {error && <p className="error-message">{error}</p>}
-
-          {/* Botón CONTINUE */}
+          {/* Botón CONTINUE con validación */}
           <button className="continue-button" onClick={handleContinue}>
             CONTINUE
           </button>
+
+          {/* Mensaje de error debajo del botón */}
+          {error && <p className="error-message">{error}</p>}
         </div>
       </div>
     </div>
