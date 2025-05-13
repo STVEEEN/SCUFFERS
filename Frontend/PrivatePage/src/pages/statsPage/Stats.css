@@ -91,7 +91,7 @@
   display: flex;
   justify-content: space-between;
   gap: 100px; /* Mantiene buen espaciado entre las tarjetas */
-  margin-bottom: 50px; /* Se reduce el espacio extra */
+  margin-bottom: 35px; /* Se reduce el espacio extra */
   width: 100%;
   height: 200px;
 }

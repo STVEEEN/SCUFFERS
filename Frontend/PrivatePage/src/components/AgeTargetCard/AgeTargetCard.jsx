@@ -22,7 +22,7 @@ const AgeTargetCard = () => {
     <div className="age-target-card"> {/* Contenedor principal de la tarjeta */}
       <div className="card-header"> {/* Encabezado de la tarjeta */}
         <h2>AGE TARGET</h2> {/* Título de la tarjeta */}
-        <img src="/src/img/Target.png" alt="Target Icon" /> {/* Ícono de objetivo */}
+        <img src="/src/img/Target.png" alt="TargetIcon" /> {/* Ícono de objetivo */}
       </div>
 
       <div className="card-content"> {/* Contenedor del contenido de la tarjeta */}

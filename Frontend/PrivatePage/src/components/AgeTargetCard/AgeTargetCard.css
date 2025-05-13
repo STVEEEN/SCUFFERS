@@ -26,7 +26,12 @@ h2 {
   width: 30px;
   height: 30px;
   background-color: #ccc;
-  border-radius: 50%;
+  border-radius: 100%;
+}
+
+.TargetIcon {
+    width: 20px;
+  height: 20px;
 }
 
 .card-content {
@@ -38,8 +43,8 @@ h2 {
 }
 
 .chart-container {
-  width: 200px;
-  height: 200px;
+  width: 340px;
+  height: 340px;
 }
 
 .age-info {
@@ -47,5 +52,5 @@ h2 {
   font-weight: bold;
   text-align: left;
   margin-right: 20PX;
-  margin-left: 60px;
+  margin-left: 20px;
 }
