@@ -47,6 +47,7 @@ const SalesCard = () => {
           data={salesData} 
           options={{
             responsive: true,
+            maintainAspectRatio: false, /* Esto permite que el gráfico ocupe más espacio */
             scales: {
               y: {
                 beginAtZero: false, 
