@@ -1,0 +1,49 @@
+.age-target-card {
+  width: 400px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #000;
+}
+
+.icon-placeholder {
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.chart-container {
+  width: 150px;
+  height: 150px;
+}
+
+.age-info {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+}
