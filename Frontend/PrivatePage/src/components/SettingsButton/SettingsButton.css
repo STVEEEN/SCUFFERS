@@ -1,13 +1,15 @@
+/* Botón de configuración */
 .settings-button {
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  position: absolute; /* Posiciona el botón de manera absoluta */
+  top: 20px; /* Ubicación desde la parte superior */
+  right: 20px; /* Ubicación desde la parte derecha */
 }
 
+/* Ícono de marcador de posición */
 .icon-placeholder {
-  width: 30px;
-  height: 30px;
-  background-color: #ccc;
-  border-radius: 50%;
+  width: 30px; /* Ancho del ícono */
+  height: 30px; /* Altura del ícono */
+  background-color: #ccc; /* Color de fondo gris */
+  border-radius: 50%; /* Forma circular */
 }

@@ -1,31 +1,35 @@
+/* Barra de navegación */
 .navbar {
-    background-color: #1e1e1e;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .nav-logo {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s;
-  }
-  
-  .nav-links a:hover {
-    color: #f0f0f0;
-  }
-  
+  background-color: #1e1e1e; /* Color de fondo oscuro */
+  padding: 15px 30px; /* Espaciado interno */
+  display: flex; /* Activa el modelo de caja flexible */
+  justify-content: space-between; /* Separa el logo y los enlaces */
+  align-items: center; /* Centra los elementos verticalmente */
+}
+
+/* Logo de la barra de navegación */
+.nav-logo {
+  color: white; /* Color del texto */
+  font-size: 20px; /* Tamaño del texto */
+  font-weight: bold; /* Texto en negrita */
+  text-decoration: none; /* Elimina el subrayado */
+}
+
+/* Contenedor de los enlaces de navegación */
+.nav-links {
+  display: flex; /* Activa el modelo de caja flexible */
+  gap: 20px; /* Espacio entre los enlaces */
+}
+
+/* Estilos para los enlaces de navegación */
+.nav-links a {
+  color: white; /* Color del texto */
+  text-decoration: none; /* Elimina el subrayado */
+  font-size: 16px; /* Tamaño del texto */
+  transition: color 0.3s; /* Animación de cambio de color */
+}
+
+/* Efecto al pasar el mouse sobre los enlaces */
+.nav-links a:hover {
+  color: #f0f0f0; /* Cambia el color del texto */
+}

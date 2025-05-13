@@ -1,28 +1,32 @@
+/* Contenedor principal de la tarjeta de ventas */
 .SalesCard-container {
-  width: 100%;
-  max-width: 1000px; /* Se expande más pero mantiene límites */
-  max-height: min-content;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 1000px; /* Se expande hasta un máximo de 1000px */
+  max-height: min-content; /* Ajusta la altura según el contenido */
+  background-color: white; /* Fondo blanco */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
+  display: flex; /* Activa el modelo de caja flexible */
+  flex-direction: column; /* Organiza los elementos en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
 }
 
+/* Encabezado de la tarjeta */
 .SalesCard-header {
-  width: 100%;
-  text-align: center;
+  width: 100%; /* Ocupa todo el ancho disponible */
+  text-align: center; /* Centra el texto */
 }
 
+/* Título de la tarjeta */
 .SalesCard-title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #000;
+  font-size: 20px; /* Tamaño del texto */
+  font-weight: bold; /* Texto en negrita */
+  color: #000; /* Color del texto */
 }
 
+/* Contenedor del gráfico */
 .SalesCard-chart {
-  width: 100%;
-  height: 400px; /* Aumentamos la altura para ocupar toda la card */
-  margin-top: 10px;
+  width: 100%; /* Ocupa todo el ancho disponible */
+  height: 400px; /* Altura fija para ocupar toda la tarjeta */
+  margin-top: 10px; /* Espacio superior */
 }
