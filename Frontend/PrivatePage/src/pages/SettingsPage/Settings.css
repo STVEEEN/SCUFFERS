@@ -1,169 +1,171 @@
 /* Página completa con fondo blanco */
 .settings-page {
-  width: 100vw;
-  height: 100vh;
+  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  height: 100vh; /* Ocupa todo el alto de la ventana */
   background-color: #fff; /* Fondo blanco */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centra todo */
-  justify-content: center; /* Mueve todo al centro */
-  font-family: Arial, sans-serif;
-  color: #000; /* Texto negro */
-  padding: 20px;
+  display: flex; /* Activa el modelo de caja flexible */
+  flex-direction: column; /* Organiza los elementos en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+  justify-content: center; /* Centra los elementos verticalmente */
+  font-family: Arial, sans-serif; /* Fuente predeterminada */
+  color: #000; /* Color del texto */
+  padding: 20px; /* Espaciado interno */
 }
- 
+
 /* Flecha en la esquina superior izquierda */
 .header {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: flex-start; /* Alinea a la izquierda */
-  padding-left: 20px; /* Mantiene la flecha en su lugar */
+  display: flex; /* Activa el modelo de caja flexible */
+  align-items: center; /* Centra los elementos verticalmente */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  justify-content: flex-start; /* Alinea los elementos a la izquierda */
+  padding-left: 20px; /* Espaciado para mantener la flecha en su lugar */
 }
- 
+
 .back-arrow {
-  cursor: pointer;
-  margin-right: 10px;
+  cursor: pointer; /* Cambia el cursor al pasar sobre la flecha */
+  margin-right: 10px; /* Espacio entre la flecha y otros elementos */
 }
- 
+
+/* Ícono de usuario en la esquina superior izquierda */
 .icon-placeholder {
-  width: 30px;
+  width: 30px; /* Tamaño del ícono */
   height: 30px;
-  background-color: #969696; /* Espacio para ícono */
-  border-radius: 50%;
+  background-color: #969696; /* Color de fondo del ícono */
+  border-radius: 50%; /* Forma circular */
 }
- 
+
 /* Contenedor principal centrado */
 .container {
-  display: flex;
+  display: flex; /* Activa el modelo de caja flexible */
   justify-content: center; /* Centra ambas secciones */
   align-items: center; /* Centra verticalmente */
-  width: 80%;
+  width: 80%; /* Ocupa el 80% del ancho disponible */
   gap: 40px; /* Espacio entre las secciones */
 }
- 
+
 /* Sección izquierda: Cambio de datos con fondo blanco */
 .data-section {
-  width: 45%;
-  padding: 30px;
+  width: 45%; /* Ocupa el 45% del ancho disponible */
+  padding: 30px; /* Espaciado interno */
   background-color: #fff; /* Fondo blanco */
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
 }
- 
+
 /* Título centrado */
 .data-section h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #000;
+  text-align: center; /* Centra el texto */
+  margin-bottom: 20px; /* Espacio debajo del título */
+  color: #000; /* Color del texto */
 }
- 
+
 /* Grupo de input con etiqueta encima pero alineada ligeramente a la izquierda */
 .input-group {
-  display: flex;
-  flex-direction: column;
+  display: flex; /* Activa el modelo de caja flexible */
+  flex-direction: column; /* Organiza los elementos en columna */
   align-items: flex-start; /* Mantiene la alineación hacia la izquierda */
-  margin-bottom: 15px;
-  width: 100%;
+  margin-bottom: 15px; /* Espacio entre grupos de inputs */
+  width: 100%; /* Ocupa todo el ancho disponible */
 }
- 
+
 /* Etiquetas alineadas encima pero desplazadas hacia la izquierda */
 .input-group label {
-  font-size: 14px;
-  color: #000;
-  text-transform: uppercase;
-  margin-bottom: 5px;
+  font-size: 14px; /* Tamaño del texto */
+  color: #000; /* Color del texto */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  margin-bottom: 5px; /* Espacio debajo de la etiqueta */
   margin-left: 5px; /* Desplazamiento leve hacia la izquierda */
 }
- 
+
 /* Inputs sin cambios de tamaño */
 .input-group input {
-  width: 50%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 14px;
-  background-color: #fff;
-  color: #000;
-  text-align: left;
+  width: 50%; /* Ocupa el 50% del ancho disponible */
+  padding: 8px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 10px; /* Bordes redondeados */
+  font-size: 14px; /* Tamaño del texto */
+  background-color: #fff; /* Fondo blanco */
+  color: #000; /* Color del texto */
+  text-align: left; /* Alineación del texto dentro del input */
 }
- 
+
 /* Input de PASSWORD con fondo blanco */
 .password-input {
-  background-color: #fff !important;
-  color: #000 !important;
+  background-color: #fff !important; /* Fondo blanco */
+  color: #000 !important; /* Texto negro */
 }
- 
+
 /* Botón centrado con estilo igual a la imagen */
 .change-button {
-  width: 50%;
-  padding: 10px;
-  font-size: 14px;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  display: block;
-  margin-top: 20px; /* Botón un poco más abajo */
+  width: 50%; /* Ocupa el 50% del ancho disponible */
+  padding: 10px; /* Espaciado interno */
+  font-size: 14px; /* Tamaño del texto */
+  background-color: #000; /* Fondo negro */
+  color: #fff; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 10px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s; /* Animación de cambio de color */
+  display: block; /* Se comporta como un bloque */
+  margin-top: 20px; /* Espacio superior */
 }
- 
+
 .change-button:hover {
-  background-color: #333;
+  background-color: #333; /* Cambia el color de fondo */
 }
- 
+
 /* Sección derecha: Perfil del usuario */
 .profile-section {
-  width: 45%;
-  padding: 30px;
-  background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 45%; /* Ocupa el 45% del ancho disponible */
+  padding: 30px; /* Espaciado interno */
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
   text-align: center; /* Centra el texto */
-  color: #000;
+  color: #000; /* Color del texto */
 }
- 
+
 /* Ícono arriba del nombre */
 .profile-icon {
-  width: 40px;
+  width: 40px; /* Tamaño del ícono */
   height: 40px;
-  background-color: #ccc; /* Espacio para ícono */
-  border-radius: 50%;
+  background-color: #ccc; /* Color de fondo del ícono */
+  border-radius: 50%; /* Forma circular */
   margin: 0 auto 8px auto; /* Centrado con espacio abajo */
 }
- 
+
+/* Título del perfil */
 .profile-section h2 {
-  margin-bottom: 20px;
-  text-align: center; /* Centra el nombre */
-  color: #000;
+  margin-bottom: 20px; /* Espacio debajo del título */
+  text-align: center; /* Centra el texto */
+  color: #000; /* Color del texto */
 }
- 
+
 /* Espaciado entre íconos y texto */
 .profile-item {
-  display: flex;
-  align-items: center;
+  display: flex; /* Activa el modelo de caja flexible */
+  align-items: center; /* Centra los elementos verticalmente */
   gap: 15px; /* Espacio entre íconos y texto */
   margin-bottom: 15px; /* Espacio entre elementos */
-  color: #000;
+  color: #000; /* Color del texto */
 }
- 
+
 /* Botón de logout en la esquina inferior derecha */
 .logout-button {
-  position: absolute;
-  bottom: 20px; /* Bajado a la esquina inferior derecha */
-  right: 20px;
-  width: 150px;
-  padding: 10px;
-  font-size: 14px;
-  background-color: #000; /* Botón negro */
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  position: absolute; /* Posiciona el botón de manera absoluta */
+  bottom: 20px; /* Ubicación en la parte inferior */
+  right: 20px; /* Ubicación en la parte derecha */
+  width: 150px; /* Ancho del botón */
+  padding: 10px; /* Espaciado interno */
+  font-size: 14px; /* Tamaño del texto */
+  background-color: #000; /* Fondo negro */
+  color: #fff; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 10px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s; /* Animación de cambio de color */
 }
- 
+
 .logout-button:hover {
-  background-color: #333;
+  background-color: #333; /* Cambia el color de fondo */
 }
