@@ -24,7 +24,7 @@ const Sidebar = () => {
           </li>
           <li>
             <div className="icon-placeholder bigger"></div>
-            <Link to="/addproducts">ADD PIECE</Link> {/* Cambia la ruta a /addproduct */}
+            <Link to="/addProducts">ADD PIECE</Link> {/* Cambia la ruta a /addproduct */}
           </li>
           <li>
             <div className="icon-placeholder bigger"></div>
