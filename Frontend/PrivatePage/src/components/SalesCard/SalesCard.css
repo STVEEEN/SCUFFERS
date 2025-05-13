@@ -1,32 +1,65 @@
-/* Contenedor principal de la tarjeta de ventas */
+/*  Contenedor principal de la tarjeta */
 .SalesCard-container {
-  width: 100%; /* Ocupa todo el ancho disponible */
-  max-width: 1000px; /* Se expande hasta un máximo de 1000px */
-  max-height: min-content; /* Ajusta la altura según el contenido */
-  background-color: white; /* Fondo blanco */
-  border-radius: 15px; /* Bordes redondeados */
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
-  display: flex; /* Activa el modelo de caja flexible */
-  flex-direction: column; /* Organiza los elementos en columna */
-  align-items: center; /* Centra los elementos horizontalmente */
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
-/* Encabezado de la tarjeta */
+/*  Encabezado con título y selector */
 .SalesCard-header {
-  width: 100%; /* Ocupa todo el ancho disponible */
-  text-align: center; /* Centra el texto */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-/* Título de la tarjeta */
+/*  Título */
 .SalesCard-title {
-  font-size: 20px; /* Tamaño del texto */
-  font-weight: bold; /* Texto en negrita */
-  color: #000; /* Color del texto */
+  font-size: 22px;
+  font-weight: bold;
+  color: #000;
 }
 
-/* Contenedor del gráfico */
+/*  Contenedor del "Sort by" */
+.SalesCard-sort-by {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaciado entre el texto y el selector */
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+}
+
+/*  Selector de fecha */
+.SalesCard-datepicker {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+
+/*  Contenedor del gráfico */
+/*  Ajuste del tamaño de la gráfica */
 .SalesCard-chart {
-  width: 100%; /* Ocupa todo el ancho disponible */
-  height: 400px; /* Altura fija para ocupar toda la tarjeta */
-  margin-top: 10px; /* Espacio superior */
+  width: 100%;
+  height: 500px; /* 🔥 Aumentamos la altura del gráfico */
+  margin-top: 2px;
+}
+
+
+.SalesCard-week-info {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
 }

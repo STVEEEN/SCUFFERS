@@ -1,65 +1,124 @@
 import React, { useState } from "react";
-import { Line } from "react-chartjs-2"; // Importa el gráfico de líneas de Chart.js
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js"; // Importa los elementos necesarios de Chart.js
-import "./SalesCard.css"; // Importa los estilos CSS
+import { Line } from "react-chartjs-2";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
+import "./SalesCard.css";
 
-// Registra los elementos de Chart.js para que funcionen correctamente
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
+const generateMayData = () => {
+  const daysInMonth = 31;
+  let sales = [];
+  let expenses = [];
+  let balance = [];
+
+  for (let i = 1; i <= daysInMonth; i++) {
+    let dailySales = Math.floor(Math.random() * (6000 - 1000) + 1000);
+    let dailyExpenses = Math.floor(dailySales * (Math.random() * (0.8 - 0.4) + 0.4));
+    let dailyBalance = dailySales - dailyExpenses;
+
+    sales.push(dailySales);
+    expenses.push(dailyExpenses);
+    balance.push(dailyBalance);
+  }
+
+  return { sales, expenses, balance };
+};
+
+const mayData = generateMayData();
+
+//  Función para obtener los días de la semana en la que cae la fecha seleccionada
+const getWeekRange = (date) => {
+  const day = date.getDate();
+  const startOfWeek = day - (date.getDay() === 0 ? 6 : date.getDay() - 1); // Lunes como inicio de semana
+  const endOfWeek = startOfWeek + 6;
+  
+  const adjustedStart = Math.max(1, startOfWeek);
+  const adjustedEnd = Math.min(31, endOfWeek);
+
+  return { start: adjustedStart, end: adjustedEnd };
+};
+
 const SalesCard = () => {
-  // Estado para almacenar los datos del gráfico
-  const [salesData, setSalesData] = useState({
-    labels: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"], // Días de la semana
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [weekRange, setWeekRange] = useState(getWeekRange(new Date())); 
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    setWeekRange(getWeekRange(date)); 
+  };
+
+  const labels = Array.from({ length: weekRange.end - weekRange.start + 1 }, (_, i) => `May ${weekRange.start + i}`);
+  
+  const salesData = {
+    labels: labels,
     datasets: [
       {
-        label: "REVENUE", // Ingresos
-        data: [1500, 2700, 3400, 2900, 4300, 5100, 4900], // Datos de ingresos
-        borderColor: "#007bff", // Color de la línea
-        backgroundColor: "rgba(0, 123, 255, 0.2)", // Color de fondo con transparencia
-        tension: 0.4, // Suaviza la curva de la línea
-        pointRadius: 4, // Tamaño de los puntos en la línea
+        label: "REVENUE",
+        data: mayData.sales.slice(weekRange.start - 1, weekRange.end),
+        borderColor: labels.includes(`May ${selectedDate.getDate()}`) ? "#ffcc00" : "#007bff", // 🔥 Resaltar día seleccionado en amarillo
+        backgroundColor: "rgba(0, 123, 255, 0.2)",
+        tension: 0.4,
+        pointRadius: labels.map(label => label.includes(`May ${selectedDate.getDate()}`) ? 8 : 4), // 🔥 Puntos más grandes para el día seleccionado
       },
       {
-        label: "EXPENSES", // Gastos
-        data: [1000, 1600, 2100, 2300, 3100, 3700, 3500], // Datos de gastos
-        borderColor: "#dc3545", // Color de la línea
-        backgroundColor: "rgba(220, 53, 69, 0.2)", // Color de fondo con transparencia
-        tension: 0.4, // Suaviza la curva de la línea
-        pointRadius: 4, // Tamaño de los puntos en la línea
+        label: "EXPENSES",
+        data: mayData.expenses.slice(weekRange.start - 1, weekRange.end),
+        borderColor: "#dc3545",
+        backgroundColor: "rgba(220, 53, 69, 0.2)",
+        tension: 0.4,
+        pointRadius: 4,
       },
       {
-        label: "BALANCE", // Balance
-        data: [500, 1100, 1300, 600, 1200, 1400, 1400], // Datos de balance
-        borderColor: "#28a745", // Color de la línea
-        backgroundColor: "rgba(40, 167, 69, 0.2)", // Color de fondo con transparencia
-        tension: 0.4, // Suaviza la curva de la línea
-        pointRadius: 4, // Tamaño de los puntos en la línea
+        label: "BALANCE",
+        data: mayData.balance.slice(weekRange.start - 1, weekRange.end),
+        borderColor: "#28a745",
+        backgroundColor: "rgba(40, 167, 69, 0.2)",
+        tension: 0.4,
+        pointRadius: 4,
       },
     ],
-  });
+  };
 
   return (
-    <div className="SalesCard-container"> {/* Contenedor principal de la tarjeta */}
-      <div className="SalesCard-header"> {/* Encabezado de la tarjeta */}
-        <h2 className="SalesCard-title">SALES ANALYTICS</h2> {/* Título de la tarjeta */}
+    <div className="SalesCard-container">
+      <div className="SalesCard-header">
+        <h2 className="SalesCard-title">SALES ANALYTICS</h2>
+        
+        {/*  Recuadro con "Sort by" y la fecha seleccionada */}
+        <div className="SalesCard-sort-by">
+          <span>Sort by:</span> 
+          <DatePicker 
+            selected={selectedDate} 
+            onChange={handleDateChange} 
+            dateFormat="MMM d, yyyy" 
+            className="SalesCard-datepicker"
+          />
+        </div>
       </div>
 
-      <div className="SalesCard-chart"> {/* Contenedor del gráfico */}
+      {/*  Muestra la semana de la fecha seleccionada */}
+      <div className="SalesCard-week-info">
+        <strong>Week of May {weekRange.start} - {weekRange.end}</strong>
+      </div>
+      
+      {/*  Gráfico que cambia según la fecha y destaca el día seleccionado */}
+      <div className="SalesCard-chart">
         <Line 
           data={salesData} 
           options={{
-            responsive: true, // Hace que el gráfico sea adaptable
-            maintainAspectRatio: false, // Permite que el gráfico ocupe más espacio
+            responsive: true,
             scales: {
               y: {
-                beginAtZero: false, // No comienza en cero para mejor visualización
-                min: 500, // Valor mínimo del eje Y
-                max: 6000, // Valor máximo del eje Y
+                beginAtZero: false,
+                min: 500,
+                max: 6000,
               },
             },
             plugins: {
               legend: {
-                position: "top", // Posición de la leyenda en la parte superior
+                position: "top",
               },
             },
           }}
