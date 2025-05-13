@@ -1,16 +1,17 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Importa el hook para la navegación
-import "./SettingsButton.css"; // Importa los estilos CSS
+import { useNavigate } from "react-router-dom";
+import "./SettingsButton.css";
 
 const SettingsButton = () => {
-  const navigate = useNavigate(); // Hook para manejar la navegación
+  const navigate = useNavigate();
 
   return (
     <div 
-      className="settings-button" 
-      onClick={() => navigate("/Settings")}> {/* Redirige a la página de configuración al hacer cli */}
+      className="settings-button"  
+      onClick={() => navigate("/Settings")}>
 
-      <div className="icon-placeholder"></div> {/* Ícono de marcador de posición */}
+      {/* Ícono de configuración real */}
+      <img src="/src/img/Settings.png" alt="Settings Icon" className="settings-icon" /> 
     </div>
   );
 };

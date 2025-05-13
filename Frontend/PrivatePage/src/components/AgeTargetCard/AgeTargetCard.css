@@ -1,57 +1,51 @@
-/* Contenedor principal de la tarjeta de análisis de edad */
 .age-target-card {
-  width: 460px; /* Ancho fijo de la tarjeta */
-  padding: 20px; /* Espaciado interno */
-  background-color: #ffffff; /* Fondo blanco */
-  border-radius: 15px; /* Bordes redondeados */
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
-  display: flex; /* Activa el modelo de caja flexible */
-  flex-direction: column; /* Organiza los elementos en columna */
-  align-items: center; /* Centra los elementos horizontalmente */
+  width: 460px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
-/* Encabezado de la tarjeta */
 .card-header {
-  display: flex; /* Activa el modelo de caja flexible */
-  justify-content: space-between; /* Separa los elementos */
-  width: 100%; /* Ocupa todo el ancho disponible */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-/* Estilo del título */
 h2 {
-  font-size: 22px; /* Tamaño del texto */
-  font-weight: bold; /* Texto en negrita */
-  color: #000; /* Color del texto */
+  font-size: 22px;
+  font-weight: bold;
+  color: #000;
 }
 
-/* Ícono de marcador de posición */
 .icon-placeholder {
-  width: 30px; /* Ancho del ícono */
-  height: 30px; /* Altura del ícono */
-  background-color: #ccc; /* Color de fondo */
-  border-radius: 50%; /* Forma circular */
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 50%;
 }
 
-/* Contenedor del contenido de la tarjeta */
 .card-content {
-  display: flex; /* Activa el modelo de caja flexible */
-  align-items: center; /* Centra los elementos verticalmente */
-  justify-content: space-between; /* Separa los elementos */
-  width: 100%; /* Ocupa todo el ancho disponible */
-  margin-top: 10px; /* Espacio superior */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
 }
 
-/* Contenedor del gráfico */
 .chart-container {
-  width: 200px; /* Ancho del gráfico */
-  height: 200px; /* Altura del gráfico */
+  width: 200px;
+  height: 200px;
 }
 
-/* Información sobre el análisis de edad */
 .age-info {
-  font-size: 20px; /* Tamaño del texto */
-  font-weight: bold; /* Texto en negrita */
-  text-align: left; /* Alineación del texto */
-  margin-right: 220px; /* Espacio derecho */
-  margin-left: 160px; /* Espacio izquierdo */
+  font-size: px;
+  font-weight: bold;
+  text-align: left;
+  margin-right: 20PX;
+  margin-left: 60px;
 }

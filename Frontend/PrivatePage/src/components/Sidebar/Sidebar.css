@@ -1,138 +1,136 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap');
-
 /* Contenedor principal de la barra lateral */
-.sidebar {
-  position: fixed; /* Hace que la barra lateral permanezca fija en la pantalla */
-  top: 0; /* Se posiciona en la parte superior */
-  left: 0; /* Se posiciona en la parte izquierda */
-  height: 95vh; /* Se extiende por el 95% de la altura de la ventana */
-  width: 225px; /* Ancho fijo de la barra lateral */
-  background-color: #ffffff; /* Fondo blanco */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
-  padding: 20px; /* Espaciado interno */
-  font-family: "Mulish", sans-serif; /* Fuente personalizada */
-  display: flex; /* Activa el modelo de caja flexible */
-  flex-direction: column; /* Organiza los elementos en columna */
-  justify-content: space-between; /* Distribuye los elementos uniformemente */
-  align-items: center; /* Centra los elementos horizontalmente */
-}
-
-/* Ícono grande en la parte superior */
-.icon-placeholder.super-large {
-  margin-top: 30px; /* Espacio superior */
-  width: 100px; /* Ancho del ícono */
-  height: 100px; /* Altura del ícono */
+.Sidebar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 97vh;
+  width: 225px;
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  font-family: "Mulish", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Íconos más grandes en el menú */
-.icon-placeholder.bigger {
+.Sidebar-icon-placeholder-bigger {
   width: 50px;
   height: 50px;
   margin-right: 25px;
 }
 
+.Sidebar-logoApp {
+  margin-top: 0px;
+  align-items: flex-start;
+}
+
 /* Lista de navegación */
-nav ul {
-  list-style: none; /* Elimina los estilos de lista */
-  padding: 0; /* Elimina el espaciado interno */
+.Sidebar-nav ul {
+  list-style: none;
+  padding: 10px;
 }
 
 /* Elementos de la lista de navegación */
-nav ul li {
-  display: flex; /* Activa el modelo de caja flexible */
-  align-items: center; /* Centra los elementos verticalmente */
-  margin-bottom: 15px; /* Espacio entre elementos */
+.Sidebar-nav ul li {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  margin-top: 10px;
+  margin-bottom: 36px;
+  gap: 20px;
 }
 
 /* Estilos para los enlaces de navegación */
-nav ul li a {
-  text-decoration: none; /* Elimina el subrayado */
-  font-size: 20px; /* Tamaño del texto */
-  color: #333; /* Color del texto */
-  font-weight: bold; /* Texto en negrita */
-  transition: color 0.3s ease; /* Animación de cambio de color */
+.Sidebar-nav ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 /* Efecto al pasar el mouse sobre los enlaces */
-nav ul li a:hover {
-  color: #c2c2c2; /* Cambia el color del texto */
+.Sidebar-nav ul li a:hover {
+  color: #c2c2c2;
 }
 
 /* Contenedor del botón Logout */
-.logout-container {
-  display: flex; /* Activa el modelo de caja flexible */
-  align-items: center; /* Centra los elementos verticalmente */
+.Sidebar-logout-container {
+  display: flex;
+  align-items: center;
 }
 
 /* Botón Logout */
-.logout-btn {
-  font-size: 20px; /* Tamaño del texto */
-  width: 100px; /* Ancho del botón */
-  font-weight: bold; /* Texto en negrita */
-  color: #000000; /* Color del texto */
-  background-color: #ffffff; /* Fondo blanco */
-  margin-left: 10px; /* Espacio izquierdo */
-  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-  padding: 10px 0px; /* Espaciado interno */
-  transition: all 0.3s ease; /* Animación de cambio de color */
+.Sidebar-logout-btn {
+  font-size: 20px;
+  width: 100px;
+  font-weight: bold;
+  color: #000000;
+  background-color: #ffffff;
+  margin-left: 10px;
+  cursor: pointer;
+  padding: 10px 0px;
+  transition: all 0.3s ease;
 }
 
 /* Efecto al pasar el mouse sobre el botón Logout */
-.logout-btn:hover {
-  background-color: #000000; /* Cambia el color de fondo */
-  color: rgb(255, 255, 255); /* Cambia el color del texto */
+.Sidebar-logout-btn:hover {
+  background-color: #000000;
+  color: rgb(255, 255, 255);
 }
 
 /* Tarjeta de Confirmación de Logout */
-.logout-confirmation {
-  width: 100%; /* Ocupa todo el ancho disponible */
-  padding: 15px; /* Espaciado interno */
-  background-color: #ffffff; /* Fondo blanco */
-  border-radius: 10px; /* Bordes redondeados */
-  text-align: center; /* Centra el texto */
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Sombra para efecto visual */
+.Sidebar-logout-confirmation {
+  width: 100%;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Texto dentro de la tarjeta de confirmación */
-.logout-confirmation p {
-  font-size: 18px; /* Tamaño del texto */
-  font-weight: bold; /* Texto en negrita */
+.Sidebar-logout-confirmation p {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 /* Contenedor de los botones de confirmación */
-.logout-buttons {
-  display: flex; /* Activa el modelo de caja flexible */
-  justify-content: space-around; /* Distribuye los botones uniformemente */
-  margin-top: 10px; /* Espacio superior */
+.Sidebar-logout-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
 }
 
 /* Estilos para los botones de confirmación y cancelación */
-.confirm-btn, .cancel-btn {
-  padding: 10px 10px; /* Espaciado interno */
-  border-radius: 5px; /* Bordes redondeados */
-  font-size: 16px; /* Tamaño del texto */
-  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-  transition: 0.3s; /* Animación de cambio de color */
+.Sidebar-confirm-btn, .Sidebar-cancel-btn {
+  padding: 10px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 /* Botón de confirmación */
-.confirm-btn {
-  background-color: #000000; /* Fondo negro */
-  color: white; /* Texto blanco */
+.Sidebar-confirm-btn {
+  background-color: #000000;
+  color: white;
 }
 
 /* Botón de cancelación */
-.cancel-btn {
-  background-color: #000000; /* Fondo negro */
-  color: white; /* Texto blanco */
+.Sidebar-cancel-btn {
+  background-color: #000000;
+  color: white;
 }
 
-/* Efecto al pasar el mouse sobre el botón de confirmación */
-.confirm-btn:hover {
-  background-color: #b11322; /* Cambia el color de fondo */
+/* Efecto al pasar el mouse sobre los botones */
+.Sidebar-confirm-btn:hover {
+  background-color: #b11322;
 }
 
-/* Efecto al pasar el mouse sobre el botón de cancelación */
-.cancel-btn:hover {
-  background-color: #136d27; /* Cambia el color de fondo */
+.Sidebar-cancel-btn:hover {
+  background-color: #136d27;
 }
