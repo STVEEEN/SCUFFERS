@@ -6,6 +6,9 @@ import CodeConfirmation from "./pages/codeConfirmationPage/CodeConfirmation";
 import NewPassword from "./pages/newPasswordPage/NewPassword";
 import Settings from "./pages/SettingsPage/Settings";
 import Stats from "./pages/statsPage/Stats"; // Nueva página de estadísticas
+import AddProducts from "./pages/addProductsPage/addProducts";
+
+
 
 export default function App() {
   return (
@@ -17,7 +20,8 @@ export default function App() {
         <Route path="/codeConfirmation" element={<CodeConfirmation />} />
         <Route path="/newPassword" element={<NewPassword />} />
         <Route path="/stats" element={<Stats />} /> 
-        <Route path="/Settings" element={<Settings />} /> 
+        <Route path="/settings" element={<Settings />} /> 
+        <Route path="/addproducts" element={<AddProducts />} /> {/* Nueva ruta para AddProduct */}
       </Routes>
     </Router>
   );

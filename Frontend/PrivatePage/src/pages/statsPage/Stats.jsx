@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Importa Link para la navegación
 import Sidebar from "../../components/Sidebar/Sidebar";
 import "./Stats.css";
 import SalesCard from "../../components/SalesCard/SalesCard";
