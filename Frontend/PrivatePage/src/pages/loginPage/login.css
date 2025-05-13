@@ -1,126 +1,128 @@
 /* Página completa centrada con fondo blanco */
 .login-page {
-  width: 100vw;
-  height: 100vh;
+  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  height: 100vh; /* Ocupa todo el alto de la ventana */
   background-color: #fff; /* Fondo blanco */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  font-family: Arial, sans-serif;
+  display: flex; /* Activa el modelo de caja flexible */
+  align-items: center; /* Centra los elementos verticalmente */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  position: relative; /* Permite posicionar elementos dentro de este contenedor */
+  font-family: Arial, sans-serif; /* Fuente predeterminada */
 }
- 
+
 /* Flecha en la esquina superior izquierda */
 .back-arrow {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  cursor: pointer;
+  position: relative; /* Permite mover el elemento con top y left */
+  top: 30px; /* Ubicación desde la parte superior */
+  left: 200px; /* Ubicación desde la parte izquierda */
+  cursor: pointer; /* Cambia el cursor al pasar sobre la flecha */
 }
+
 .back-arrow img {
-  width: 30px;
-  height: 30px;
+  width: 300px; /* Tamaño de la imagen de la flecha */
+  height: 300px;
 }
- 
+
 /* Contenedor del logo, centrado en la parte superior */
 .logo-container {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: absolute; /* Posiciona el logo de manera absoluta */
+  top: 20px; /* Ubicación desde la parte superior */
+  left: 50%; /* Centra el logo horizontalmente */
+  transform: translateX(-50%); /* Ajusta la posición para centrarlo */
 }
 .logo-container img {
-  height: 40px;
-  width: auto;
+  height: 40px; /* Altura del logo */
+  width: auto; /* Mantiene la proporción del logo */
 }
- 
+
 /* Contenedor principal del cuadro de login */
 .login-container {
-  width: 80%;
-  max-width: 900px;
-  background-color: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 25px; /* Bordes más redondeados */
-  overflow: hidden;
-  display: flex;
-  min-height: 600px; /* Altura definida anteriormente */
+  width: 80%; /* Ocupa el 80% del ancho disponible */
+  max-width: 900px; /* Ancho máximo del contenedor */
+  background-color: #fff; /* Fondo blanco */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
+  border-radius: 25px; /* Bordes redondeados */
+  overflow: hidden; /* Oculta cualquier contenido que sobresalga */
+  display: flex; /* Activa el modelo de caja flexible */
+  min-height: 600px; /* Altura mínima del contenedor */
 }
- 
+
 /* Sección de imagen (izquierda) */
 .login-image {
-  width: 50%;
+   background: url('/src/img/S.png') no-repeat center center; /* Imagen de fondo centrada */
+  width: 50%; /* Ocupa la mitad del contenedor */
 }
 .login-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100%; /* La imagen ocupa todo el ancho disponible */
+  height: 100%; /* La imagen ocupa todo el alto disponible */
+  object-fit: cover; /* Ajusta la imagen para que cubra el espacio sin distorsionarse */
 }
- 
+
 /* Sección del formulario (derecha) centrada de manera uniforme */
 .login-form {
-  width: 50%;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 50%; /* Ocupa la mitad del contenedor */
+  padding: 40px; /* Espaciado interno */
+  display: flex; /* Activa el modelo de caja flexible */
+  flex-direction: column; /* Organiza los elementos en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+  justify-content: center; /* Centra los elementos verticalmente */
 }
- 
+
+/* Título del formulario */
 .login-form h2 {
-  font-size: 18px;
-  margin-bottom: 20px;
-  color: #000;
-  text-align: center;
+  font-size: 18px; /* Tamaño del texto */
+  margin-bottom: 20px; /* Espacio debajo del título */
+  color: #000; /* Color del texto */
+  text-align: center; /* Centra el texto */
 }
- 
+
 /* Estilo para los inputs: texto alineado a la izquierda */
 .login-form input {
-  width: 75%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 30px;
-  background-color: #fff;
-  font-size: 14px;
-  color: #000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: left; /* Alineación a la izquierda */
+  width: 75%; /* Ocupa el 75% del ancho disponible */
+  padding: 8px; /* Espaciado interno */
+  margin-bottom: 10px; /* Espacio entre inputs */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 30px; /* Bordes redondeados */
+  background-color: #fff; /* Fondo blanco */
+  font-size: 14px; /* Tamaño del texto */
+  color: #000; /* Color del texto */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
+  text-align: left; /* Alineación del texto dentro del input */
 }
- 
+
 /* Mensaje de error */
 .error-message {
-  color: red;
-  font-size: 14px;
-  margin-top: 10px;
+  color: red; /* Color rojo para indicar error */
+  font-size: 14px; /* Tamaño del texto */
+  margin-top: 10px; /* Espacio superior */
 }
- 
+
 /* Enlace de recuperación de contraseña */
 .forgot-password {
-  width: 75%;
-  text-align: right;
-  font-size: 14px;
-  color: #000;
-  text-decoration: none;
-  margin-bottom: 20px;
+  width: 75%; /* Ocupa el 75% del ancho disponible */
+  text-align: right; /* Alinea el texto a la derecha */
+  font-size: 14px; /* Tamaño del texto */
+  color: #000; /* Color del texto */
+  text-decoration: none; /* Elimina el subrayado */
+  margin-bottom: 20px; /* Espacio inferior */
 }
- 
+
 /* Botón de inicio */
 .start-buttonLogin {
-  width: 50%;
-  padding: 8px;
-  font-size: 18px;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  width: 50%; /* Ocupa el 50% del ancho disponible */
+  padding: 8px; /* Espaciado interno */
+  font-size: 18px; /* Tamaño del texto */
+  background-color: #000; /* Fondo negro */
+  color: #fff; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s; /* Animación de cambio de color */
+  margin-top: 20px; /* Espacio superior */
+  margin-bottom: 20px; /* Espacio inferior */
 }
- 
+
+/* Efecto al pasar el mouse sobre el botón */
 .start-buttonLogin:hover {
-  background-color: #333;
+  background-color: #333; /* Cambia el color de fondo */
 }
- 
- 

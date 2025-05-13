@@ -7,8 +7,11 @@ const SettingsIcon = () => {
 
   return (
     <div className="settings-icon" onClick={() => navigate("/settings")}>
-      <div className="icon-placeholder"></div>
+      <div className="icon-placeholder">
+        
+      </div>
     </div>
+    
   );
 };
 

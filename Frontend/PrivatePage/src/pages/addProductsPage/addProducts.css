@@ -1,118 +1,118 @@
 /* Página completa con sidebar */
 .AddProduct-page {
-  display: flex;
-  width: 100vw;
-  margin-left: 130px;
-  height: 100vh;
-  background-color: #fff;
+  display: flex; /* Activa el modelo de caja flexible */
+  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  margin-left: 130px; /* Ajusta el espacio para la barra lateral */
+  height: 100vh; /* Ocupa todo el alto de la ventana */
+  background-color: #fff; /* Fondo blanco */
 }
- 
+
 /* Contenedor principal del formulario */
 .AddProduct-container {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
+  flex-grow: 1; /* Permite que el contenedor ocupe el espacio restante */
+  display: flex; /* Activa el modelo de caja flexible */
+  flex-direction: column; /* Organiza los elementos en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+  justify-content: center; /* Centra los elementos verticalmente */
+  padding: 40px; /* Espaciado interno */
 }
- 
+
 /* Encabezado con título y botón de configuración */
 .AddProduct-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  margin-bottom: 80px;
-  margin-left: 220px;
+  display: flex; /* Activa el modelo de caja flexible */
+  justify-content: space-between; /* Separa el título y el botón */
+  align-items: center; /* Centra los elementos verticalmente */
+  width: 90%; /* Ocupa el 90% del ancho disponible */
+  margin-bottom: 80px; /* Espacio debajo del encabezado */
+  margin-left: 220px; /* Ajusta la posición del encabezado */
 }
- 
+
 .AddProduct-header h2 {
-  font-size: 24px;
-  color: #000;
+  font-size: 24px; /* Tamaño del texto */
+  color: #000; /* Color del texto */
 }
- 
+
 /* Contenedor principal con formulario e imagen */
 .AddProduct-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 80%;
+  display: flex; /* Activa el modelo de caja flexible */
+  justify-content: space-between; /* Separa el formulario y la imagen */
+  align-items: flex-start; /* Alinea los elementos en la parte superior */
+  width: 80%; /* Ocupa el 80% del ancho disponible */
 }
- 
+
 /* Sección izquierda: Inputs principales */
 .AddProduct-form-section {
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  gap: 35px;
-  position: relative;
-  top: 50px;
+  margin-top: 20px; /* Espacio superior */
+  margin-left: 20px; /* Espacio izquierdo */
+  margin-right: 20px; /* Espacio derecho */
+  display: flex; /* Activa el modelo de caja flexible */
+  flex-direction: column; /* Organiza los elementos en columna */
+  width: 50%; /* Ocupa el 50% del ancho disponible */
+  gap: 35px; /* Espacio entre los elementos */
+  position: relative; /* Permite posicionar elementos */
+  top: 50px; /* Ajusta la posición */
 }
- 
+
 /* Sección de imagen */
 .AddProduct-image-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 40%;
-  gap: 25px;
-  margin-left: auto;
+  display: flex; /* Activa el modelo de caja flexible */
+  flex-direction: column; /* Organiza los elementos en columna */
+  justify-content: flex-start; /* Alinea los elementos en la parte superior */
+  width: 40%; /* Ocupa el 40% del ancho disponible */
+  gap: 25px; /* Espacio entre los elementos */
+  margin-left: auto; /* Centra la imagen horizontalmente */
   margin-right: auto;
-  position: relative;
-  top: -100px;
+  position: relative; /* Permite posicionar elementos */
+  top: -100px; /* Ajusta la posición */
 }
- 
+
 /* Espacio para la imagen */
 .AddProduct-image-preview {
-  height: 500px;
-  width: 200;
-  background-color: #EDEDED;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  font-size: 20px;
-  color: #777;
+  height: 500px; /* Altura de la imagen */
+  width: 200px; /* Ancho de la imagen (corregido, antes faltaba "px") */
+  background-color: #EDEDED; /* Fondo gris claro */
+  display: flex; /* Activa el modelo de caja flexible */
+  align-items: center; /* Centra los elementos verticalmente */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  border-radius: 10px; /* Bordes redondeados */
+  font-size: 20px; /* Tamaño del texto */
+  color: #777; /* Color del texto */
 }
- 
+
 /* Inputs y select */
 .AddProduct-form-section input,
 .AddProduct-form-section select,
 .AddProduct-image-section input {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  align-items: left;
-  font-size: 16px;
-  background-color: #fff;
-  color: #000;
+  width: 100%; /* Ocupa todo el ancho disponible */
+  padding: 15px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 10px; /* Bordes redondeados */
+  align-items: left; /* Alineación del texto dentro del input */
+  font-size: 16px; /* Tamaño del texto */
+  background-color: #fff; /* Fondo blanco */
+  color: #000; /* Color del texto */
 }
- 
+
 /* Botón ADD centrado */
 .AddProduct-button-container {
-  display: flex;
-  justify-content: center;
-  width: 60%;
+  display: flex; /* Activa el modelo de caja flexible */
+  justify-content: center; /* Centra el botón horizontalmente */
+  width: 60%; /* Ocupa el 60% del ancho disponible */
+}
 
-}
- 
+/* Botón ADD */
 .AddProduct-button {
-  width: 30%;
-  padding: 12px;
-  font-size: 18px;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  width: 30%; /* Ocupa el 30% del ancho disponible */
+  padding: 12px; /* Espaciado interno */
+  font-size: 18px; /* Tamaño del texto */
+  background-color: #000; /* Fondo negro */
+  color: #fff; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 10px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s; /* Animación de cambio de color */
 }
- 
+
 .AddProduct-button:hover {
-  background-color: #333;
+  background-color: #333; /* Cambia el color de fondo */
 }

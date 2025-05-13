@@ -1,57 +1,65 @@
+/* Contenedor principal de la sección de productos más vendidos */
 .top-selling-products {
-  width: 100%;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 15px;
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
-    font-weight: bold;
-
-  
+  width: 100%; /* Ocupa todo el ancho disponible */
+  padding: 20px; /* Espaciado interno */
+  background-color: #ffffff; /* Fondo blanco */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
+  font-weight: bold; /* Texto en negrita */
 }
 
+/* Estilo para el título de la sección */
 h2 {
-  font-size: 22px;
-  font-weight: bold;
-  text-align: left;
-  margin-bottom: 20px;
+  font-size: 22px; /* Tamaño del texto */
+  font-weight: bold; /* Texto en negrita */
+  text-align: left; /* Alineación del texto */
+  margin-bottom: 20px; /* Espacio debajo del título */
 }
 
+/* Contenedor de la lista de productos */
 .products-list {
-  display: flex;
-  gap: 20px;
-  font-size: 14px;
-  justify-content: space-between;
+  display: flex; /* Activa el modelo de caja flexible */
+  gap: 20px; /* Espacio entre los elementos */
+  font-size: 14px; /* Tamaño del texto */
+  justify-content: space-between; /* Distribuye los elementos uniformemente */
 }
 
+/* Tarjeta de cada producto */
 .product-card {
-  display: flex;
-  align-items: center;
-  background-color: #EDEDED;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex; /* Activa el modelo de caja flexible */
+  align-items: center; /* Centra los elementos verticalmente */
+  background-color: #EDEDED; /* Fondo gris claro */
+  padding: 15px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
 }
 
+/* Contenedor de la información del producto */
 .product-info {
-  margin-left: 10px;
+  margin-left: 10px; /* Espacio izquierdo */
 }
 
+/* Nombre del producto */
 .product-name {
-  font-weight: bold;
+  font-weight: bold; /* Texto en negrita */
 }
 
+/* Precio del producto */
 .product-price {
-  color: #555;
+  color: #555; /* Color gris oscuro */
 }
 
+/* Cantidad vendida del producto */
 .product-sold {
-  color: #333;
+  color: #333; /* Color negro */
 }
 
+/* Cambio positivo en ventas */
 .product-change.green {
-  color: green;
+  color: green; /* Color verde */
 }
 
+/* Cambio negativo en ventas */
 .product-change.red {
-  color: red;
+  color: red; /* Color rojo */
 }

@@ -1,150 +1,148 @@
 /* Página completa centrada con fondo blanco */
 .code-confirmation-page {
-  width: 100vw;
-  height: 100vh;
+  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  height: 100vh; /* Ocupa todo el alto de la ventana */
   background-color: #fff; /* Fondo blanco */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  font-family: Arial, sans-serif;
+  display: flex; /* Activa el modelo de caja flexible */
+  align-items: center; /* Centra los elementos verticalmente */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  position: relative; /* Permite posicionar elementos dentro de este contenedor */
+  font-family: Arial, sans-serif; /* Fuente predeterminada */
 }
- 
+
 /* Flecha en la esquina superior izquierda */
 .back-arrow {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  cursor: pointer;
+  position: absolute; /* Posiciona la flecha de manera absoluta */
+  top: 20px; /* Ubicación desde la parte superior */
+  left: 20px; /* Ubicación desde la parte izquierda */
+  cursor: pointer; /* Cambia el cursor al pasar sobre la flecha */
 }
 .back-arrow img {
-  width: 30px;
+  width: 30px; /* Tamaño de la imagen de la flecha */
   height: 30px;
 }
- 
+
 /* Contenedor del logo, centrado en la parte superior */
 .logo-container {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: absolute; /* Posiciona el logo de manera absoluta */
+  top: 20px; /* Ubicación desde la parte superior */
+  left: 50%; /* Centra el logo horizontalmente */
+  transform: translateX(-50%); /* Ajusta la posición para centrarlo */
 }
 .logo-container img {
-  height: 40px;
-  width: auto;
+  height: 40px; /* Altura del logo */
+  width: auto; /* Mantiene la proporción del logo */
 }
- 
+
 /* Contenedor principal del formulario */
 .confirmation-container {
-  width: 400px;
-  background-color: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 25px;
-  padding: 60px 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 550px;
+  width: 400px; /* Ancho del contenedor */
+  background-color: #fff; /* Fondo blanco */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
+  border-radius: 25px; /* Bordes redondeados */
+  padding: 60px 30px; /* Espaciado interno */
+  display: flex; /* Activa el modelo de caja flexible */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente */
+  min-height: 550px; /* Altura mínima del contenedor */
 }
- 
+
 /* Contenedor interno del formulario */
 .confirmation-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+  display: flex; /* Activa el modelo de caja flexible */
+  flex-direction: column; /* Organiza los elementos en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+  width: 100%; /* Ocupa todo el ancho disponible */
 }
- 
+
 /* Título con mayor separación */
 .confirmation-form h2 {
-  font-size: 20px;
-  margin-bottom: 70px;
-  color: #000;
-  text-align: center;
+  font-size: 20px; /* Tamaño del texto */
+  margin-bottom: 70px; /* Espacio debajo del título */
+  color: #000; /* Color del texto */
+  text-align: center; /* Centra el texto */
 }
- 
+
 /* Texto de instrucciones en dos líneas */
 .instruction-text {
-  font-size: 14px;
-  color: #777;
-  text-align: center;
-  width: 90%;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  line-height: 1.5;
+  font-size: 14px; /* Tamaño del texto */
+  color: #777; /* Color gris */
+  text-align: center; /* Centra el texto */
+  width: 90%; /* Ocupa el 90% del ancho disponible */
+  margin-bottom: 20px; /* Espacio debajo del texto */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  line-height: 1.5; /* Espaciado entre líneas */
 }
- 
+
 /* Contenedor de los inputs del código */
 .code-inputs {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
+  display: flex; /* Activa el modelo de caja flexible */
+  gap: 10px; /* Espacio entre los inputs */
+  margin-bottom: 10px; /* Espacio debajo del contenedor */
 }
- 
+
 /* Contenedor individual de cada input */
 .code-input-container {
-  position: relative;
+  position: relative; /* Permite posicionar elementos dentro */
 }
- 
+
 /* Inputs individuales del código con bordes más redondeados y sombra */
 .code-input {
-  width: 45px;
-  height: 45px;
-  text-align: center;
-  font-size: 18px;
-  border: 1px solid #ccc;
+  width: 45px; /* Ancho del input */
+  height: 45px; /* Altura del input */
+  text-align: center; /* Centra el texto dentro del input */
+  font-size: 18px; /* Tamaño del texto */
+  border: 1px solid #ccc; /* Borde gris claro */
   border-radius: 15px; /* Bordes más redondeados */
-  background-color: #fff;
+  background-color: #fff; /* Fondo blanco */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra agregada */
-  color: #000;
-  font-weight: bold;
+  color: #000; /* Color del texto */
+  font-weight: bold; /* Texto en negrita */
 }
- 
+
 /* Barra negra debajo del input activo */
 .active-bar {
-  width: 100%;
-  height: 3px;
-  background-color: black;
-  position: absolute;
-  bottom: -5px;
-  left: 0;
+  width: 100%; /* Ocupa todo el ancho del input */
+  height: 3px; /* Altura de la barra */
+  background-color: black; /* Color negro */
+  position: absolute; /* Posiciona la barra dentro del input */
+  bottom: -5px; /* Ubicación debajo del input */
+  left: 0; /* Alineación a la izquierda */
 }
- 
+
 /* Enlace para reenviar código */
 .resend-code {
-  font-size: 14px;
-  color: #000;
-  text-decoration: none;
-  margin-top: 5px;
-  align-self: flex-end;
+  font-size: 14px; /* Tamaño del texto */
+  color: #000; /* Color negro */
+  text-decoration: none; /* Elimina el subrayado */
+  margin-top: 5px; /* Espacio superior */
+  align-self: flex-end; /* Alinea el enlace a la derecha */
 }
 .resend-code:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Agrega subrayado al pasar el mouse */
 }
- 
+
 /* Botón CONTINUE */
 .confirmation-button {
-  width: 50%;
-  padding: 8px;
-  font-size: 18px;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 30px;
+  width: 50%; /* Ocupa el 50% del ancho disponible */
+  padding: 8px; /* Espaciado interno */
+  font-size: 18px; /* Tamaño del texto */
+  background-color: #000; /* Fondo negro */
+  color: #fff; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s; /* Animación de cambio de color */
+  margin-top: 30px; /* Espacio superior */
 }
 .confirmation-button:hover {
-  background-color: #333;
+  background-color: #333; /* Cambia el color de fondo */
 }
- 
+
 /* Mensaje de error debajo del botón */
 .error-message {
-  color: red;
-  font-size: 14px;
-  margin-top: 10px;
-  text-align: center;
+  color: red; /* Color rojo para indicar error */
+  font-size: 14px; /* Tamaño del texto */
+  margin-top: 10px; /* Espacio superior */
+  text-align: center; /* Centra el texto */
 }
- 
- 
