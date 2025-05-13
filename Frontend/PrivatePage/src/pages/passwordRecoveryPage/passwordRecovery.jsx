@@ -1,33 +1,35 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./PasswordRecovery.css"; // Asegúrate de que la ruta es correcta
-
+ 
 export default function PasswordRecovery() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-
+ 
   const handleRecovery = () => {
     if (!email) {
       setError("Please enter your email.");
+    } else if (!email.endsWith("@gmail.com")) {
+      setError("Please enter a valid Gmail address.");
     } else {
       setError("");
       navigate("/codeConfirmation"); // Redirige a CodeConfirmation
     }
   };
-
+ 
   return (
     <div className="password-recovery-page">
       {/* Flecha en la esquina superior izquierda redirige a la pantalla de Login */}
       <div className="back-arrow" onClick={() => navigate("/login")}>
         <img src="/path/to/your/arrow-icon.png" alt="Back" />
       </div>
-
+ 
       {/* Contenedor del logo, centrado en la parte superior */}
       <div className="logo-container">
         <img src="/path/to/your/logo.png" alt="Logo" />
       </div>
-
+ 
       {/* Contenedor principal del formulario */}
       <div className="recovery-container">
         <div className="recovery-form">
@@ -52,3 +54,5 @@ export default function PasswordRecovery() {
     </div>
   );
 }
+ 
+  

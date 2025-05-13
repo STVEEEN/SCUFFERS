@@ -15,7 +15,6 @@ const Stats = () => {
           <h1>OVERVIEW</h1>
           <SettingsButton />
         </div>
-
         {/* Cards superiores con más ancho */}
         <div className="top-stats">
           <div className="stat-card">

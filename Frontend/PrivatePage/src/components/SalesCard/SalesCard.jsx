@@ -37,12 +37,12 @@ const SalesCard = () => {
   });
 
   return (
-    <div className="sales-card">
-      <div className="card-header">
-        <h2>SALES ANALITICS</h2>
+    <div className="SalesCard-container">
+      <div className="SalesCard-header">
+        <h2 className="SalesCard-title">SALES ANALYTICS</h2>
       </div>
 
-      <div className="chart-container">
+      <div className="SalesCard-chart">
         <Line 
           data={salesData} 
           options={{

@@ -1,30 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+  const [showLogout, setShowLogout] = useState(false);
 
-  const handleLogout = () => {
-    if (window.confirm("ARE YOU SURE YOU WANT TO LOG OUT?")) {
-      navigate("/login");
-    }
+  const handleLogoutConfirm = () => {
+    navigate("/login");
   };
 
   return (
     <div className="sidebar">
-      {/* Icono principal centrado */}
-      <div className="icon-placeholder large centered"></div>
+      {/* Icono principal grande */}
+      <div className="icon-placeholder super-large centered"></div>
 
       <nav>
         <ul>
           <li>
             <div className="icon-placeholder bigger"></div>
-            <Link to="">STATS</Link>
+            <Link to="/Stats">STATS</Link>
           </li>
           <li>
             <div className="icon-placeholder bigger"></div>
-            <Link to="/add-piece">ADD PIECE</Link>
+            <Link to="/addProducts">ADD PIECE</Link>
           </li>
           <li>
             <div className="icon-placeholder bigger"></div>
@@ -41,10 +40,21 @@ const Sidebar = () => {
         </ul>
       </nav>
 
+      {/* Botón Logout con tarjeta de confirmación */}
       <div className="logout-container">
         <div className="icon-placeholder"></div>
-        <button className="logout-btn" onClick={handleLogout}>LOGOUT</button>
+        <button className="logout-btn" onClick={() => setShowLogout(true)}>LOGOUT</button>
       </div>
+
+      {showLogout && (
+        <div className="logout-confirmation">
+          <p>Are you sure you want to log out?</p>
+          <div className="logout-buttons">
+            <button className="confirm-btn" onClick={handleLogoutConfirm}>Yes</button>
+            <button className="cancel-btn" onClick={() => setShowLogout(false)}>Cancel</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

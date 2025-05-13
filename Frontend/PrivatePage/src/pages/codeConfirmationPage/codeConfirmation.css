@@ -9,7 +9,7 @@
   position: relative;
   font-family: Arial, sans-serif;
 }
-
+ 
 /* Flecha en la esquina superior izquierda */
 .back-arrow {
   position: absolute;
@@ -21,7 +21,7 @@
   width: 30px;
   height: 30px;
 }
-
+ 
 /* Contenedor del logo, centrado en la parte superior */
 .logo-container {
   position: absolute;
@@ -33,7 +33,7 @@
   height: 40px;
   width: auto;
 }
-
+ 
 /* Contenedor principal del formulario */
 .confirmation-container {
   width: 400px;
@@ -46,7 +46,7 @@
   align-items: center;
   min-height: 550px;
 }
-
+ 
 /* Contenedor interno del formulario */
 .confirmation-form {
   display: flex;
@@ -54,7 +54,7 @@
   align-items: center;
   width: 100%;
 }
-
+ 
 /* Título con mayor separación */
 .confirmation-form h2 {
   font-size: 20px;
@@ -62,7 +62,7 @@
   color: #000;
   text-align: center;
 }
-
+ 
 /* Texto de instrucciones en dos líneas */
 .instruction-text {
   font-size: 14px;
@@ -73,19 +73,19 @@
   text-transform: uppercase;
   line-height: 1.5;
 }
-
+ 
 /* Contenedor de los inputs del código */
 .code-inputs {
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
 }
-
+ 
 /* Contenedor individual de cada input */
 .code-input-container {
   position: relative;
 }
-
+ 
 /* Inputs individuales del código con bordes más redondeados y sombra */
 .code-input {
   width: 45px;
@@ -99,7 +99,7 @@
   color: #000;
   font-weight: bold;
 }
-
+ 
 /* Barra negra debajo del input activo */
 .active-bar {
   width: 100%;
@@ -109,19 +109,19 @@
   bottom: -5px;
   left: 0;
 }
-
-/* Enlace para reenviar código, alineado a la derecha debajo de los cuadros */
+ 
+/* Enlace para reenviar código */
 .resend-code {
   font-size: 14px;
   color: #000;
   text-decoration: none;
   margin-top: 5px;
-  align-self: flex-end; /* Lo mueve a la derecha */
+  align-self: flex-end;
 }
 .resend-code:hover {
   text-decoration: underline;
 }
-
+ 
 /* Botón CONTINUE */
 .confirmation-button {
   width: 50%;
@@ -138,3 +138,13 @@
 .confirmation-button:hover {
   background-color: #333;
 }
+ 
+/* Mensaje de error debajo del botón */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+ 
+ 

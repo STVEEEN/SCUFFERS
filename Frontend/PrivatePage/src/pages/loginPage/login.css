@@ -9,7 +9,7 @@
   position: relative;
   font-family: Arial, sans-serif;
 }
-
+ 
 /* Flecha en la esquina superior izquierda */
 .back-arrow {
   position: absolute;
@@ -21,7 +21,7 @@
   width: 30px;
   height: 30px;
 }
-
+ 
 /* Contenedor del logo, centrado en la parte superior */
 .logo-container {
   position: absolute;
@@ -33,7 +33,7 @@
   height: 40px;
   width: auto;
 }
-
+ 
 /* Contenedor principal del cuadro de login */
 .login-container {
   width: 80%;
@@ -45,7 +45,7 @@
   display: flex;
   min-height: 600px; /* Altura definida anteriormente */
 }
-
+ 
 /* Sección de imagen (izquierda) */
 .login-image {
   width: 50%;
@@ -55,7 +55,7 @@
   height: 100%;
   object-fit: cover;
 }
-
+ 
 /* Sección del formulario (derecha) centrada de manera uniforme */
 .login-form {
   width: 50%;
@@ -65,14 +65,14 @@
   align-items: center;
   justify-content: center;
 }
-
+ 
 .login-form h2 {
   font-size: 18px;
   margin-bottom: 20px;
   color: #000;
   text-align: center;
 }
-
+ 
 /* Estilo para los inputs: texto alineado a la izquierda */
 .login-form input {
   width: 75%;
@@ -86,7 +86,15 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: left; /* Alineación a la izquierda */
 }
-
+ 
+/* Mensaje de error */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+ 
+/* Enlace de recuperación de contraseña */
 .forgot-password {
   width: 75%;
   text-align: right;
@@ -95,8 +103,9 @@
   text-decoration: none;
   margin-bottom: 20px;
 }
-
-.start-button {
+ 
+/* Botón de inicio */
+.start-buttonLogin {
   width: 50%;
   padding: 8px;
   font-size: 18px;
@@ -109,7 +118,9 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
-.start-button:hover {
+ 
+.start-buttonLogin:hover {
   background-color: #333;
 }
+ 
+ 

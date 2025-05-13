@@ -1,0 +1,117 @@
+/* Página completa con sidebar */
+.add-product-page {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+}
+ 
+/* Contenedor principal del formulario */
+.add-product-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+ 
+/* Encabezado con título y botón de configuración */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin-bottom: 70px;
+}
+ 
+.header h2 {
+  font-size: 24px;
+  color: #000;
+}
+ 
+/* Contenedor principal con formulario e imagen */
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+}
+ 
+/* Sección izquierda: Inputs principales */
+.form-section {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 35px;
+  position: relative; /* Permite mover el elemento con "top" */
+  top: 50px; /* Ajusta la posición hacia arriba (puedes cambiar el valor) */
+}
+ 
+.image-section {
+  display: flex; /* Activa el modelo de caja flexible */
+  flex-direction: column; /* Organiza los elementos en una columna */
+  justify-content: flex-start; /* Alinea los elementos al inicio (arriba) */
+  width: 40%; /* Ocupa el 40% del ancho del contenedor padre */
+  gap: 25px; /* Espacio de 25px entre los elementos */
+  margin-left: auto; /* Empuja la sección completamente hacia la derecha */
+  position: relative; /* Permite mover el elemento con "top" */
+  top: -205px; /* Ajusta la posición hacia arriba (puedes cambiar el valor) */
+}
+ 
+ 
+/* Espacio para la imagen */
+.image-preview {
+ 
+  height: 200px;
+  background-color: #EDEDED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #777;
+}
+ 
+/* Inputs y select */
+.form-section input,
+.form-section select,
+.image-section input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #000;
+}
+ 
+/* Botón ADD centrado y más corto */
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin-top: 20px;
+}
+ 
+button {
+  width: 30%; /* Ahora es más corto */
+  padding: 12px;
+  font-size: 18px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+ 
+button:hover {
+  background-color: #333;
+}
+ 
+ 
+ 
