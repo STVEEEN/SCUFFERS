@@ -4,6 +4,7 @@
   position: absolute; /* Posiciona el botón de manera absoluta */
   top: 20px; /* Ubicación desde la parte superior */
   right: 20px; /* Ubicación desde la parte derecha */
+  position:fixed
 }
 
 /* Ícono de marcador de posición */

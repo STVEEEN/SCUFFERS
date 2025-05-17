@@ -4,20 +4,33 @@ import "./Sidebar.css";
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const [showLogout, setShowLogout] = useState(false);
+  const [showLogout, setShowLogout] = useState(false); // Estado para manejar el logout
+  const [hideElements, setHideElements] = useState(false); // 🔥 Estado para ocultar logo y botón
 
+  // 📌 Función para confirmar el logout y redirigir al login
   const handleLogoutConfirm = () => {
     navigate("/login");
   };
 
+  // 📌 Cuando se hace clic en logout, ocultamos el logo y el botón
+  const handleLogoutClick = () => {
+    setShowLogout(true);
+    setHideElements(true); // 🔥 Oculta los elementos innecesarios
+  };
+
+  // 📌 Si el usuario cancela, volvemos a mostrar los elementos
+  const handleCancelLogout = () => {
+    setShowLogout(false);
+    setHideElements(false); // 🔥 Reactivamos los elementos ocultos
+  };
+
   return (
     <div className="Sidebar-container">
-      {/* Navegación con enlaces e íconos */}
       <nav className="Sidebar-nav">
         <ul>
-          <li className="Sidebar-logoApp">
-            <img src="/src/img/LogoSideBar.png" alt="Logo" />
-          </li>
+            <li className="Sidebar-logoApp">
+              <img src="/src/img/LogoSideBar.png" alt="Logo" />
+            </li>
           <li>
             <img src="/src/img/Stats.png" alt="Stats Icon" />
             <Link to="/Stats">STATS</Link>
@@ -41,18 +54,19 @@ const Sidebar = () => {
         </ul>
       </nav>
 
-      {/* Botón Logout con tarjeta de confirmación */}
-      <div className="Sidebar-logout-container">
-        <img src="/src/img/Atras.png" alt="Back Icon" />
-        <button className="Sidebar-logout-btn" onClick={() => setShowLogout(true)}>LOGOUT</button>
-      </div>
+      {!hideElements && (
+        <div className="Sidebar-logout-container">
+          <img src="/src/img/Atras.png" alt="Back Icon" />
+          <button className="Sidebar-logout-btn" onClick={handleLogoutClick}>LOGOUT</button>
+        </div>
+      )}
 
       {showLogout && (
         <div className="Sidebar-logout-confirmation">
-          <p>Are you sure you want to log out?</p>
+          <p>Are you sure to log out?</p>
           <div className="Sidebar-logout-buttons">
             <button className="Sidebar-confirm-btn" onClick={handleLogoutConfirm}>Yes</button>
-            <button className="Sidebar-cancel-btn" onClick={() => setShowLogout(false)}>Cancel</button>
+            <button className="Sidebar-cancel-btn" onClick={handleCancelLogout}>Cancel</button>
           </div>
         </div>
       )}
