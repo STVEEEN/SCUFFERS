@@ -1,10 +1,12 @@
-Nombres: 
+Integrantes: 
 Carlos Daniel Bonilla Mendez
 Eduardo Steven Chavez Ramirez
  
 npm  create vite@latest
 npm install react-router-dom
-npm install
+npm install react data picker
+npm install react chart.js
+npm install react chart.js-2
 
 Descripcion del proyecto: 
 Nuestro proyecto Scuffers es una marca de ropa juvenil enfocada en la moda contemporánea, ofreciendo prendas y accesorios con diseños innovadores, urbanos y versátiles. 
