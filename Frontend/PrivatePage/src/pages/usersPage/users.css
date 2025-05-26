@@ -1,0 +1,80 @@
+/* Contenedor general: Sidebar a la izquierda y contenido a la derecha */
+.users-container {
+  display: flex;
+  width: 100%;
+}
+
+/* Área de contenido a la derecha del Sidebar */
+.users-content {
+  margin-left: 250px; /* Deja espacio para que no quede pegado al Sidebar */
+  padding: 20px;
+  width: calc(100% - 250px);
+}
+
+/* Contenedor para las cards dispuestas en columna */
+.cards-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Cada card con dimensiones fijas: 200px de ancho y 150px de alto */
+.user-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  height: 150px;
+  width: 300px;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Fila superior de la card para los íconos */
+.card-top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px; /* Altura para el área de los íconos */
+}
+
+/* Área para el ícono izquierdo, centrado verticalmente */
+.icon-left {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0; /* Color de fondo de ejemplo */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Área para el ícono central */
+.icon-center {
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0; /* Color de fondo de ejemplo */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fila inferior para el texto */
+.card-bottom {
+  text-align: center;
+}
+
+/* Texto en negro en la parte inferior de la card */
+.card-text {
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+}

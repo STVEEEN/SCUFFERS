@@ -7,8 +7,6 @@ import NewPassword from "./pages/newPasswordPage/NewPassword";
 import Settings from "./pages/SettingsPage/Settings";
 import AddProducts from "./pages/addProductsPage/addProducts";
 import Stats from "./pages/statsPage/Stats"; // Nueva página de estadísticas
-import Orders from "./pages/ordersPage/orders";
-import Stock from "./pages/stockPage/stock";
 import Users from "./pages/usersPage/users";
 
 export default function App() {
@@ -23,8 +21,6 @@ export default function App() {
         <Route path="/stats" element={<Stats />} /> 
         <Route path="/addproducts" element={<AddProducts />} />
        <Route path="/Settings" element={<Settings />} />  
-        <Route path="/Orders" element={<Orders />} />  {/* Página de órdenes o pedidos */}
-        <Route path="/Stock" element={<Stock />} />  {/* Página de inventario o stock */}
         <Route path="/Users" element={<Users />} />  {/* Página de usuarios */}
       </Routes>
     </Router>
