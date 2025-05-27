@@ -9,6 +9,7 @@ import AddProducts from "./pages/addProductsPage/addProducts";
 import Stats from "./pages/statsPage/Stats"; // Nueva página de estadísticas
 import Users from "./pages/usersPage/users";
 import Employees from "./pages/employeesPage/employees";
+import Orders from "./pages/ordersPage/orders";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
        <Route path="/Settings" element={<Settings />} />  
         <Route path="/Users" element={<Users />} />  {/* Página de usuarios */}
          <Route path="/Employees" element={<Employees />} /> 
+         <Route path="/Orders" element={<Orders />} /> 
       </Routes>
     </Router>
   );
