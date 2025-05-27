@@ -1,62 +1,87 @@
-/* Contenedor principal de la barra lateral */
+/* ================= BARRA LATERAL - ESTRUCTURA PRINCIPAL ================= */
 .Sidebar-container {
   position: fixed;
   top: 0;
   left: 0;
-  height: 97vh;
+  height: 97vh; /* Altura casi completa con espacio inferior */
   width: 200px;
   background-color: #ffffff;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra lateral sutil */
   padding: 20px;
   font-family: "Mulish", sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; /* Distribución vertical */
   align-items: center;
 }
-.Sidebar-logoApp {
-  margin-top: 0px;
-  margin-right: 30px;
+
+/* ================= ICONOS Y LOGO ================= */
+/* Tamaño uniforme para todos los iconos de navegación */
+.Sidebar-nav ul li img {
+  width: 40px; /* Dimensiones reducidas */
+  height: 60px;
+  object-fit: contain; /* Mantiene proporciones sin distorsión */
+  transition: transform 0.3s ease; /* Animación suave al interactuar */
 }
 
-/* Lista de navegación */
+/* Logo principal ajustado */
+.Sidebar-logoApp img {
+  width: 820px; /* Ancho controlado */
+  height:max-content; /* Altura proporcional */
+  margin-bottom: 30px; /* Espaciado inferior */
+}
+
+/* Contenedor del logo */
+.Sidebar-logoApp {
+  width: 200px; /* Ancho controlado */
+  margin-top: 10px;
+  margin-right: 17px; /* Alineación derecha */
+}
+
+/* ================= LISTA DE NAVEGACIÓN ================= */
 .Sidebar-nav ul {
   list-style: none;
-  padding: 10px;
+  padding: 10px; /* Espaciado interno */
 }
 
-/* Elementos de la lista de navegación */
+/* Elementos individuales del menú */
 .Sidebar-nav ul li {
   display: flex;
   align-items: center;
-  margin-left: 40px;
+  margin-left: 40px; /* Sangría izquierda */
   margin-top: 10px;
-  margin-bottom: 38px;
-  gap: 30px;
+  margin-bottom: 38px; /* Espaciado vertical entre items */
+  gap: 20px; /* Espacio icono-texto reducido */
 }
 
-/* Estilos para los enlaces de navegación */
+/* Efecto interactivo para iconos */
+.Sidebar-nav ul li:hover img {
+  transform: scale(1.1); /* Ligero aumento al pasar el cursor */
+}
+
+/* ================= ENLACES DE NAVEGACIÓN ================= */
 .Sidebar-nav ul li a {
   text-decoration: none;
   font-size: 14px;
   color: #333;
   font-weight: normal;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; /* Transición de color suave */
 }
 
-/* Efecto al pasar el mouse sobre los enlaces */
+/* Cambio de color al interactuar */
 .Sidebar-nav ul li a:hover {
-  color: #c2c2c2;
+  color: #c2c2c2; /* Gris claro para hover */
 }
 
-/* Contenedor del botón Logout */
+/* ================= SECCIÓN DE LOGOUT ================= */
+/* Contenedor del botón */
 .Sidebar-logout-container {
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 40px; /* Espaciado del borde inferior */
 }
 
-/* Botón Logout */
+/* Estilo base del botón */
 .Sidebar-logout-btn {
   font-size: 16px;
   width: 100px;
@@ -66,63 +91,67 @@
   margin-left: 10px;
   cursor: pointer;
   padding: 0px 10px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Animación para todos los cambios */
 }
 
-/* Efecto al pasar el mouse sobre el botón Logout */
+/* Efecto hover invertido */
 .Sidebar-logout-btn:hover {
   background-color: #000000;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255); /* Contraste máximo */
 }
 
-/* Tarjeta de Confirmación de Logout */
+/* ================= CONFIRMACIÓN DE LOGOUT ================= */
 .Sidebar-logout-confirmation {
   width: 100%;
   background-color: #ffffff;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Sombra pronunciada */
+  position: absolute; /* Posicionamiento sobre contenido */
+  bottom: 80px; /* Distancia desde abajo */
 }
 
-/* Texto dentro de la tarjeta de confirmación */
+/* Texto de confirmación */
 .Sidebar-logout-confirmation p {
-
   font-size: 16px;
   font-weight: bold;
+  padding: 15px;
 }
 
-/* Contenedor de los botones de confirmación */
+/* Contenedor de botones de acción */
 .Sidebar-logout-buttons {
   display: flex;
   justify-content: space-around;
+  padding-bottom: 15px;
 }
 
-/* Estilos para los botones de confirmación y cancelación */
+/* Estilos base para botones de confirmación/cancelar */
 .Sidebar-confirm-btn, .Sidebar-cancel-btn {
   padding: 10px 10px;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s; /* Transición rápida */
+  width: 80px; /* Ancho uniforme */
 }
 
-/* Botón de confirmación */
+/* Botón de confirmación (Rojo) */
 .Sidebar-confirm-btn {
   background-color: #000000;
   color: white;
 }
 
-/* Botón de cancelación */
+/* Botón de cancelar (Verde) */
 .Sidebar-cancel-btn {
   background-color: #000000;
   color: white;
 }
 
-/* Efecto al pasar el mouse sobre los botones */
+/* Efectos hover con cambio de color */
 .Sidebar-confirm-btn:hover {
-  background-color: #b11322;
+  background-color: #b11322; /* Rojo intenso */
 }
 
 .Sidebar-cancel-btn:hover {
-  background-color: #136d27;
+  background-color: #136d27; /* Verde intenso */
 }
