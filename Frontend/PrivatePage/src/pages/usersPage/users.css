@@ -1,24 +1,37 @@
-/* Contenedor general: Sidebar a la izquierda y contenido a la derecha */
+/* Contenedor general */
 .users-container {
   display: flex;
   width: 100%;
 }
 
-/* Área de contenido a la derecha del Sidebar */
+/* Área de contenido */
 .users-content {
-  margin-left: 250px; /* Deja espacio para que no quede pegado al Sidebar */
+  margin-left: 250px;
   padding: 20px;
   width: calc(100% - 250px);
 }
 
-/* Contenedor para las cards dispuestas en columna */
+/* Encabezado de actividad */
+.activity-header {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.activity-header h2 {
+  color: #000;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Contenedor de las cards */
 .cards-column {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Cada card con dimensiones fijas: 200px de ancho y 150px de alto */
+/* Cards */
 .user-card {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -30,51 +43,155 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Fila superior de la card para los íconos */
-.card-top {
-  position: relative;
+.user-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Diseño de tabla alineada junto a las cards */
+.users-layout {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60px; /* Altura para el área de los íconos */
+  justify-content: space-between; /* Asegura que la tabla y las cards estén alineadas */
+  gap: 60px;
+  align-items: flex-start;
 }
 
-/* Área para el ícono izquierdo, centrado verticalmente */
-.icon-left {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background-color: #f0f0f0; /* Color de fondo de ejemplo */
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Contenedor de la tabla */
+.users-table-container {
+  flex: 1;
+  max-width: 700px;
+  background-color: #EDEDED;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Área para el ícono central */
-.icon-center {
-  width: 40px;
-  height: 40px;
-  background-color: #f0f0f0; /* Color de fondo de ejemplo */
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.users-table-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Fila inferior para el texto */
-.card-bottom {
-  text-align: center;
-}
-
-/* Texto en negro en la parte inferior de la card */
-.card-text {
+/* Texto de los filtros encima de la tabla */
+.table-filters {
+  font-size: 14px;
   color: #000;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* Título de la tabla */
+.users-table-container h3 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+/* Tabla */
+.users-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #000; /* Bordes en negro */
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Fila de encabezados */
+.users-table-container thead tr {
+  background-color: #D9D9D9;
+}
+
+/* Celdas de encabezados */
+.users-table-container th {
+  padding: 12px;
+  text-align: left;
+  font-weight: normal;
+  color: #000;
+}
+
+/* Filas de datos (sin líneas separadoras) */
+.users-table-container tbody tr {
+  background-color: #EDEDED;
+}
+
+/* Estilos para las celdas */
+.users-table-container td {
+  padding: 12px;
+  text-align: left;
+  font-weight: normal;
+  color: #000;
+}
+
+/* Espacio para los iconos en BUYER */
+.buyer-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Icono de edición junto a "MEMBERSHIP" */
+.membership-edit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Contenedor de inputs debajo de la tabla */
+.edit-form-container {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Estilo para los inputs */
+.edit-form {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap; /* Inputs en una sola fila */
+}
+
+/* Labels sobre los inputs */
+.edit-form label {
+  font-size: 14px;
+  color: #000;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Inputs con bordes redondeados */
+.edit-form input, .edit-form select {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+/* Botón KEEP con el mismo diseño */
+.keep-button {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 20px;
+  background-color: #000;
+  color: white;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.keep-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
