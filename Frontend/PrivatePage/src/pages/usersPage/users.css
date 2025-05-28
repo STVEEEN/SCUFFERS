@@ -1,0 +1,231 @@
+/* Users.css */
+/* Contenedor principal que envuelve toda la aplicación */
+.users-container {
+  display: flex;
+  min-height: 100vh;
+  background: #ffffff; /* Fondo general */
+}
+
+/* Área de contenido principal (excluyendo el sidebar) */
+.main-content {
+  flex: 1;
+  margin-left: 250px; /* Dejar espacio para el sidebar */
+  padding: 30px;
+}
+
+/* Contenedor flexible para cards y tabla */
+.content-wrapper {
+  display: flex;
+  gap: 160px; /* Espacio entre cards y tabla */
+  align-items: flex-start;
+}
+
+/* ================= SECCIÓN DE CARDS ================= */
+.cards-column {
+  width: 350px; /* Ancho fijo para columna de cards */
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+/* Estilo base para todas las cards con efecto hover */
+.user-card {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+  margin-top: 40px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;
+}
+
+/* Efecto levitación para cards */
+.user-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Contenedor superior de cada card (icono + texto) */
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Tamaño de los iconos en las cards */
+.icon-left img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+/* Contenedor de datos numéricos y labels */
+.card-data {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo para números grandes en cards */
+.number {
+  font-size: 30px;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: -1px;
+}
+
+/* Estilo para labels descriptivos */
+.label {
+  font-size: 14px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ================= SECCIÓN DE TABLA ================= */
+.table-inputs-section {
+  flex: 1;
+  min-width: 0;
+  margin-top: 70px;
+}
+
+/* Contenedor de tabla con efecto hover */
+.table-container {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+  margin-bottom: 70px;
+  transition: all 0.3s ease;
+}
+
+/* Efecto levitación para tabla */
+.table-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+}
+
+/* Estilos base de la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+/* Celdas y encabezados */
+th, td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+/* Encabezados de tabla */
+th {
+  font-weight: 500;
+  color: #444;
+  background: #f8f8f8;
+  position: sticky;
+  top: 0;
+}
+
+/* Fila seleccionada para edición */
+.selected-row {
+  background-color: #f5fbff !important;
+}
+
+/* Efecto hover para filas */
+tr:hover td {
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+}
+
+/* ================= SECCIÓN DE INPUTS ================= */
+.inputs-container {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Efecto levitación para inputs */
+.inputs-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+}
+
+/* Grid de 4 columnas para inputs */
+.inputs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 60px; /* Espacio para el botón */
+}
+
+/* Grupo individual de input */
+.input-group label {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Estilos para inputs y selects */
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+/* Efecto focus para inputs */
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+  outline: none;
+}
+
+/* ================= BOTÓN KEEP ================= */
+.keep-button {
+  display: block;
+  padding: 12px 55px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Estados del botón */
+.keep-button:hover:not(:disabled) {
+  background: #0056b3;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+}
+
+.keep-button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Efecto activo al hacer click */
+.keep-button:active {
+  transform: translateY(1px) scale(0.98);
+}

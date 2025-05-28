@@ -1,0 +1,234 @@
+/* Employees.css */
+/* Contenedor principal de la aplicación */
+.employees-container {
+  display: flex;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+/* Contenido principal - Área derecha excluyendo el sidebar */
+.main-content {
+  flex: 1;
+  margin-left: 250px;  /* Espacio para el sidebar */
+  padding: 30px;
+}
+
+/* Contenedor flexible para cards y tabla */
+.content-wrapper {
+  display: flex;
+  gap: 160px;  /* Espacio entre columnas */
+  align-items: flex-start;
+}
+
+/* ================ SECCIÓN DE CARDS - SIN MODIFICAR ================ */
+/* Contenedor de las tarjetas estadísticas */
+.cards-column {
+  width: 350px;  /* Ancho fijo */
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;  /* Espaciado superior */
+}
+
+/* Estilo base de cada tarjeta */
+.employee-card {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+  margin-top: 40px;  /* Espaciado entre cards */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;  /* Optimización rendimiento */
+}
+
+/* Efecto hover para levitación */
+.employee-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+  cursor: pointer;
+  z-index: 2;  /* Asegura superposición */
+}
+
+/* Contenedor superior de icono y texto */
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 15px;  /* Espacio entre icono y texto */
+}
+
+/* Estilo de los iconos */
+.icon-left img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+/* Contenedor de datos numéricos */
+.card-data {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo número destacado */
+.number {
+  font-size: 30px;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: -1px;  /* Compactar números */
+}
+
+/* Etiqueta descriptiva */
+.label {
+  font-size: 14px;
+  color: #666;
+  text-transform: uppercase;  /* Texto en mayúsculas */
+  letter-spacing: 1px;  /* Espaciado entre letras */
+}
+
+/* ================ SECCIÓN TABLA - NUEVAS COLUMNAS ================ */
+/* Contenedor de tabla y formulario */
+.table-inputs-section {
+  flex: 1;  /* Ocupa espacio restante */
+  min-width: 0;  /* Previene overflow */
+  margin-top: 70px;  /* Alineación vertical */
+}
+
+/* Contenedor de la tabla con sombra */
+.table-container {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+  margin-bottom: 70px;  /* Espacio antes de inputs */
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover para tabla */
+.table-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+}
+
+/* Estructura de tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;  /* Bordes unificados */
+  margin-top: 15px;  /* Separación del título */
+}
+
+/* Celdas y encabezados */
+th, td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;  /* Línea divisoria */
+  text-align: left;
+}
+
+/* Encabezados fijos al scroll */
+th {
+  font-weight: 500;
+  color: #444;
+  background: #f8f8f8;  /* Fondo gris claro */
+  position: sticky;
+  top: 0;
+}
+
+/* Fila seleccionada */
+.selected-row {
+  background-color: #f5fbff !important;  /* Azul claro */
+}
+
+/* Efecto hover para filas */
+tr:hover td {
+  background-color: #f9f9f9;  /* Gris muy claro */
+  cursor: pointer;
+  transform: scale(1.01);  /* Efecto de escala */
+  transition: all 0.2s ease;
+}
+
+/* ================ SECCIÓN INPUTS - NUEVOS CAMPOS ================ */
+/* Contenedor de formulario */
+.inputs-container {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+  position: relative;  /* Para posicionar el botón */
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover para contenedor */
+.inputs-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+}
+
+/* Grid de 4 columnas para inputs */
+.inputss-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;  /* Espacio entre inputs */
+  margin-bottom: 60px;  /* Espacio para botón */
+}
+
+/* Grupo de input individual */
+.input-group label {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;  /* Separación label-input */
+  font-weight: 500;  /* Grosor medio */
+}
+
+/* Estilos base para inputs */
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 15x solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 150px;
+  transition: all 0.2s ease;
+}
+
+/* Efecto focus para inputs */
+.input-group input:focus {
+  border-color: #000000;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.25);  /* Highlight azul */
+  outline: none;  /* Remover outline nativo */
+}
+
+/* ================ BOTÓN KEEP - ESTILOS ORIGINALES ================ */
+.keep-button {
+  display: block;
+  padding: 12px 55px;
+  background: #2c2c2c;  /* Azul principal */
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;  /* Posicionamiento fijo */
+  right: 25px;  /* 25px desde la derecha */
+  bottom: 25px;  /* 25px desde abajo */
+  font-weight: 600;
+  text-transform: uppercase;  /* Texto en mayúsculas */
+  letter-spacing: 1px;  /* Espaciado entre letras */
+}
+
+/* Efecto hover para botón */
+.keep-button:hover:not(:disabled) {
+  background: #000000;  /* Azul más oscuro */
+  transform: translateY(-3px) scale(1.05);  /* Efecto 3D */
+  box-shadow: 0 5px 15px rgba(0,123,255,0.3);  /* Sombra dinámica */
+}
+
+/* Estado deshabilitado */
+.keep-button:disabled {
+  background: #666;  /* Gris oscuro */
+  cursor: not-allowed;
+  opacity: 0.7;  /* Transparencia */
+}
+
+/* Efecto al hacer click */
+.keep-button:active {
+  transform: translateY(1px) scale(0.98);  /* Efecto de presión */
+}

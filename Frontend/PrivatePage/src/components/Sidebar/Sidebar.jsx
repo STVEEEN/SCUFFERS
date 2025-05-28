@@ -55,6 +55,12 @@ const Sidebar = () => {
             <img src="/src/img/Users.png" alt="Users Icon" />
             <Link to="/users">USERS</Link>
           </li>
+
+           <li>
+            <img src="/src/img/employees.png" alt="employees Icon" />
+            <Link to="/employees">EMPLOYEES</Link>
+          </li>
+
         </ul>
       </nav>
 
