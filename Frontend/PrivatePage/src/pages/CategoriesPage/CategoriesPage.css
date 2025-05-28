@@ -1,6 +1,7 @@
 .Categories-container {
   display: flex;
   width: 100vw;
+  margin-left: 100px;
   min-height: 100vh;
   background: #f8f8ff;
 }
@@ -17,17 +18,16 @@
 }
 
 .Categories-header {
-  display: flex;
   justify-content: space-between;
   width: 100%;
   max-width: 700px;          /* Opcional: limita el ancho del header */
-  text-align: left;
+  text-align: center;
 }
 
 .Categories-title {
   font-size: 2rem;
   font-weight: bold;
-  text-align: start;
+  text-align: center;
   letter-spacing: 1px;
   margin: 50px 0;
 }

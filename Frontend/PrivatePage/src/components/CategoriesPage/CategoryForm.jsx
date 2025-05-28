@@ -18,8 +18,7 @@ export default function CategoryForm({
       const objectUrl = URL.createObjectURL(image);
       setPreview(objectUrl);
 
-      // Cleanup para prevenir fugas de memoria
-      return () => URL.revokeObjectURL(objectUrl);
+      return () => URL.revokeObjectURL(objectUrl); // Cleanup
     }
     setPreview(null);
   }, [image]);
@@ -27,71 +26,48 @@ export default function CategoryForm({
   return (
     <form
       onSubmit={editCategory ? handleUpdate : handleSubmit}
-      className="category-form"
-      style={{
-        background: "#fff",
-        color: "#333",
-        borderRadius: "1rem",
-        boxShadow: "0 4px 16px #0001",
-        padding: 32,
-        marginBottom: 32,
-        maxWidth: 400,
-        margin: "auto",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
+      className="categories-form-container"
       encType="multipart/form-data"
     >
-      <h3 style={{ color: "#6a1b9a", marginBottom: 18 }}>
+      <h3 className="categories-form-title">
         {editCategory ? "Editar Categoría" : "Nueva Categoría"}
       </h3>
-      <div className="mb-3 w-100">
-        <label>Nombre</label>
+
+      <div className="categories-form-group">
+        <label className="categories-form-label">Nombre</label>
         <input
           type="text"
-          className="form-control"
+          className="categories-form-input"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
         />
       </div>
-      <div className="mb-3 w-100">
-        <label>
+
+      <div className="categories-form-group">
+        <label className="categories-form-label">
           Imagen {editCategory ? "(elige una nueva para reemplazar)" : ""}
         </label>
         <input
           type="file"
-          className="form-control"
+          className="categories-form-input"
           accept="image/*"
           onChange={(e) => setImage(e.target.files[0])}
           required={!editCategory}
         />
       </div>
+
       {preview && (
-        <div className="text-center mb-3">
-          <img
-            src={preview}
-            alt="Vista previa"
-            style={{
-              maxWidth: "100%",
-              maxHeight: "200px",
-              borderRadius: "1rem",
-              boxShadow: "0 2px 8px rgba(156, 39, 176, 0.15)",
-              objectFit: "cover",
-            }}
-          />
+        <div className="categories-form-preview-container">
+          <img src={preview} alt="Vista previa" className="categories-form-preview" />
         </div>
       )}
-      <div className="d-flex gap-3 mt-4">
-        <button type="submit" className="btn btn-success" disabled={loading}>
+
+      <div className="categories-form-buttons">
+        <button type="submit" className="categories-form-submit" disabled={loading}>
           {editCategory ? "Actualizar" : "Crear"}
         </button>
-        <button
-          type="button"
-          className="btn btn-secondary"
-          onClick={resetForm} // Llama a la función de cancelar
-        >
+        <button type="button" className="categories-form-cancel" onClick={resetForm}>
           Cancelar
         </button>
       </div>

@@ -1,0 +1,136 @@
+/* Efecto de levitación para tarjetas */
+.category-card, 
+.register-card {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;
+}
+
+.category-card:hover, 
+.register-card:hover {
+  transform: translateY(-8px); /* Eleva la tarjeta */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Aumenta la sombra */
+}
+/* Efecto de levitación para la tarjeta de registro */
+.register-card {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;
+}
+
+.register-card:hover {
+  transform: translateY(-8px); /* Eleva la tarjeta */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Aumenta la sombra */
+}
+/* Estilos generales para el formulario */
+.categories-form-container {
+  background: #fff;
+  color: #333;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  margin: auto;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  top: 20px; /* Ajuste para centrar mejor */
+}
+
+.categories-form-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para el título */
+.categories-form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+/* Estilos para los grupos de input */
+.categories-form-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.categories-form-label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Estilos para los inputs */
+.categories-form-input {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #9c27b0;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.categories-form-input::placeholder {
+  color: #555;
+}
+
+/* Estilos para la vista previa de la imagen */
+.categories-form-preview-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.categories-form-preview {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(156, 39, 176, 0.15);
+  object-fit: cover;
+}
+
+/* Contenedor de los botones con separación */
+.categories-form-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Estilos para el botón de submit */
+.categories-form-submit {
+  background: linear-gradient(135deg, #6b21a8 0%, #9d4edd 100%);
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.categories-form-submit:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(156, 39, 176, 0.2);
+}
+
+/* Estilos para el botón de cancelar */
+.categories-form-cancel {
+  background: #ddd;
+  color: #333;
+  border: none;
+  border-radius: 1rem;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.categories-form-cancel:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}

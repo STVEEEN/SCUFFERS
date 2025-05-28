@@ -13,8 +13,8 @@ const ListCategories = ({ deleteCategory, updateCategory, loading, categories })
           <CategoryCard
             key={cat._id}
             category={cat}
-            deleteCategory={deleteCategory}
-            updateCategory={updateCategory}
+            onDelete={deleteCategory}
+            onEdit={updateCategory}
           />
         ))}
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles.css"; // Importa tu archivo CSS si es necesario
 
 const RegisterCategories = ({
   id,
@@ -20,25 +21,25 @@ const RegisterCategories = ({
           border: "none",
           borderRadius: "1.5rem",
           boxShadow: "0 8px 32px rgba(149, 117, 205, 0.3)",
-          color: "#6a1b9a",
+          color: "#00000",
           padding: "2rem",
         }}
         onSubmit={id ? handleUpdate : handleSubmit}
         encType="multipart/form-data"
       >
-        <h1 className="fw-bold mb-4 text-center" style={{ color: "#6a1b9a", letterSpacing: "2px" }}>
+        <h1 className="fw-bold mb-4 text-center" style={{ color: "#000000", letterSpacing: "2px" }}>
           {id ? "Actualizar Categoría" : "Registrar Categoría"}
         </h1>
         <div className="row g-3">
           <div className="col-md-12">
-            <label className="form-label" htmlFor="name" style={{ color: "#6a1b9a" }}>
+            <label className="form-label" htmlFor="name" style={{ color: "#000000" }}>
               Nombre
             </label>
             <input
               className="form-control"
               style={{
                 background: "rgba(255, 255, 255, 0.9)",
-                color: "#6a1b9a",
+                color: "#000000",
                 border: "1px solid #9c27b0",
                 borderRadius: "0.75rem",
               }}
@@ -51,14 +52,14 @@ const RegisterCategories = ({
           </div>
 
           <div className="col-md-12">
-            <label className="form-label" htmlFor="image" style={{ color: "#6a1b9a" }}>
+            <label className="form-label" htmlFor="image" style={{ color: "#00000" }}>
               Imagen
             </label>
             <input
               className="form-control"
               style={{
                 background: "rgba(255, 255, 255, 0.9)",
-                color: "#6a1b9a",
+                color: "#00000",
                 border: "1px solid #9c27b0",
                 borderRadius: "0.75rem",
               }}

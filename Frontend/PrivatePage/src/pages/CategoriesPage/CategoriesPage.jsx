@@ -11,6 +11,7 @@ import "./categoriesPage.css";
 const CategoriesPage = () => {
   const [activeSection, setActiveSection] = useState("list"); // Controla la sección activa
   const {
+    id, // Usamos `id` para determinar si es edición o creación
     categories,
     loading,
     name,
@@ -63,7 +64,7 @@ const CategoriesPage = () => {
               padding: "8px 16px",
             }}
           >
-            {name ? "Editar Categoría" : "Agregar Categoría"}
+            {id ? "Editar Categoría" : "Agregar Categoría"} {/* Revisamos `id` en lugar de `name` */}
           </button>
         </div>
 
@@ -74,7 +75,7 @@ const CategoriesPage = () => {
             setImage={setImage}
             handleSubmit={handleSubmit}
             handleUpdate={handleUpdate}
-            editCategory={!!name} // Si hay nombre, significa que es edición
+            editCategory={!!id} // Usamos `id` para determinar si es edición
             resetForm={handleCancel} // Usa la función de cancelar para manejar el botón
             loading={loading}
             image={image} // Pasa la imagen para vista previa

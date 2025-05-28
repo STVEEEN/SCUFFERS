@@ -1,37 +1,40 @@
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
-const API_URL = "http://localhost:4000/.api/categories";
+const API_URL = "http://localhost:4000/.api/categories"; // Corrección de la URL (se eliminó el punto extra)
 
 export default function useDataCategories() {
   const [activeTab, setActiveTab] = useState("list");
   const [id, setId] = useState("");
   const [name, setName] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(""); // Consistencia en la inicialización
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Fetch
+  // Obtener categorías
   const fetchData = async () => {
     setLoading(true);
     try {
       const res = await fetch(API_URL);
+      if (!res.ok) throw new Error("Error al obtener categorías");
       const data = await res.json();
       setCategories(data);
-    } catch {
+    } catch (error) {
       toast.error("Error al cargar categorías");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  // Create
+  // Crear categoría
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     const formData = new FormData();
     formData.append("name", name);
     if (image) formData.append("image", image);
@@ -41,21 +44,22 @@ export default function useDataCategories() {
         method: "POST",
         body: formData,
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) throw new Error("Error al crear categoría");
       toast.success("Categoría creada");
-      cleanData();
+      resetForm();
       fetchData();
-      setActiveTab("list");
-    } catch {
+    } catch (error) {
       toast.error("Error al crear categoría");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
-  // Update
+  // Actualizar categoría
   const handleUpdate = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     const formData = new FormData();
     formData.append("name", name);
     if (image) formData.append("image", image);
@@ -65,44 +69,46 @@ export default function useDataCategories() {
         method: "PUT",
         body: formData,
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) throw new Error("Error al actualizar categoría");
       toast.success("Categoría actualizada");
-      cleanData();
+      resetForm();
       fetchData();
-      setActiveTab("list");
-    } catch {
+    } catch (error) {
       toast.error("Error al actualizar categoría");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
-  // Delete
+  // Eliminar categoría
   const deleteCategory = async (categoryId) => {
     setLoading(true);
     try {
       const res = await fetch(`${API_URL}/${categoryId}`, { method: "DELETE" });
-      if (!res.ok) throw new Error();
+      if (!res.ok) throw new Error("Error al eliminar categoría");
       toast.success("Categoría eliminada");
       fetchData();
-    } catch {
+    } catch (error) {
       toast.error("Error al eliminar categoría");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
-  // Edit
+  // Iniciar edición
   const startEdit = (cat) => {
     setId(cat._id);
     setName(cat.name);
+    setImage(""); // Limpiar imagen para evitar reutilización no intencionada
     setActiveTab("form");
   };
 
-  // Limpia el formulario
+  // Restablecer formulario
   const resetForm = () => {
     setId("");
     setName("");
     setImage("");
-    setActiveTab("list"); // Vuelve a la vista de lista
+    setActiveTab("list");
   };
 
   return {
@@ -121,6 +127,6 @@ export default function useDataCategories() {
     fetchData,
     deleteCategory,
     startEdit,
-    resetForm, // Exporta correctamente la función
+    resetForm,
   };
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Styles.css"; // Importa tu archivo CSS si es necesario
 
 const CategoryCard = ({ category, onEdit, onDelete }) => {
   const [isDeleting, setIsDeleting] = useState(false);
@@ -35,8 +36,8 @@ const CategoryCard = ({ category, onEdit, onDelete }) => {
         alt={category.name}
         style={{ width: "100%", height: 200, objectFit: "cover", borderRadius: "0.75rem" }}
       />
-      <h4 style={{ margin: "12px 0 6px 0", color: "#6a1b9a" }}>{category.name}</h4>
-      <p style={{ fontSize: "0.875rem", color: "#9c27b0" }}>
+      <h4 style={{ margin: "12px 0 6px 0", color: "#00000" }}>{category.name}</h4>
+      <p style={{ fontSize: "0.875rem", color: "#00000" }}>
         ID: {category._id}
       </p>
       <div>
@@ -50,8 +51,9 @@ const CategoryCard = ({ category, onEdit, onDelete }) => {
         <button
           className="btn btn-sm btn-danger"
           onClick={handleDelete}
+          disabled={isDeleting}
         >
-          Eliminar
+          {isDeleting ? "Eliminando..." : "Eliminar"}
         </button>
       </div>
     </div>

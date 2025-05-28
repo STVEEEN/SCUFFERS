@@ -36,7 +36,7 @@ const Sidebar = () => {
             <Link to="/Stats">STATS</Link>
           </li>
           <li>
-            <img src="/src/img/Stats.png" alt="Categories Icon" />
+            <img src="/src/img/categoriesIcon.png" alt="Categories Icon" />
             <Link to="/categories">CATEGORIES</Link>
           </li>
           <li>
