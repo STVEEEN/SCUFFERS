@@ -4,11 +4,11 @@ import SettingsButton from "../../components/SettingsButton/SettingsButton";
 import "./Users.css";
 
 const initialUsers = [
-  { id: 1, buyer: "Eduardo Steven", joinDate: "09/03/2025", age: 18, gender: "Male", membership: "BROKCE" },
-  { id: 2, buyer: "Emery Lovo", joinDate: "11/02/2025", age: 18, gender: "Female", membership: "BROKCE" },
+  { id: 1, buyer: "Steven Arquera", joinDate: "09/03/2025", age: 18, gender: "Male", membership: "BRONCE" },
+  { id: 2, buyer: "Lukaku Lovo", joinDate: "11/02/2025", age: 18, gender: "Female", membership: "BRONCE" },
   { id: 3, buyer: "Fernando Huezo", joinDate: "10/01/2025", age: 19, gender: "Male", membership: "GOLD" },
-  { id: 4, buyer: "Uliana Maite", joinDate: "01/02/2025", age: 18, gender: "Female", membership: "NONE" },
-  { id: 5, buyer: "Lawne Yanal", joinDate: "11/05/2025", age: 17, gender: "Male", membership: "DIAMONO" }
+  { id: 4, buyer: "El chicharito", joinDate: "01/02/2025", age: 18, gender: "Female", membership: "NONE" },
+  { id: 5, buyer: "Lamine Yanal", joinDate: "11/05/2025", age: 17, gender: "Male", membership: "DIAMOND" }
 ];
 
 const Users = () => {
@@ -187,9 +187,9 @@ const Users = () => {
                     value={editValues.membership}
                     onChange={handleInputChange}
                   >
-                    <option value="BROKCE">BROKCE</option>
+                    <option value="BROKCE">BRONCE</option>
                     <option value="GOLD">GOLD</option>
-                    <option value="DIAMONO">DIAMONO</option>
+                    <option value="DIAMONO">DIAMOND</option>
                     <option value="NONE">NONE</option>
                   </select>
                 </div>

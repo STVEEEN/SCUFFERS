@@ -1,16 +1,29 @@
 /* Botón de configuración */
 .settings-button {
   cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-  position: absolute; /* Posiciona el botón de manera absoluta */
+  position: fixed; /* Fijar la posición */
   top: 20px; /* Ubicación desde la parte superior */
   right: 20px; /* Ubicación desde la parte derecha */
-  position:fixed
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover - levitación con sombra */
+.settings-button:hover {
+  transform: translateY(-3px) scale(1.05); /* Se eleva y se expande un poco */
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15); /* Sombra pronunciada */
 }
 
 /* Ícono de marcador de posición */
 .icon-placeholder {
-  width: 30px; /* Ancho del ícono */
-  height: 30px; /* Altura del ícono */
-  background-color: #ccc; /* Color de fondo gris */
-  border-radius: 50%; /* Forma circular */
+  width: 2px; /* Tamaño más pequeño */
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 50%; /* Mantiene la forma circular */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para el efecto */
+}
+
+/* Efecto hover - levitación en el ícono */
+.icon-placeholder:hover {
+  transform: translateY(-3px) scale(1.1); /* Se eleva y se agranda ligeramente */
+  box-shadow: 0 5px 12px rgba(255, 255, 255, 0.2); /* Sombra más pronunciada */
 }
