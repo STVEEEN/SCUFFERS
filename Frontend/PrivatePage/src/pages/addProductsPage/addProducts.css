@@ -69,7 +69,7 @@
 /* Espacio para la imagen */
 .AddProduct-image-preview {
   height: 500px; /* Altura de la imagen */
-  width: 200px; /* Ancho de la imagen (corregido, antes faltaba "px") */
+  width: 607px; /* Ancho de la imagen (corregido, antes faltaba "px") */
   background-color: #EDEDED; /* Fondo gris claro */
   display: flex; /* Activa el modelo de caja flexible */
   align-items: center; /* Centra los elementos verticalmente */

@@ -1,13 +1,18 @@
-import express from "express";
-import  categoriesController from "../controllers/categoriesController.js"
+import { Router } from "express";
+import multer from "multer";
+import categoryController from "../controllers/categoriesController.js";
 
-const router = express.Router();
+const router = Router();
+const upload = multer({ dest: "public/" });
 
-router.route("/")
-    .get( categoriesController.getCategories)
-    .post( categoriesController.postCategories)
-router.route("/:id")
-    .put( categoriesController.putCategories)
-    .delete( categoriesController.deleteCategories)
+router
+  .route("/")
+  .get(categoryController.getCategories)
+  .post(upload.single("image"), categoryController.createCategory);
+
+router
+  .route("/:id")
+  .put(upload.single("image"), categoryController.updateCategory)
+  .delete(categoryController.deleteCategory);
 
 export default router;

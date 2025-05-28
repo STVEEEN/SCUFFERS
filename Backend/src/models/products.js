@@ -17,6 +17,11 @@ const productSchema = new Schema({
         required: true,
         min: [0, "El precio no puede ser negativo"]
     },
+    stock: {
+        type: Number,
+        required: true,
+        min: [0, "Stock no puede ser negativo"]
+    },
     discount: {
         type: Number,
         default: 0,

@@ -5,23 +5,23 @@ import "./Sidebar.css";
 const Sidebar = () => {
   const navigate = useNavigate();
   const [showLogout, setShowLogout] = useState(false); // Estado para manejar el logout
-  const [hideElements, setHideElements] = useState(false); // 🔥 Estado para ocultar logo y botón
+  const [hideElements, setHideElements] = useState(false); // Estado para ocultar logo y botón
 
-  // 📌 Función para confirmar el logout y redirigir al login
+  // Función para confirmar el logout y redirigir al login
   const handleLogoutConfirm = () => {
     navigate("/login");
   };
 
-  // 📌 Cuando se hace clic en logout, ocultamos el logo y el botón
+  // Cuando se hace clic en logout, ocultamos el logo y el botón
   const handleLogoutClick = () => {
     setShowLogout(true);
-    setHideElements(true); // 🔥 Oculta los elementos innecesarios
+    setHideElements(true); // Oculta los elementos innecesarios
   };
 
-  // 📌 Si el usuario cancela, volvemos a mostrar los elementos
+  // Si el usuario cancela, volvemos a mostrar los elementos
   const handleCancelLogout = () => {
     setShowLogout(false);
-    setHideElements(false); // 🔥 Reactivamos los elementos ocultos
+    setHideElements(false); // Reactivamos los elementos ocultos
   };
 
   return (
@@ -34,6 +34,10 @@ const Sidebar = () => {
           <li>
             <img src="/src/img/Stats.png" alt="Stats Icon" />
             <Link to="/Stats">STATS</Link>
+          </li>
+          <li>
+            <img src="/src/img/Stats.png" alt="Categories Icon" />
+            <Link to="/categories">CATEGORIES</Link>
           </li>
           <li>
             <img src="/src/img/AddPiece.png" alt="Add Piece Icon" />

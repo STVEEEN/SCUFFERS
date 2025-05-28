@@ -7,9 +7,8 @@ import NewPassword from "./pages/newPasswordPage/NewPassword";
 import Settings from "./pages/SettingsPage/Settings";
 import AddProducts from "./pages/addProductsPage/addProducts";
 import Stats from "./pages/statsPage/Stats"; // Nueva página de estadísticas
-import Orders from "./pages/ordersPage/orders";
-import Stock from "./pages/stockPage/stock";
-import Users from "./pages/usersPage/users";
+import CategoriesPage from "./pages/CategoriesPage/CategoriesPage"; // Nueva página de categorías
+
 
 export default function App() {
   return (
@@ -21,11 +20,9 @@ export default function App() {
         <Route path="/codeConfirmation" element={<CodeConfirmation />} />
         <Route path="/newPassword" element={<NewPassword />} />
         <Route path="/stats" element={<Stats />} /> 
+        <Route path="/categories" element={<CategoriesPage />} />
         <Route path="/addproducts" element={<AddProducts />} />
        <Route path="/Settings" element={<Settings />} />  
-        <Route path="/Orders" element={<Orders />} />  {/* Página de órdenes o pedidos */}
-        <Route path="/Stock" element={<Stock />} />  {/* Página de inventario o stock */}
-        <Route path="/Users" element={<Users />} />  {/* Página de usuarios */}
       </Routes>
     </Router>
   );

@@ -1,0 +1,55 @@
+.Categories-container {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  background: #f8f8ff;
+}
+
+.Categories-content {
+  flex-grow: 1;
+  min-height: 100vh;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;         /* Centra horizontalmente todo el contenido */
+  justify-content: flex-start; /* Empieza desde arriba, no en el centro vertical */
+  padding: 40px 16px 0 16px;   /* Padding horizontal reducido */
+}
+
+.Categories-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 700px;          /* Opcional: limita el ancho del header */
+  text-align: left;
+}
+
+.Categories-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: start;
+  letter-spacing: 1px;
+  margin: 50px 0;
+}
+
+.category-form {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px #0001;
+  padding: 32px 32px 24px 32px;
+  margin-bottom: 32px;
+  width: 100%;
+  max-width: 00px;           /* Hace que el form sea de tamaño fijo y centrado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Categories-cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;    /* Centra las cards bajo el form */
+  width: 100%;
+  max-width: 900px;           /* Opcional: limita el ancho de la grid */
+}

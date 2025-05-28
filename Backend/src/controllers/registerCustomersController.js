@@ -2,7 +2,6 @@ import customerModel from "../models/customers.js";
 import bcryptjs from "bcryptjs";
 import jsonwebtoken from "jsonwebtoken";
 import {config} from "../config.js";
-import employee from "../models/customers.js";
 
 const registerCustomersController = {};
 

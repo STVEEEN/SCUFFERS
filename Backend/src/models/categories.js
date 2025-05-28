@@ -4,14 +4,12 @@ const categorySchema = new Schema({
     name: {
         type: String,
         required: true,
-        trim: true,
         unique: true,
-        match: [/^[a-zA-Z\s]+$/, "Por favor, ingrese un nombre válido"]
-    },
-    description: {
-        type: String,
-        required: true,
         trim: true
+    },
+    image: {
+        type: String, // URL Cloudinary
+        required: true
     }
 }, {
     timestamps: true,

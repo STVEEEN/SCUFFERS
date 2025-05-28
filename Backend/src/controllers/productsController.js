@@ -12,12 +12,13 @@ productsController.getProducts = async (req, res) => {
 
 productsController.postProducts = async (req, res) => {
     try {
-        const { categoryId, name, price, discount } = req.body;
+        const { categoryId, name, price, stock, discount } = req.body;
 
         const newProduct = new ProductModel({
             categoryId,
             name,
             price,
+            stock,
             discount
         });
 
