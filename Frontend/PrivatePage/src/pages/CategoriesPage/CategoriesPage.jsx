@@ -52,6 +52,10 @@ const CategoriesPage = () => {
               marginRight: "8px",
               borderRadius: "12px",
               padding: "8px 16px",
+              backgroundColor: activeSection === "list" ? "#6b21a8" : "#e0e0e0",
+              color: activeSection === "list" ? "#ffffff" : "#000000",
+              border: "none",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             }}
           >
             See categories

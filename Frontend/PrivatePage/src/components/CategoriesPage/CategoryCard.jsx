@@ -43,13 +43,14 @@ const CategoryCard = ({ category, onEdit, onDelete }) => {
       <div>
         <button
           className="btn btn-sm btn-warning"
-          style={{ marginRight: 6 }}
+          style={{ backgroundColor: "#000000", color: "#ffffff", marginRight: 6, borderRadius: "0.75rem" }}
           onClick={() => onEdit(category)}
         >
           Edit
         </button>
         <button
           className="btn btn-sm btn-danger"
+          style={{ backgroundColor: "#000000", color: "#ffffff", borderRadius: "0.75rem", marginLeft: 6 }}
           onClick={handleDelete}
           disabled={isDeleting}
         >

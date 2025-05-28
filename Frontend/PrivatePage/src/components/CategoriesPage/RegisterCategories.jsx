@@ -28,19 +28,19 @@ const RegisterCategories = ({
         encType="multipart/form-data"
       >
         <h1 className="fw-bold mb-4 text-center" style={{ color: "#000000", letterSpacing: "2px" }}>
-          {id ? "Actualizar Categoría" : "Registrar Categoría"}
+          {id ? "update Category" : "Register Category"}
         </h1>
         <div className="row g-3">
           <div className="col-md-12">
             <label className="form-label" htmlFor="name" style={{ color: "#000000" }}>
-              Nombre
+              Name
             </label>
             <input
               className="form-control"
               style={{
-                background: "rgba(255, 255, 255, 0.9)",
+                background: "rgba(0, 0, 0, 0.9)",
                 color: "#000000",
-                border: "1px solid #9c27b0",
+                border: "1px solidrgb(0, 0, 0)",
                 borderRadius: "0.75rem",
               }}
               id="name"
@@ -52,8 +52,8 @@ const RegisterCategories = ({
           </div>
 
           <div className="col-md-12">
-            <label className="form-label" htmlFor="image" style={{ color: "#00000" }}>
-              Imagen
+            <label className="form-label" htmlFor="image" style={{ color: "#000000" }}>
+              Image
             </label>
             <input
               className="form-control"
