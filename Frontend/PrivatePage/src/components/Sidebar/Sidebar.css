@@ -70,7 +70,7 @@
 
 /* Cambio de color al interactuar */
 .Sidebar-nav ul li a:hover {
-  color: #c2c2c2; /* Gris claro para hover */
+  color: #838383; /* Gris claro para hover */
 }
 
 /* ================= SECCIÓN DE LOGOUT ================= */
@@ -79,6 +79,8 @@
   display: flex;
   align-items: center;
   margin-bottom: 40px; /* Espaciado del borde inferior */
+  
+  
 }
 
 /* Estilo base del botón */
@@ -92,6 +94,7 @@
   cursor: pointer;
   padding: 0px 10px;
   transition: all 0.3s ease; /* Animación para todos los cambios */
+  
 }
 
 /* Efecto hover invertido */
@@ -145,6 +148,24 @@
 .Sidebar-cancel-btn {
   background-color: #000000;
   color: white;
+}
+
+/* ================= ESTILO DEL TEXTO ACTIVO EN EL SIDEBAR ================= */
+.Sidebar-active a {
+  position: relative;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Línea negra debajo del texto activo */
+.Sidebar-active a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
 }
 
 /* Efectos hover con cambio de color */

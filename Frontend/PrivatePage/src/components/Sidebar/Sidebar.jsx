@@ -1,66 +1,70 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./Sidebar.css";
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const [showLogout, setShowLogout] = useState(false); // Estado para manejar el logout
-  const [hideElements, setHideElements] = useState(false); // Estado para ocultar logo y botón
+  const location = useLocation(); // Obtiene la ruta actual
+  const [showLogout, setShowLogout] = useState(false);
+  const [hideElements, setHideElements] = useState(false);
 
-  // Función para confirmar el logout y redirigir al login
   const handleLogoutConfirm = () => {
     navigate("/login");
   };
 
-  // Cuando se hace clic en logout, ocultamos el logo y el botón
   const handleLogoutClick = () => {
     setShowLogout(true);
-    setHideElements(true); // Oculta los elementos innecesarios
+    setHideElements(true);
   };
 
-  // Si el usuario cancela, volvemos a mostrar los elementos
   const handleCancelLogout = () => {
     setShowLogout(false);
-    setHideElements(false); // Reactivamos los elementos ocultos
+    setHideElements(false);
   };
 
   return (
     <div className="Sidebar-container">
       <nav className="Sidebar-nav">
         <ul>
-            <li className="Sidebar-logoApp">
-              <img src="/src/img/LogoSideBar.png" alt="Logo" />
-            </li>
-          <li>
+          <li className="Sidebar-logoApp">
+            <img src="/src/img/LogoSideBar.png" alt="Logo" />
+          </li>
+          
+          {/* Enlaces de navegación con identificador de sección activa */}
+          <li className={location.pathname === "/Stats" ? "Sidebar-active" : ""}>
             <img src="/src/img/Stats.png" alt="Stats Icon" />
             <Link to="/Stats">STATS</Link>
           </li>
-          <li>
-            <img src="/src/img/categoriesIcon.png" alt="Categories Icon" />
+
+          <li className={location.pathname === "/categories" ? "Sidebar-active" : ""}>
+            <img src="/src/img/categorias.png" alt="Categories Icon" />
             <Link to="/categories">CATEGORIES</Link>
           </li>
-          <li>
+
+          <li className={location.pathname === "/addProducts" ? "Sidebar-active" : ""}>
             <img src="/src/img/AddPiece.png" alt="Add Piece Icon" />
             <Link to="/addProducts">ADD PIECE</Link>
           </li>
-          <li>
+
+          <li className={location.pathname === "/orders" ? "Sidebar-active" : ""}>
             <img src="/src/img/Orders.png" alt="Orders Icon" />
             <Link to="/orders">ORDERS</Link>
           </li>
-          <li>
+
+          <li className={location.pathname === "/stock" ? "Sidebar-active" : ""}>
             <img src="/src/img/Stock.png" alt="Stock Icon" />
             <Link to="/stock">STOCK</Link>
           </li>
-          <li>
+
+          <li className={location.pathname === "/users" ? "Sidebar-active" : ""}>
             <img src="/src/img/Users.png" alt="Users Icon" />
             <Link to="/users">USERS</Link>
           </li>
 
-           <li>
+          <li className={location.pathname === "/employees" ? "Sidebar-active" : ""}>
             <img src="/src/img/employees.png" alt="employees Icon" />
             <Link to="/employees">EMPLOYEES</Link>
           </li>
-
         </ul>
       </nav>
 
