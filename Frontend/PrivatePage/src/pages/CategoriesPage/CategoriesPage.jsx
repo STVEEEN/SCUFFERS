@@ -36,7 +36,7 @@ const CategoriesPage = () => {
 
       <div className="Categories-content">
         <div className="Categories-header">
-          <h1 className="Categories-title">GESTIÓN DE CATEGORÍAS</h1>
+          <h1 className="Categories-title">CATEGORIES MANAGEMENT</h1>
           <SettingsButton />
         </div>
 

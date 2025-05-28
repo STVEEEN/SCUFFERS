@@ -60,7 +60,7 @@ const RegisterCategories = ({
               style={{
                 background: "rgba(255, 255, 255, 0.9)",
                 color: "#00000",
-                border: "1px solid #9c27b0",
+                border: "1px solidrgb(0, 0, 0)",
                 borderRadius: "0.75rem",
               }}
               id="image"
@@ -85,7 +85,7 @@ const RegisterCategories = ({
           }}
           disabled={loading}
         >
-          {id ? "Actualizar" : "Registrar"}
+          {id ? "UPDATE" : "REGISTER"}
         </button>
       </form>
     </div>
