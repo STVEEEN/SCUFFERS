@@ -75,7 +75,7 @@ const RegisterCategories = ({
           type="submit"
           className="btn w-100 fw-bold mt-4"
           style={{
-            background: "linear-gradient(135deg, #6b21a8 0%, #9d4edd 100%)",
+            background: "linear-gradient(135deg,rgb(0, 0, 0) 0%,rgb(0, 0, 0) 100%)",
             color: "white",
             border: "none",
             borderRadius: "1rem",

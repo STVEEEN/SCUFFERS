@@ -30,11 +30,11 @@ export default function CategoryForm({
       encType="multipart/form-data"
     >
       <h3 className="categories-form-title">
-        {editCategory ? "Editar Categoría" : "Nueva Categoría"}
+        {editCategory ? "Edit Category" : "New Category"}
       </h3>
 
       <div className="categories-form-group">
-        <label className="categories-form-label">Nombre</label>
+        <label className="categories-form-label">Name</label>
         <input
           type="text"
           className="categories-form-input"
@@ -46,7 +46,7 @@ export default function CategoryForm({
 
       <div className="categories-form-group">
         <label className="categories-form-label">
-          Imagen {editCategory ? "(elige una nueva para reemplazar)" : ""}
+          Image {editCategory ? "(choose a new one to replace)" : ""}
         </label>
         <input
           type="file"
@@ -59,16 +59,16 @@ export default function CategoryForm({
 
       {preview && (
         <div className="categories-form-preview-container">
-          <img src={preview} alt="Vista previa" className="categories-form-preview" />
+          <img src={preview} alt="preview" className="categories-form-preview" />
         </div>
       )}
 
       <div className="categories-form-buttons">
         <button type="submit" className="categories-form-submit" disabled={loading}>
-          {editCategory ? "Actualizar" : "Crear"}
+          {editCategory ? "Update" : "Create"}
         </button>
         <button type="button" className="categories-form-cancel" onClick={resetForm}>
-          Cancelar
+          Cancel
         </button>
       </div>
     </form>

@@ -54,7 +54,7 @@ const CategoriesPage = () => {
               padding: "8px 16px",
             }}
           >
-            Ver Categorías
+            See categories
           </button>
           <button
             className={`btn ${activeSection === "form" ? "btn-primary" : "btn-secondary"}`}
@@ -62,9 +62,14 @@ const CategoriesPage = () => {
             style={{
               borderRadius: "12px",
               padding: "8px 16px",
+              backgroundColor: activeSection === "form" ? "#6b21a8" : "#e0e0e0",
+              color: activeSection === "form" ? "#ffffff" : "#000000",
+              border: "none",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+              transition: "background-color 0.3s, color 0.3s",
             }}
           >
-            {id ? "Editar Categoría" : "Agregar Categoría"} {/* Revisamos `id` en lugar de `name` */}
+            {id ? "Edit Category" : "Add Category"} {/* Revisamos `id` en lugar de `name` */}
           </button>
         </div>
 

@@ -10,7 +10,7 @@ const CategoryCard = ({ category, onEdit, onDelete }) => {
       setIsDeleting(true);
       await onDelete(category._id);
     } catch (error) {
-      console.error("Error al eliminar categoría:", error);
+      console.error("Error at delete the category:", error);
     } finally {
       setIsDeleting(false);
     }
@@ -46,14 +46,14 @@ const CategoryCard = ({ category, onEdit, onDelete }) => {
           style={{ marginRight: 6 }}
           onClick={() => onEdit(category)}
         >
-          Editar
+          Edit
         </button>
         <button
           className="btn btn-sm btn-danger"
           onClick={handleDelete}
           disabled={isDeleting}
         >
-          {isDeleting ? "Eliminando..." : "Eliminar"}
+          {isDeleting ? "Deleting..." : "Delete"}
         </button>
       </div>
     </div>
