@@ -1,105 +1,192 @@
 /* orders.css */
+
+/* Contenedor principal de la página de órdenes */
 .orders-container {
-    display: flex;
-    min-height: 100vh;
-    background: #fff;
-  }
+  display: flex; /* Usa flexbox para el layout */
+  min-height: 100vh; /* Altura mínima de toda la ventana */
+  background: #fff; /* Fondo blanco */
+}
+
+
+/* Área de contenido principal */
+.main2-content {
+  margin-left: 250px; /* Margen para evitar superposición con sidebar */
+  flex: 1; /* Ocupa el espacio restante */
+  padding: 2rem; /* Espaciado interno */
+}
+
+/* Estilos para el encabezado */
+.orders-header {
   
-  /* Sidebar */
-  .sidebar {
-    width: 250px;
-    background: #f8f9fa;
-    height: 100vh;
-    position: fixed;
-    border-right: 1px solid #dee2e6;
-  }
+  display: flex; /* Layout flexible */
+  justify-content: space-between; /* Espacio entre elementos */
+  align-items: center; /* Centrado vertical */
+  margin-bottom: 1.5rem; /* Margen inferior */
+}
+
+/* Estilos para el título principal */
+.orders-header h1 {
+  font-size: 1.8rem; /* Tamaño de fuente */
+  color: #000000; /* Color de texto oscuro */
+  font-weight: 650; /* Grosor de fuente medio */
+}
+
+/* Contenedor para las tarjetas en disposición vertical */
+.cards-vertical {
+  display: flex; /* Layout flexible */
+  flex-direction: column; /* Disposición en columna */
+  gap: 1.5rem; /* Espacio entre tarjetas */
+  max-width: 320px; /* Ancho máximo */
+  margin-left: 3rem;
+}
+
+/* Estilos base para todas las tarjetas */
+.card {
+  background: #fcfcfc;
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
   
-  .main-content {
-    margin-left: 250px;
-    flex: 1;
-    padding: 2rem;
+  /* Añade estas líneas para hacerla más ancha */
+  width: 100%; /* Ocupa todo el ancho disponible del contenedor padre */
+  max-width: 600px; /* Limita el ancho máximo (ajusta según necesidad) */
+}
+
+
+
+/* Efecto hover para las tarjetas */
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+  transform: translateY(-2px); /* Efecto de levitación */
+}
+
+
+
+/* Estilos para el contenido de texto de las tarjetas */
+.card-content p {
+  color: #6c757d; /* Color de texto gris */
+  font-size: 1.1rem; /* Tamaño de fuente */
+  margin: 0; /* Sin margen */
+}
+
+/* Contenedor para los items de estado */
+.state-items {
+  display: flex; /* Layout flexible */
+  flex-direction: column; /* Disposición en columna */
+  gap: 1.8rem; /* Espacio entre items */
+}
+
+/* Estilos para cada item de estado */
+.state-item {
+  display: flex; /* Layout flexible */
+  align-items: center; /* Centrado vertical */
+  gap: 3rem; /* Espacio entre elementos */
+  padding: 0.8rem; /* Espaciado interno */
+  border-radius: 6px; /* Bordes redondeados */
+  transition: background 0.2s ease; /* Transición suave para hover */
+  margin-bottom: 88px; /* Espaciado vertical entre items */
+}
+
+/* Efecto hover para los items de estado */
+.state-item:hover {
+  background: #f8f9fa; /* Cambio de color de fondo */
+}
+
+/* Estilos para los iconos dentro de los items */
+item-icon {
+  width: 28px; /* Ancho fijo */
+  height: 28px; /* Altura fija */
+  background: #e9ecef; /* Color de fondo gris */
+  border-radius: 6px; /* Bordes redondeados */
+  flex-shrink: 0; /* Evita que se encojan */
+}
+
+
+/* Estilos para el texto dentro de los items */
+.state-item span {
+  color: #212529; /* Color de texto oscuro */
+  font-size: 0.95rem; /* Tamaño de fuente */
+}
+
+
+
+/* Contenedor principal para cards y tabla */
+.content-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+
+
+/* orders.css */
+
+/* ... (otros estilos se mantienen igual) ... */
+
+/* TABLA MÁS ANCHA */
+.recent-orders-table {
+  width: 70%; /* Ancho relativo al contenedor */
+  min-width: 800px; /* Ancho mínimo garantizado */
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eee;
+  margin-left: 20rem;
+  margin-top: 5rem;
+  margin-right: 2rem; /* Espacio a la derecha */
+}
+
+/* AJUSTES DE COLUMNAS */
+.recent-orders-table th:nth-child(1), 
+.recent-orders-table td:nth-child(1) {
+  width: 30%; /* Más espacio para columna BUYER */
+}
+
+.recent-orders-table th:nth-child(2), 
+.recent-orders-table td:nth-child(2) {
+  width: 15%; /* ORDER DATE */
+}
+
+.recent-orders-table th:nth-child(3), 
+.recent-orders-table td:nth-child(3) {
+  width: 10%; /* ITEMS */
+}
+
+.recent-orders-table th:nth-child(4), 
+.recent-orders-table td:nth-child(4) {
+  width: 15%; /* TOTAL */
+}
+
+.recent-orders-table th:nth-child(5), 
+.recent-orders-table td:nth-child(5) {
+  width: 30%; /* Más espacio para STATUS */
+}
+
+/* CONTENIDO MÁS ESPACIADO */
+.recent-orders-table td {
+  padding: 1.5rem 1.8rem; /* Más espacio horizontal */
+}
+
+/* AJUSTE RESPONSIVE */
+@media (max-width: 1400px) {
+  .recent-orders-table {
+    width: 90%;
+    min-width: auto;
   }
-  
-  /* Header ajustado */
-  .orders-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .orders-header h1 {
-    font-size: 1.4rem;
-    color: #212529;
-    font-weight: 500;
-  }
-  
-  /* Tarjetas con efectos */
-  .cards-vertical {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    max-width: 320px;
-  }
-  
-  .card {
-    background: #fff;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    border: 1px solid #eee;
-  }
-  
-  .card:hover {
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    transform: translateY(-2px);
-  }
-  
-  /* Iconos y contenido */
-  .card-icon {
-    width: 50px;
-    height: 50px;
-    background: #e9ecef;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-  }
-  
-  .card-content p {
-    color: #6c757d;
-    font-size: 1.1rem;
-    margin: 0;
-  }
-  
-  /* Items de estado */
-  .state-items {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  
-  .state-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.8rem;
-    border-radius: 6px;
-    transition: background 0.2s ease;
-  }
-  
-  .state-item:hover {
-    background: #f8f9fa;
-  }
-  
-  .item-icon {
-    width: 28px;
-    height: 28px;
-    background: #e9ecef;
-    border-radius: 6px;
-    flex-shrink: 0;
-  }
-  
-  .state-item span {
-    color: #212529;
-    font-size: 0.95rem;
-  }
+}
+
+/* orders.css */
+
+/* EFECTO DE LEVITACIÓN (AGREGAR ESTO AL CSS EXISTENTE) */
+.recent-orders-table {
+  transition: transform 0.25s ease, box-shadow 0.25s ease; /* Transición suave */
+}
+
+.recent-orders-table:hover {
+  transform: translateY(-4px); /* Movimiento vertical hacia arriba */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12); /* Sombra más pronunciada */
+}
+
