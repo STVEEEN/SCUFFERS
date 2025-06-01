@@ -3,7 +3,7 @@
 .Stats-container {
   display: flex;
   height: 100vh;
-  background-color: #fdfdfd;
+  background-color: #ffffff;
   margin-left: 220px;
   color: #000;
 }
@@ -87,7 +87,7 @@
 .Stats-stat-card {
   flex-grow: 1;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: #fcfcfc;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
   font-size: 14px;
   font-weight: bold;
@@ -109,7 +109,7 @@
 .Stats-top-selling-container {
   width: 100%;
   margin-top: 20px;
-  background: #fff;
+  background: #ffffff;
   border-radius: 15px;
   padding: 20px;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);

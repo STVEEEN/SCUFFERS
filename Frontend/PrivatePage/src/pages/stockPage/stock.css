@@ -1,125 +1,141 @@
+/* =============== STOCK DASHBOARD STYLES =============== */
+
 /* === CONTENEDOR PRINCIPAL === */
 .stock-page-container {
-  display: flex; /* Usa el modelo de caja flexible */
-  min-height: 100vh; /* Altura mínima de toda la ventana */
+  display: flex; /* Modelo de caja flexible para layout principal */
+  min-height: 100vh; /* Cubre toda la altura visible */
   background: #fff; /* Fondo blanco */
 }
 
 /* === CONTENIDO PRINCIPAL === */
 .stock-main-content {
-  margin-left: 250px; /* Espacio para el menú lateral */
-  flex: 1; /* Ocupa todo el espacio disponible */
-  padding: 2.5rem; /* Relleno interno de 2.5 rem */
+  margin-left: 250px; /* Espacio para menú lateral */
+  flex: 1; /* Ocupa espacio disponible */
+  padding: 2.5rem; /* Espaciado interno */
 }
 
 /* === ENCABEZADO DE PÁGINA === */
 .stock-page-header {
-  display: flex; /* Diseño flexible */
-  justify-content: space-between; /* Espacio entre elementos */
+  display: flex; /* Flex para alineación horizontal */
+  justify-content: space-between; /* Distribuye elementos */
   align-items: center; /* Centrado vertical */
-  margin-bottom: 2.5rem; /* Margen inferior */
+  margin-bottom: 2.5rem; /* Espacio inferior */
 }
 
 /* === TITULO PRINCIPAL === */
 .stock-page-header h1 {
-  font-size: 2rem; /* Tamaño de fuente */
-  color: #000; /* Color negro */
-  font-weight: 700; /* Grosor de fuente */
-  margin: 0; /* Sin margen */
+  font-size: 2rem; /* Tamaño grande */
+  color: #000; /* Texto negro */
+  font-weight: 700; /* Negrita */
+  margin: 0; /* Elimina márgenes predeterminados */
 }
 
 /* === TITULOS DE SECCIÓN === */
 .stock-dashboard-section h2 {
-  font-size: 1.6rem; /* Tamaño de fuente */
-  color: #333; /* Color gris oscuro */
-  margin-bottom: 2rem; /* Margen inferior */
-  font-weight: 600; /* Grosor de fuente */
+  font-size: 1.6rem; /* Tamaño mediano */
+  color: #333; /* Gris oscuro */
+  margin-bottom: 2rem; /* Espaciado inferior */
+  font-weight: 600; /* Semi-negrita */
 }
 
 /* === GRID DE TARJETAS === */
 .stock-cards-grid {
-  display: flex; /* Diseño flexible */
+  display: flex; /* Layout flexible para tarjetas */
   gap: 3rem; /* Espacio entre elementos */
   flex-wrap: wrap; /* Permite múltiples filas */
 }
 
 /* === TARJETAS ESTADÍSTICAS === */
 .stock-card {
-  background: #fff; /* Fondo blanco */
+  background: #fcfcfc; /* Fondo blanco */
   border-radius: 15px; /* Bordes redondeados */
   padding: 1.5rem 2rem; /* Relleno interno */
   width: 390px; /* Ancho fijo */
   height: 160px; /* Altura fija */
   box-shadow: 0 3px 10px rgba(0,0,0,0.08); /* Sombra suave */
   border: 1px solid #f0f0f0; /* Borde sutil */
-  transition: all 0.3s ease; /* Transición suave */
-  display: flex; /* Diseño flexible */
-  flex-direction: column; /* Dirección vertical */
+  transition: all 0.3s ease; /* Animación hover */
+  display: flex; /* Flex interno */
+  flex-direction: column; /* Organización vertical */
 }
 
 /* === CONTENIDO DE TARJETA === */
 .stock-card-content {
-  display: flex; /* Diseño flexible */
+  display: flex; /* Flex para contenido interno */
   flex-direction: column; /* Dirección vertical */
-  height: 100%; /* Altura completa */
+  height: 100%; /* Ocupa altura completa */
+  position: relative; /* Para posicionar el icono */
 }
 
 /* === TEXTO DE TARJETA === */
 .stock-card-text {
-  margin-top: 0.3rem; /* Margen superior pequeño */
+  margin-top: 0.3rem; /* Espaciado superior mínimo */
 }
 
 /* === TITULO DE TARJETA === */
 .stock-card-title {
-  font-size: 1.1rem; /* Tamaño de fuente */
-  color: #666; /* Color gris */
-  margin-bottom: 0.2rem; /* Margen inferior pequeño */
-  font-weight: 500; /* Grosor de fuente */
+  font-size: 1.1rem; /* Tamaño estándar */
+  color: #000000; /* Gris medio */
+  margin-bottom: 0.2rem; /* Espaciado inferior mínimo */
+  font-weight: 500; /* Peso medio */
 }
 
 /* === VALOR PRINCIPAL === */
 .stock-card-value {
   font-size: 5rem; /* Tamaño muy grande */
   font-weight: 700; /* Negrita */
-  color: #333; /* Color gris oscuro */
+  color: #000000; /* Gris oscuro */
   line-height: 1; /* Sin interlineado */
-  margin: 1.5rem 0 0.5rem; /* Margen vertical */
+  margin: 1.5rem 0 0.5rem; /* Márgenes verticales */
 }
 
 /* === ICONO DE TARJETA === */
 .stock-card-icon {
-  align-self: flex-end; /* Alineado a la derecha */
-  margin-top: auto; /* Margen superior automático */
-  width: 60px; /* Ancho fijo */
-  height: 60px; /* Altura fija */
-  display: flex; /* Diseño flexible */
+  position: absolute; /* Posición absoluta para ubicación precisa */
+  top: 50%; /* Centrado vertical */
+  right: 1.5rem; /* Distancia desde la derecha */
+  transform: translateY(-50%); /* Ajuste fino para centrado vertical */
+  width: 60px; /* Dimensiones fijas */
+  height: 60px; /* Dimensiones fijas */
+  display: flex; /* Flex para centrado */
   align-items: center; /* Centrado vertical */
   justify-content: center; /* Centrado horizontal */
+ 
+  border-radius: 50%; /* Forma circular */
+}
+
+.stock-card-icon-svg {
+  font-size: 2rem; /* Tamaño del icono */
+  color: #ffffff; /* Color del icono */
 }
 
 /* === EFECTO HOVER === */
 .stock-card:hover {
-  transform: translateY(-4px); /* Levantamiento */
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12); /* Sombra más pronunciada */
+  transform: translateY(-4px); /* Efecto elevación */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12); /* Sombra más intensa */
+}
+
+.stock-card:hover .stock-card-icon {
+  background: #ffffff; /* Cambio de color al hacer hover */
 }
 
 /* === TARJETA OSCURA (VALOR STOCK) === */
 .stock-value-card-dark {
   background: #000; /* Fondo negro */
   border-radius: 15px; /* Bordes redondeados */
-  padding: 5.5rem 2rem; /* Relleno interno */
+  padding: 5.5rem 2rem; /* Relleno amplio */
   width: 390px; /* Ancho fijo */
   height: 550px; /* Altura fija */
   box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Sombra */
-  transition: all 0.3s ease; /* Transición suave */
-  display: flex; /* Diseño flexible */
+  transition: all 0.3s ease; /* Transición hover */
+  display: flex; /* Flex interno */
   flex-direction: column; /* Dirección vertical */
   color: white; /* Texto blanco */
 }
 
 /* === CONTENIDO TARJETA OSCURA === */
 .stock-value-content-dark {
-  display: flex; /* Diseño flexible */
+  display: flex; /* Flex para organización */
   flex-direction: column; /* Dirección vertical */
   height: 100%; /* Altura completa */
 }
@@ -133,29 +149,29 @@
 .stock-value-title-dark {
   font-size: 2rem; /* Tamaño grande */
   color: rgb(255, 255, 255); /* Blanco */
-  font-weight: 400; /* Grosor normal */
+  font-weight: 400; /* Peso normal */
   letter-spacing: 0.5px; /* Espaciado entre letras */
   margin-bottom: 0rem; /* Sin margen inferior */
 }
 
 /* === MONTO PRINCIPAL === */
 .stock-value-amount-dark {
-  font-size: 2.2rem; /* Tamaño grande */
+  font-size: 2.2rem; /* Tamaño destacado */
   font-weight: 700; /* Negrita */
-  margin: 0rem 0 0rem; /* Sin margen */
-  letter-spacing: -1px; /* Espaciado entre letras */
+  margin: 0rem 0 0rem; /* Sin márgenes */
+  letter-spacing: -1px; /* Espaciado negativo para compactar */
 }
 
 /* === DIVISOR === */
 .stock-value-divider-dark {
-  height: 1px; /* Altura mínima */
-  background: rgb(255, 255, 255); /* Línea blanca */
-  margin: 1rem 0; /* Margen vertical */
+  height: 1px; /* Línea delgada */
+  background: rgb(255, 255, 255); /* Color blanco */
+  margin: 1rem 0; /* Espaciado vertical */
 }
 
 /* === SECCIÓN DE DETALLES === */
 .stock-value-details-dark {
-  display: flex; /* Diseño flexible */
+  display: flex; /* Flex para organización */
   flex-direction: column; /* Dirección vertical */
   gap: 1.2rem; /* Espacio entre elementos */
   margin-top: 2rem; /* Margen superior */
@@ -163,8 +179,8 @@
 
 /* === ITEMS DE DETALLE === */
 .stock-value-item-dark {
-  display: flex; /* Diseño flexible */
-  justify-content: space-between; /* Espacio entre elementos */
+  display: flex; /* Flex para alineación */
+  justify-content: space-between; /* Distribuye horizontalmente */
   align-items: center; /* Centrado vertical */
 }
 
@@ -172,136 +188,126 @@
 .stock-value-label-dark {
   font-size: 1.8rem; /* Tamaño grande */
   color: rgb(255, 255, 255); /* Blanco */
-  font-weight: 400; /* Grosor normal */
+  font-weight: 400; /* Peso normal */
   margin-bottom: 5rem; /* Margen inferior grande */
 }
 
 /* === DATOS DE DETALLE === */
 .stock-value-data-dark {
-  font-size: 1.1rem; /* Tamaño normal */
+  font-size: 1.1rem; /* Tamaño estándar */
   font-weight: 600; /* Semi-negrita */
   color: rgb(255, 255, 255); /* Blanco */
 }
 
 /* === NUMEROS DE DETALLE === */
 .stock-value-number-dark {
-  font-size: 1rem; /* Tamaño normal */
+  font-size: 1rem; /* Tamaño menor */
   font-weight: 600; /* Semi-negrita */
-  margin-left: 1rem; /* Margen izquierdo */
+  margin-left: 1rem; /* Espacio izquierdo */
 }
 
 /* === EFECTO HOVER TARJETA OSCURA === */
 .stock-value-card-dark:hover {
-  transform: translateY(-3px); /* Levantamiento sutil */
-  box-shadow: 0 6px 16px rgba(0,0,0,0.25); /* Sombra más oscura */
+  transform: translateY(-3px); /* Elevación sutil */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25); /* Sombra más intensa */
 }
-
-
-
-
 
 /* === TARJETA DE PRODUCTO (T-SHIRT) === */
 .stock-product-card {
-  background: #fff; /* Fondo blanco */
+  background: #fcfcfc; /* Fondo blanco */
   border-radius: 15px; /* Bordes redondeados */
-  padding: 2rem; /* Relleno interno */
+  padding: 2.5rem; /* Espaciado interno */
   width: 390px; /* Ancho fijo */
   height: 550px; /* Altura fija */
   box-shadow: 0 3px 10px rgba(0,0,0,0.08); /* Sombra suave */
   border: 1px solid #f0f0f0; /* Borde sutil */
-  transition: all 0.3s ease; /* Transición suave */
-  display: flex; /* Diseño flexible */
+  transition: all 0.3s ease; /* Animación hover */
+  display: flex; /* Flex interno */
   flex-direction: column; /* Dirección vertical */
 }
 
-/* === CONTENIDO TARJETA PRODUCTO === */
 .stock-product-content {
-  display: flex; /* Diseño flexible */
+  display: flex; /* Flex para organización */
   flex-direction: column; /* Dirección vertical */
   height: 100%; /* Altura completa */
 }
 
-/* === ENCABEZADO TARJETA PRODUCTO === */
-.stock-product-header {
-  display: flex; /* Diseño flexible */
-  justify-content: space-between; /* Espacio entre elementos */
-  align-items: center; /* Centrado vertical */
-  margin-bottom: 1rem; /* Margen inferior */
-}
-
-/* === TITULO PRODUCTO === */
+/* === TÍTULO ALINEADO A LA IZQUIERDA === */
 .stock-product-title {
-  font-size: 2rem; /* Tamaño grande */
-  color: #333; /* Gris oscuro */
-  font-weight: 600; /* Semi-negrita */
-  margin: 0; /* Sin margen */
+  font-size: 2rem; /* Tamaño muy grande */
+  color: #000000; /* Gris oscuro */
+  font-weight: 650; /* Negrita */
+  margin: 0 0 2rem 0; /* Margen inferior amplio */
+  text-align: left; /* Alineación izquierda */
+  letter-spacing: -0.5px; /* Espaciado compacto */
 }
 
-/* === CANTIDAD PRODUCTO === */
-.stock-product-amount {
-  font-size: 1.5rem; /* Tamaño mediano */
-  color: #666; /* Gris */
-  font-weight: 500; /* Grosor medio */
+/* === SECCIÓN DE AMOUNT Y VALOR === */
+.stock-product-amount-section {
+  display: flex; /* Flex para alineación */
+  align-items: center; /* Centrado vertical */
+  gap: 1.5rem; /* Espacio entre elementos */
+  margin-bottom: 2rem; /* Margen inferior grande */
 }
 
-/* === DETALLES PRODUCTO === */
-.stock-product-details {
-  display: flex; /* Diseño flexible */
-  flex-direction: column; /* Dirección vertical */
-  flex-grow: 1; /* Crecimiento flexible */
-  justify-content: space-between; /* Espacio entre elementos */
+.stock-product-amount-label {
+  font-size: 1.6rem; /* Tamaño grande */
+  color: #000000; /* Gris medio */
+  font-weight: 500; /* Peso medio */
+  text-transform: uppercase; /* Mayúsculas */
+  letter-spacing: 1px; /* Espaciado entre letras */
 }
 
-/* === INFORMACIÓN PRODUCTO === */
-.stock-product-info {
-  display: flex; /* Diseño flexible */
-  flex-direction: column; /* Dirección vertical */
-  margin-top: 2rem; /* Margen superior */
-}
-
-/* === ETIQUETAS INFORMACIÓN === */
-.stock-product-label {
-  font-size: 1.1rem; /* Tamaño pequeño */
-  color: #666; /* Gris */
-  margin-bottom: 0.5rem; /* Margen inferior */
-}
-
-/* === VALORES PRINCIPALES === */
-.stock-product-value {
-  font-size: 3.5rem; /* Tamaño muy grande */
-  font-weight: 700; /* Negrita */
-  color: #333; /* Gris oscuro */
-}
-
-/* === PIE DE TARJETA === */
-.stock-product-footer {
-  display: flex; /* Diseño flexible */
+/* === BOTÓN PARA EL VALOR 27 === */
+.stock-product-amount-value {
+  background: #9dc9b7; /* Fondo gris claro */
+  border: none; /* Sin borde */
+  border-radius: 8px; /* Bordes redondeados */
+  font-size: 1.2rem; /* Tamaño grande */
+  font-weight: 600; /* Negrita */
+  color: #000000; /* Gris oscuro */
+  padding: 0.8rem 1.5rem; /* Relleno interno */
+  cursor: pointer; /* Cursor tipo click */
+  transition: all 0.2s ease; /* Animación hover */
+  display: flex; /* Flex para centrado */
+  align-items: center; /* Centrado vertical */
   justify-content: center; /* Centrado horizontal */
-  margin-top: auto; /* Margen superior automático */
 }
 
-/* === BOTÓN VER TODO === */
+.stock-product-amount-value:hover {
+  background: #87bba5; /* Fondo gris al pasar ratón */
+  transform: translateY(-2px); /* Elevación sutil */
+}
+
+/* === PIE DE TARJETA CON BOTÓN ABAJO === */
+.stock-product-footer {
+  margin-top: auto; /* Empuja hacia el fondo */
+  padding-top: 3rem; /* Espaciado superior */
+  display: flex; /* Flex para centrado */
+  justify-content: center; /* Centrado horizontal */
+}
+
 .stock-product-see-all-btn {
   background: #000; /* Fondo negro */
   color: white; /* Texto blanco */
   border: none; /* Sin borde */
-  padding: 0.8rem 2rem; /* Relleno interno */
-  border-radius: 8px; /* Bordes redondeados */
-  font-weight: 600; /* Negrita */
-  font-size: 1.1rem; /* Tamaño de fuente */
-  cursor: pointer; /* Cursor tipo puntero */
-  transition: all 0.2s ease; /* Transición suave */
-  width: 100%; /* Ancho completo */
-  text-align: center; /* Texto centrado */
+  padding: 1.6rem 5rem; /* Relleno generoso */
+  border-radius: 0px; /* Bordes redondeados */
+  font-weight: 600; /* Semi-negrita */
+  font-size: 1.3rem; /* Tamaño legible */
+  cursor: pointer; /* Cursor click */
+  transition: all 0.2s ease; /* Animación hover */
+  min-width: 250px; /* Ancho mínimo */
 }
 
-/* === EFECTO HOVER BOTÓN === */
 .stock-product-see-all-btn:hover {
-  background: #333; /* Fondo más oscuro */
+  background: #333; /* Fondo oscuro al hover */
+  transform: translateY(-2px); /* Elevación */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Sombra */
 }
 
 /* === EFECTO HOVER TARJETA PRODUCTO === */
 .stock-product-card:hover {
-  transform: translateY(-4px); /* Levantamiento */
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12); /* Sombra más pronunciada */
+  transform: translateY(-4px); /* Elevación */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12); /* Sombra intensificada */
 }

@@ -25,7 +25,7 @@ const StockPage = () => {
                   <div className="stock-card-value">158</div>
                 </div>
                 <div className="stock-card-icon">
-                  {/* Espacio para icono */}
+                   <img src="/src/img/TOTALPRODUCTS.png" alt="TOTAL PRODUCTS" />
                 </div>
               </div>
             </div>
@@ -38,7 +38,7 @@ const StockPage = () => {
                   <div className="stock-card-value">9</div>
                 </div>
                 <div className="stock-card-icon">
-                  {/* Espacio para icono */}
+                  <img src="/src/img/LOWSTOCK.png" alt="LOW STOCK" />
                 </div>
               </div>
             </div>
@@ -51,7 +51,7 @@ const StockPage = () => {
                   <div className="stock-card-value">6</div>
                 </div>
                 <div className="stock-card-icon">
-                  {/* Espacio para icono */}
+                  <img src="/src/img/OUTOFSTOCK.png" alt="OUT OF STOCK" />
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@ const StockPage = () => {
                   <div className="stock-card-value">3</div>
                 </div>
                 <div className="stock-card-icon">
-                  {/* Espacio para icono */}
+                  <img src="/src/img/SUPPLIERS.png" alt="SUPPLIERS" />
                 </div>
               </div>
             </div>
@@ -95,28 +95,28 @@ const StockPage = () => {
               </div>
             </div>
 
-            {/* Nueva Card T-Shirt */}
-           <div class="stock-product-card">
-              <div class="stock-product-content">
-                <div class="stock-product-header">
-                  <div class="stock-product-title">T-SHIRT</div>
-                  <div class="stock-product-amount">AMOUNT</div>
+            {/* Nueva Card T-Shirt - Diseño Actualizado */}
+            <div className="stock-product-card">
+              <div className="stock-product-content">
+                {/* Título T-SHIRT alineado a la izquierda */}
+                <div className="stock-product-title">T-SHIRT</div>
+                
+                {/* Sección de AMOUNT y valor */}
+                <div className="stock-product-amount-section">
+                  <div className="stock-product-amount-label">AMOUNT</div>
+                  <button className="stock-product-amount-value">27</button>
                 </div>
                 
-                <div class="stock-product-value-container">
-                  <div class="stock-product-value">27</div>
-                </div>
-                
-                <div class="stock-product-footer">
-                  <button class="stock-product-see-all-btn">SEE ALL</button>
+                {/* Botón SEE ALL en la parte inferior */}
+                <div className="stock-product-footer">
+                  <button className="stock-product-see-all-btn">SEE ALL</button>
                 </div>
               </div>
-            </div>
             </div>
           </div>
         </div>
       </div>
-    
+    </div>
   );
 };
 
