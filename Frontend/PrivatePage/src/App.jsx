@@ -8,6 +8,8 @@ import Settings from "./pages/SettingsPage/Settings";
 import AddProducts from "./pages/addProductsPage/addProducts";
 import Stats from "./pages/statsPage/Stats"; // Nueva página de estadísticas
 import CategoriesPage from "./pages/CategoriesPage/CategoriesPage"; // Nueva página de categorías
+import Stock from "./pages/stockPage/stock"; // Nueva página de categorías
+
 
 import Users from "./pages/usersPage/users";
 import Employees from "./pages/employeesPage/employees";
@@ -29,6 +31,7 @@ export default function App() {
         <Route path="/Users" element={<Users />} />  {/* Página de usuarios */}
          <Route path="/Employees" element={<Employees />} /> 
          <Route path="/Orders" element={<Orders />} /> 
+         <Route path="/Stock" element={<Stock />} /> 
       </Routes>
     </Router>
   );
