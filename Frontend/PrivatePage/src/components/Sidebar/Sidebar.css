@@ -3,10 +3,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 97vh; /* Altura casi completa con espacio inferior */
+  height: calc(100vh - 20px); /* Altura ajustada para dispositivos móviles */
   width: 200px;
   background-color: #ffffff;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra lateral sutil */
+  border-right: 1px solid #e0e0e0; /* Fallback for low-end devices */
   padding: 20px;
   font-family: "Mulish", sans-serif;
   display: flex;
@@ -26,7 +27,8 @@
 
 /* Logo principal ajustado */
 .Sidebar-logoApp img {
-  width: 820px; /* Ancho controlado */
+  width: 100%; /* Ajuste dinámico */
+  height: auto; /* Altura proporcional */
   height:max-content; /* Altura proporcional */
   margin-bottom: 30px; /* Espaciado inferior */
 }
@@ -51,7 +53,7 @@
   margin-left: 40px; /* Sangría izquierda */
   margin-top: 10px;
   margin-bottom: 38px; /* Espaciado vertical entre items */
-  gap: 20px; /* Espacio icono-texto reducido */
+  gap: 20px; /* Espacio amplio entre icono y texto */
 }
 
 /* Efecto interactivo para iconos */
@@ -60,10 +62,14 @@
 }
 
 /* ================= ENLACES DE NAVEGACIÓN ================= */
+:root {
+  --sidebar-link-color: #333; /* Default link color */
+}
+
 .Sidebar-nav ul li a {
   text-decoration: none;
   font-size: 14px;
-  color: #333;
+  color: var(--sidebar-link-color);
   font-weight: normal;
   transition: color 0.3s ease; /* Transición de color suave */
 }
@@ -79,8 +85,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 40px; /* Espaciado del borde inferior */
-  
-  
+  position: relative; /* Define posición relativa para evitar problemas de superposición */
 }
 
 /* Estilo base del botón */
@@ -139,14 +144,18 @@
 }
 
 /* Botón de confirmación (Rojo) */
+:root {
+  --confirm-btn-color: #b11322; /* Rojo intenso */
+}
+
 .Sidebar-confirm-btn {
-  background-color: #000000;
+  background-color: var(--confirm-btn-color);
   color: white;
 }
 
 /* Botón de cancelar (Verde) */
 .Sidebar-cancel-btn {
-  background-color: #000000;
+  background-color: #136d27; /* Verde intenso */
   color: white;
 }
 
@@ -170,7 +179,7 @@
 
 /* Efectos hover con cambio de color */
 .Sidebar-confirm-btn:hover {
-  background-color: #b11322; /* Rojo intenso */
+  background-color: var(--confirm-btn-color);
 }
 
 .Sidebar-cancel-btn:hover {

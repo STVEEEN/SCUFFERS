@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+ import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar"; // Importa el componente de la barra lateral
 import SettingsButton from "../../components/SettingsButton/SettingsButton"; // Importa el botón de configuración
 import "./addProducts.css"; // Importa los estilos CSS
