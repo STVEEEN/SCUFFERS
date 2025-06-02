@@ -35,15 +35,20 @@
 
 /* Contenedor del logo */
 .Sidebar-logoApp {
-  width: 200px; /* Ancho controlado */
-  margin-top: 10px;
-  margin-right: 17px; /* Alineación derecha */
+  width: 20px; /* Mantén un tamaño base */
+  position: absolute; /* Asegura que la posición no cambie */
+  top: 10px;
+  left: 20px; /* Mantén la posición */
+  transform: scale(3); /* Aumenta el tamaño */
+  transform-origin: top left; /* Establece el punto de escala */
 }
+
+
 
 /* ================= LISTA DE NAVEGACIÓN ================= */
 .Sidebar-nav ul {
   list-style: none;
-  padding: 10px; /* Espaciado interno */
+  padding: 230px; /* Espaciado interno */
 }
 
 /* Elementos individuales del menú */
@@ -54,6 +59,9 @@
   margin-top: 10px;
   margin-bottom: 38px; /* Espaciado vertical entre items */
   gap: 20px; /* Espacio amplio entre icono y texto */
+  margin-bottom: 35px; /* Espaciado vertical entre items */
+  gap: 20px; /* Espacio icono-texto reducido */
+  width: 200px; /* Ancho controlado */
 }
 
 /* Efecto interactivo para iconos */
@@ -80,13 +88,14 @@
 }
 
 /* ================= SECCIÓN DE LOGOUT ================= */
-/* Contenedor del botón */
 .Sidebar-logout-container {
   display: flex;
   align-items: center;
   margin-bottom: 40px; /* Espaciado del borde inferior */
   position: relative; /* Define posición relativa para evitar problemas de superposición */
+  margin-top: -200px; /* Desplázalo hacia arriba */
 }
+
 
 /* Estilo base del botón */
 .Sidebar-logout-btn {

@@ -32,7 +32,7 @@
 
 /* Estilo base para todas las cards con efecto hover */
 .user-card {
-  background: white;
+  background-color: #fcfcfc;
   border-radius: 15px;
   padding: 40px;
   box-shadow: 0 8px 8px rgba(0,0,0,0.1);
@@ -95,7 +95,7 @@
 
 /* Contenedor de tabla con efecto hover */
 .table-container {
-  background: white;
+  background-color: #fcfcfc;
   border-radius: 15px;
   padding: 25px;
   box-shadow: 0 8px 8px rgba(0,0,0,0.1);
@@ -127,14 +127,14 @@ th, td {
 th {
   font-weight: 500;
   color: #444;
-  background: #f8f8f8;
+  background-color: #fcfcfc;
   position: sticky;
   top: 0; 
 }
 
 /* Fila seleccionada para edición */
 .selected-row {
-  background-color: #f5fbff !important;
+  background-color: #fcfcfc;
 }
 
 /* Efecto hover para filas */
@@ -147,7 +147,7 @@ tr:hover td {
 
 /* ================= SECCIÓN DE INPUTS ================= */
 .inputs-container {
-  background: white;
+  background-color: #fcfcfc;
   border-radius: 15px;
   padding: 25px;
   box-shadow: 0 8px 8px rgba(0,0,0,0.1);

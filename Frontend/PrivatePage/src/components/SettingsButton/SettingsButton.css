@@ -7,6 +7,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
 }
 
+
 /* Efecto hover - levitación con sombra */
 .settings-button:hover {
   transform: translateY(-3px) scale(1.05); /* Se eleva y se expande un poco */
