@@ -3,13 +3,8 @@
 .Stats-container {
   display: flex;
   height: 100vh;
-<<<<<<< HEAD
-  background-color: #fdfdfd;
-  margin-left: 340px;
-=======
   background-color: #ffffff;
   margin-left: 220px;
->>>>>>> 267ec0cf6709e2a1d3010dcc2d7ab7c378935fe6
   color: #000;
 }
 
