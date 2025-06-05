@@ -9,10 +9,13 @@ export const config = {
     server : {
         PORT : process.env.PORT
     },
-
+    emailAdmin: {
+    email: process.env.ADMIN_EMAIL,
+    password: process.env.ADMIN_PASSWORD,
+    },
     JWT: {
-        secret: process.env.JWT_SECRET || "sdfsdf",
-        expireIn: process.env.JWT_EXPIRES1 || "30d"
+        secret: process.env.JWT_SECRET || "secret1234",
+        expiresIn: process.env.JWT_EXPIRES1 || "30d"
       },
     cloudinary: {
         cloudinary_name: process.env.CLOUDINARY_NAME || "djxsqjpfh",

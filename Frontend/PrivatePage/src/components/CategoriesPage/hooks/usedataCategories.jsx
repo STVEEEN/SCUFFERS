@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
-const API_URL = "http://localhost:4000/.api/categories"; // Corrección de la URL (se eliminó el punto extra)
+const API_URL = "http://localhost:4000/api/categories"; // Corrección de la URL (se eliminó el punto extra)
 
 export default function useDataCategories() {
   const [activeTab, setActiveTab] = useState("list");

@@ -14,25 +14,28 @@ import Stock from "./pages/stockPage/stock"; // Nueva página de categorías
 import Users from "./pages/usersPage/users";
 import Employees from "./pages/employeesPage/employees";
 import Orders from "./pages/ordersPage/orders";
+import { AuthProvider } from "./context/authContext";
 
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<FirstUserPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/passwordRecovery" element={<PasswordRecovery />} />
-        <Route path="/codeConfirmation" element={<CodeConfirmation />} />
-        <Route path="/newPassword" element={<NewPassword />} />
-        <Route path="/stats" element={<Stats />} /> 
-        <Route path="/categories" element={<CategoriesPage />} />
-        <Route path="/addproducts" element={<AddProducts />} />
-       <Route path="/Settings" element={<Settings />} />  
-        <Route path="/Users" element={<Users />} />  {/* Página de usuarios */}
-         <Route path="/Employees" element={<Employees />} /> 
-         <Route path="/Orders" element={<Orders />} /> 
-         <Route path="/Stock" element={<Stock />} /> 
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<FirstUserPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/passwordRecovery" element={<PasswordRecovery />} />
+          <Route path="/codeConfirmation" element={<CodeConfirmation />} />
+          <Route path="/newPassword" element={<NewPassword />} />
+          <Route path="/stats" element={<Stats />} />
+          <Route path="/categories" element={<CategoriesPage />} />
+          <Route path="/addproducts" element={<AddProducts />} />
+          <Route path="/Settings" element={<Settings />} />
+          <Route path="/Users" element={<Users />} /> {/* Página de usuarios */}
+          <Route path="/Employees" element={<Employees />} />
+          <Route path="/Orders" element={<Orders />} />
+          <Route path="/Stock" element={<Stock />} />
       </Routes>
     </Router>
+    </AuthProvider>
   );
 }
