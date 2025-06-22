@@ -6,16 +6,14 @@ import CodeConfirmation from "./pages/codeConfirmationPage/CodeConfirmation";
 import NewPassword from "./pages/newPasswordPage/NewPassword";
 import Settings from "./pages/SettingsPage/Settings";
 import AddProducts from "./pages/addProductsPage/addProducts";
-import Stats from "./pages/statsPage/Stats"; // Nueva página de estadísticas
-import CategoriesPage from "./pages/CategoriesPage/CategoriesPage"; // Nueva página de categorías
-import Stock from "./pages/stockPage/stock"; // Nueva página de categorías
-
-
-
+import Stats from "./pages/statsPage/Stats";
+import CategoriesPage from "./pages/CategoriesPage/CategoriesPage";
+import Stock from "./pages/stockPage/stock";
 import Users from "./pages/usersPage/users";
 import Employees from "./pages/employeesPage/employees";
 import Orders from "./pages/ordersPage/orders";
 import { AuthProvider } from "./context/authContext";
+import ProtectedRoute from "./context/protectedRoute";
 
 export default function App() {
   return (
@@ -27,16 +25,84 @@ export default function App() {
           <Route path="/passwordRecovery" element={<PasswordRecovery />} />
           <Route path="/codeConfirmation" element={<CodeConfirmation />} />
           <Route path="/newPassword" element={<NewPassword />} />
-          <Route path="/stats" element={<Stats />} />
-          <Route path="/categories" element={<CategoriesPage />} />
-          <Route path="/addproducts" element={<AddProducts />} />
-          <Route path="/Settings" element={<Settings />} />
-          <Route path="/Users" element={<Users />} /> {/* Página de usuarios */}
-          <Route path="/Employees" element={<Employees />} />
-          <Route path="/Orders" element={<Orders />} />
-          <Route path="/Stock" element={<Stock />} />
-      </Routes>
-    </Router>
+
+          {/* Only Admin and Gerente */}
+          <Route
+            path="/stats"
+            element={
+              <ProtectedRoute allowedRoles={["Admin", "Gerente"]}>
+                <Stats />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Only Admin */}
+          <Route
+            path="/Employees"
+            element={
+              <ProtectedRoute allowedRoles={["Admin"]}>
+                <Employees />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Only Admin */}
+          <Route
+            path="/Users"
+            element={
+              <ProtectedRoute allowedRoles={["Admin"]}>
+                <Users />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Orders: Admin, Gerente, Employee */}
+          <Route
+            path="/Orders"
+            element={
+              <ProtectedRoute allowedRoles={["Admin", "Gerente", "Employee"]}>
+                <Orders />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Products, Categories, Stock: Admin, Gerente, Employee, Bodeguero */}
+          <Route
+            path="/addproducts"
+            element={
+              <ProtectedRoute allowedRoles={["Admin", "Gerente", "Employee", "Bodeguero"]}>
+                <AddProducts />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/categories"
+            element={
+              <ProtectedRoute allowedRoles={["Admin", "Gerente", "Employee", "Bodeguero"]}>
+                <CategoriesPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/Stock"
+            element={
+              <ProtectedRoute allowedRoles={["Admin", "Gerente", "Employee", "Bodeguero"]}>
+                <Stock />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Settings: Admin, Gerente, Employee */}
+          <Route
+            path="/Settings"
+            element={
+              <ProtectedRoute allowedRoles={["Admin", "Gerente", "Employee"]}>
+                <Settings />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </Router>
     </AuthProvider>
   );
 }

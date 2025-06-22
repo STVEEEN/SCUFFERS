@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Button from "../UI/Button";
 import "../../pages/addProductsPage/addProducts.css";
 
 const initialForm = {
@@ -62,7 +63,9 @@ export default function ProductForm({
       onSubmit={editProduct ? handleUpdate : handleSubmit}
       encType="multipart/form-data"
     >
-      <h2 className="ProductForm-title">{editProduct ? "Editar Producto" : "Nuevo Producto"}</h2>
+      <h2 className="ProductForm-title">
+        {editProduct ? "Editar Producto" : "Nuevo Producto"}
+      </h2>
       {/* Categoría */}
       <div className="ProductForm-group">
         <label>Categoría</label>
@@ -144,8 +147,29 @@ export default function ProductForm({
           required={!editProduct}
         />
         {preview && (
-          <div className="ProductForm-preview">
-            <img src={preview} alt="preview" />
+          <div className="ProductForm-preview" style={{
+            marginTop: 12,
+            width: 260,
+            height: 260,
+            border: "1px solid #ddd",
+            borderRadius: "1.2rem",
+            overflow: "hidden",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "#fafafa"
+          }}>
+            <img
+              src={preview}
+              alt="preview"
+              style={{
+                width: "95%",
+                height: "95%",
+                objectFit: "contain",
+                cursor: "crosshair"
+              }}
+              title="Selecciona el color con el gotero aquí"
+            />
           </div>
         )}
       </div>
@@ -168,11 +192,19 @@ export default function ProductForm({
           placeholder="Línea (opcional)"
         />
       </div>
-      <div className="ProductForm-buttons">
-        <button type="submit" disabled={loading}>
-          {loading ? "Guardando..." : editProduct ? "Actualizar" : "Crear"}
-        </button>
-        <button type="button" onClick={resetForm}>Cancelar</button>
+      <div className="ProductForm-buttons" style={{ display: "flex", gap: "1rem", marginTop: 28 }}>
+        <Button
+          type="submit"
+          colorClass="normal"
+          label={loading ? "Guardando..." : editProduct ? "Actualizar" : "Crear"}
+          disabled={loading}
+        />
+        <Button
+          type="button"
+          colorClass="normal"
+          label="Cancelar"
+          actionButton={resetForm}
+        />
       </div>
     </form>
   );

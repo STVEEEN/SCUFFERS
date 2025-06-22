@@ -15,10 +15,6 @@ export default function Login() {
       setErrorMessage("INVALID DATA");
       return;
     }
-    if (!email.includes("@gmail.com")) {
-      setErrorMessage("INVALID EMAIL FORMAT");
-      return;
-    }
 
     const result = await login(email, password);
 
@@ -27,11 +23,14 @@ export default function Login() {
       return;
     }
 
-     if (result.role === 'Admin' || result.role === 'Gerente') {
-       navigate("/Stats");
+    // Redirección por rol
+    if (result.role === "Admin" || result.role === "Gerente") {
+      navigate("/Stats");
+    } else if (result.role === "Bodeguero" || result.role === "Employee") {
+      navigate("/addproducts");
     } else {
-       navigate("/Products");
-     }
+      setErrorMessage("Unauthorized role");
+    }
   };
 
   return (
@@ -59,15 +58,15 @@ export default function Login() {
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
-           type="password" // <-- cambia de "text" a "password"
-           placeholder="PASSWORD"
-           value={password}
-           onFocus={(e) => {
-           if (e.target.value === "PASSWORD") setPassword("");
-           }}
-           onBlur={(e) => {
-           if (e.target.value === "") setPassword("PASSWORD");
-           }}
+            type="password"
+            placeholder="PASSWORD"
+            value={password}
+            onFocus={(e) => {
+              if (e.target.value === "PASSWORD") setPassword("");
+            }}
+            onBlur={(e) => {
+              if (e.target.value === "") setPassword("PASSWORD");
+            }}
             onChange={(e) => setPassword(e.target.value)}
           />
           <a href="/passwordRecovery" className="forgot-password">

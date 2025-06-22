@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Button from "../UI/Button";
 
 // Componente principal que maneja el formulario de categorías
 export default function CategoryForm({
@@ -27,7 +28,7 @@ export default function CategoryForm({
   return (
     // Formulario de categorías
     <form
-      onSubmit={editCategory ? handleUpdate : handleSubmit} // Usa la función de actualizar si está en edición, de lo contrario, registra nueva categoría
+      onSubmit={editCategory ? handleUpdate : handleSubmit}
       className="categories-form-container"
       encType="multipart/form-data"
     >
@@ -70,13 +71,19 @@ export default function CategoryForm({
       )}
 
       {/* Botones para enviar o cancelar */}
-      <div className="categories-form-buttons">
-        <button type="submit" className="categories-form-submit" disabled={loading}>
-          {editCategory ? "Update" : "Create"}
-        </button>
-        <button type="button" className="categories-form-cancel" onClick={resetForm}>
-          Cancel
-        </button>
+      <div className="categories-form-buttons" style={{ display: "flex", gap: "1rem", marginTop: 20 }}>
+        <Button
+          type="submit"
+          colorClass="normal"
+          label={loading ? "Saving..." : editCategory ? "Update" : "Create"}
+          disabled={loading}
+        />
+        <Button
+          type="button"
+          colorClass="normal"
+          label="Cancel"
+          actionButton={resetForm}
+        />
       </div>
     </form>
   );

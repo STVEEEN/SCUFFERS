@@ -60,9 +60,9 @@ const loginEmployeesController = {
       }
 
       // Validar rol del usuario
-      if (!["Admin", "Gerente", "Empleado", "Bodeguero"].includes(userRole)) {
+        if (!["Admin", "Gerente", "Employee", "Bodeguero"].includes(userRole)) {
         console.log("Rol no autorizado:", userRole);
-        return res.status(403).json({ 
+         return res.status(403).json({ 
           message: "No tienes permisos para acceder" 
         });
       }

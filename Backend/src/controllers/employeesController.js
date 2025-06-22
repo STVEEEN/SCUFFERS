@@ -1,5 +1,5 @@
 const employeesController = {};
-import employeeModel from "../models/Employees.js";
+import employeeModel from "../models/employees.js";
 
 employeesController.getEmployees = async (req, res) => {
     try {
@@ -7,36 +7,6 @@ employeesController.getEmployees = async (req, res) => {
         res.json(employees);
     } catch (error) {
         res.status(500).json({ message: "Internal Server Error", error });
-    }
-};
-
-employeesController.postEmployees = async (req, res) => {
-    try {
-        const {
-            name,
-            birthday,
-            email,
-            address,
-            password,
-            hireDate,
-            dui,
-            phoneNumber  
-        } = req.body;
-
-        const newEmployee = new employeeModel({
-            name,
-            email,
-            address,
-            password,
-            hireDate,
-            birthday,
-            dui,
-            phoneNumber  
-        });
-        await newEmployee.save();
-        res.status(201).json({ message: "OK" });
-    } catch (error) {
-        res.status(400).json({ message: "Bad Request", error });
     }
 };
 

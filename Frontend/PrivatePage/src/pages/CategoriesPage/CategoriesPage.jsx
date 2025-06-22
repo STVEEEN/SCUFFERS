@@ -53,6 +53,7 @@ const CategoriesPage = () => {
             }}
             style={{
               marginRight: "8px"
+              
             }}
           />
           <Button
