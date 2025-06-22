@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import SettingsButton from "../../components/SettingsButton/SettingsButton";
+import Sidebar from "../../components/UI/Sidebar/Sidebar";
+import SettingsButton from "../../components/UI/SettingsButton/SettingsButton";
 import useDataCategories from "../../components/CategoriesPage/hooks/useDataCategories";
 import CategoryCard from "../../components/CategoriesPage/CategoryCard";
 import CategoryForm from "../../components/CategoriesPage/CategoryForm";
 import { Toaster } from "react-hot-toast";
+import Button from "../../components/UI/Button"; // Importa el botón
+import SectionTitle from "../../components/UI/sectionTitle/sectionTitle";
 
 import "./categoriesPage.css";
 
 const CategoriesPage = () => {
-  const [activeSection, setActiveSection] = useState("list"); // Controla la sección activa
+  const [activeSection, setActiveSection] = useState("list");
   const {
-    id, // Usamos `id` para determinar si es edición o creación
+    id,
     categories,
     loading,
     name,
@@ -26,8 +28,8 @@ const CategoriesPage = () => {
   } = useDataCategories();
 
   const handleCancel = () => {
-    resetForm(); // Limpia el formulario
-    setActiveSection("list"); // Vuelve a la vista de categorías
+    resetForm();
+    setActiveSection("list");
   };
 
   return (
@@ -36,45 +38,28 @@ const CategoriesPage = () => {
 
       <div className="Categories-content">
         <div className="Categories-header">
-          <h1 className="Categories-title">CATEGORIES MANAGEMENT</h1>
+          <SectionTitle className="Categories-title">CATEGORIES MANAGEMENT</SectionTitle>
           <SettingsButton />
         </div>
 
         {/* Botones para alternar entre secciones */}
         <div className="d-flex justify-content-center mb-4">
-          <button
-            className={`btn ${activeSection === "list" ? "btn-primary" : "btn-secondary"}`}
-            onClick={() => {
+          <Button
+            label="See categories"
+            colorClass={activeSection === "list" ? "primary" : "secondary"}
+            actionButton={() => {
               setActiveSection("list");
-              resetForm(); // Limpia los datos del formulario al cambiar a "Ver Categorías"
+              resetForm();
             }}
             style={{
-              marginRight: "8px",
-              borderRadius: "12px",
-              padding: "8px 16px",
-              backgroundColor: activeSection === "list" ? "#6b21a8" : "#e0e0e0",
-              color: activeSection === "list" ? "#ffffff" : "#000000",
-              border: "none",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+              marginRight: "8px"
             }}
-          >
-            See categories
-          </button>
-          <button
-            className={`btn ${activeSection === "form" ? "btn-primary" : "btn-secondary"}`}
-            onClick={() => setActiveSection("form")}
-            style={{
-              borderRadius: "12px",
-              padding: "8px 16px",
-              backgroundColor: activeSection === "form" ? "#6b21a8" : "#e0e0e0",
-              color: activeSection === "form" ? "#ffffff" : "#000000",
-              border: "none",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              transition: "background-color 0.3s, color 0.3s",
-            }}
-          >
-            {id ? "Edit Category" : "Add Category"} {/* Revisamos `id` en lugar de `name` */}
-          </button>
+          />
+          <Button
+            label={id ? "Edit Category" : "Add Category"}
+            colorClass={activeSection === "form" ? "primary" : "secondary"}
+            actionButton={() => setActiveSection("form")}
+          />
         </div>
 
         {activeSection === "form" && (
@@ -84,10 +69,10 @@ const CategoriesPage = () => {
             setImage={setImage}
             handleSubmit={handleSubmit}
             handleUpdate={handleUpdate}
-            editCategory={!!id} // Usamos `id` para determinar si es edición
-            resetForm={handleCancel} // Usa la función de cancelar para manejar el botón
+            editCategory={!!id}
+            resetForm={handleCancel}
             loading={loading}
-            image={image} // Pasa la imagen para vista previa
+            image={image}
           />
         )}
 
@@ -99,8 +84,8 @@ const CategoriesPage = () => {
                 key={cat._id}
                 category={cat}
                 onEdit={(category) => {
-                  setActiveSection("form"); // Cambia a la sección de formulario
-                  startEdit(category); // Llena el formulario con los datos de la categoría
+                  setActiveSection("form");
+                  startEdit(category);
                 }}
                 onDelete={deleteCategory}
               />

@@ -11,6 +11,7 @@ import CategoriesPage from "./pages/CategoriesPage/CategoriesPage"; // Nueva pá
 import Stock from "./pages/stockPage/stock"; // Nueva página de categorías
 
 
+
 import Users from "./pages/usersPage/users";
 import Employees from "./pages/employeesPage/employees";
 import Orders from "./pages/ordersPage/orders";

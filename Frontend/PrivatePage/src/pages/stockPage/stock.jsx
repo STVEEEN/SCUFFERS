@@ -1,7 +1,7 @@
 import React from "react";
-import Sidebar from "../../components/Sidebar/Sidebar";
+import Sidebar from "../../components/UI/Sidebar/Sidebar"; // Importa el componente de la barra lateral
 import "./stock.css";
-import SettingsButton from "../../components/SettingsButton/SettingsButton";
+import SettingsButton from "../../components/UI/SettingsButton/SettingsButton"; // Importa el botón de configuración
 
 const StockPage = () => {
   return (

@@ -1,99 +1,126 @@
- import React, { useState } from "react";
-import Sidebar from "../../components/Sidebar/Sidebar"; // Importa el componente de la barra lateral
-import SettingsButton from "../../components/SettingsButton/SettingsButton"; // Importa el botón de configuración
-import "./addProducts.css"; // Importa los estilos CSS
+import React, { useState } from "react";
+import Sidebar from "../../components/UI/Sidebar/Sidebar";
+import SettingsButton from "../../components/UI/SettingsButton/SettingsButton";
+import useDataProducts from "../../hooks/usedataProducts";
+import ProductForm from "../../components/ProductsPage/ProductsForm";
+import ProductList from "../../components/ProductsPage/ProductsList";
+import { Toaster } from "react-hot-toast";
+import Button from "../../components/UI/Button";
+import SectionTitle from "../../components/UI/sectionTitle/sectionTitle";
 
-const AddProduct = () => {
-  // Estados para almacenar los datos del producto
-  const [garmentName, setGarmentName] = useState(""); // Nombre de la prenda
-  const [description, setDescription] = useState(""); // Descripción del producto
-  const [category, setCategory] = useState(""); // Categoría del producto
-  const [price, setPrice] = useState(""); // Precio del producto
-  const [collection, setCollection] = useState(""); // Colección a la que pertenece
-  const [imageUrl, setImageUrl] = useState(""); // URL de la imagen del producto
+import "../../pages/addProductsPage/addProducts.css";
 
-  // Función para manejar la acción de agregar un producto
-  const handleAddProduct = () => {
-    console.log("Product added:", { garmentName, description, category, price, collection, imageUrl });
+const AddProductsPage = () => {
+  const [activeSection, setActiveSection] = useState("list");
+  const {
+    products,
+    categories,
+    loading,
+    id,
+    categoryId,
+    setCategoryId,
+    name,
+    setName,
+    price,
+    setPrice,
+    stock,
+    setStock,
+    discount,
+    setDiscount,
+    color,
+    setColor,
+    image,
+    setImage,
+    description,
+    setDescription,
+    line,
+    setLine,
+    handleSubmit,
+    handleUpdate,
+    deleteProduct,
+    startEdit,
+    resetForm,
+    editProduct,
+  } = useDataProducts();
+
+  const handleCancel = () => {
+    resetForm();
+    setActiveSection("list");
   };
 
   return (
-    <div className="AddProduct-page"> {/* Contenedor principal de la página */}
-      <Sidebar /> {/* Barra lateral */}
+    <div className="Products-container">
+      <Sidebar />
 
-      <div className="AddProduct-container"> {/* Contenedor del formulario */}
-        <div className="AddProduct-header"> {/* Encabezado con título y botón de configuración */}
-          <h2>ADD THE PRODUCT</h2>
-          <SettingsButton /> {/* Botón de configuración */}
+      <div className="Products-content">
+        <div className="Products-header">
+          <SectionTitle className="Products-title">PRODUCTS MANAGEMENT</SectionTitle>
+          <SettingsButton />
         </div>
 
-        <div className="AddProduct-content"> {/* Contenedor del formulario y la imagen */}
-          <div className="AddProduct-form-section"> {/* Sección del formulario */}
-            {/* Campo para el nombre de la prenda */}
-            <input 
-              type="text" 
-              placeholder="GARMENT NAME" 
-              value={garmentName} 
-              onChange={(e) => setGarmentName(e.target.value)} 
-            />
-
-            {/* Campo para la descripción */}
-            <input 
-              type="text" 
-              placeholder="DESCRIPTION" 
-              value={description} 
-              onChange={(e) => setDescription(e.target.value)} 
-            />
-
-            {/* Selector de categoría */}
-            <select value={category} onChange={(e) => setCategory(e.target.value)}>
-              <option value="">CATEGORY</option>
-            </select>
-
-            {/* Campo para el precio */}
-            <input 
-              type="text" 
-              placeholder="PRICE" 
-              value={price} 
-              onChange={(e) => setPrice(e.target.value)} 
-            />
-
-            {/* Campo para la colección */}
-            <input 
-              type="text" 
-              placeholder="COLLECTION" 
-              value={collection} 
-              onChange={(e) => setCollection(e.target.value)} 
-            />
-          </div>
-
-          <div className="AddProduct-image-section"> {/* Sección de la imagen */}
-            <div className="AddProduct-image-preview"> {/* Vista previa de la imagen */}
-              <p>IMAGE PREVIEW</p>
-            </div>
-
-            {/* Campo para la URL de la imagen */}
-            <input 
-              type="text" 
-              placeholder="IMAGE URL" 
-              value={imageUrl} 
-              onChange={(e) => setImageUrl(e.target.value)} 
-            />
-          </div>
+        <div className="d-flex justify-content-center mb-4">
+          <Button
+            label="See products"
+            colorClass={activeSection === "list" ? "primary" : "secondary"}
+            actionButton={() => {
+              setActiveSection("list");
+              resetForm();
+            }}
+            style={{
+              marginRight: "8px"
+            }}
+          />
+          <Button
+            label={id ? "Edit Product" : "Add Product"}
+            colorClass={activeSection === "form" ? "primary" : "secondary"}
+            actionButton={() => setActiveSection("form")}
+          />
         </div>
 
-        <div className="AddProduct-button-container"> {/* Contenedor del botón */}
-          <button 
-            className="AddProduct-button" 
-            type="button" 
-            onClick={handleAddProduct}
-          >
-            ADD
-          </button>
-        </div>
+        {activeSection === "form" && (
+          <ProductForm
+            categories={categories}
+            categoryId={categoryId}
+            setCategoryId={setCategoryId}
+            name={name}
+            setName={setName}
+            price={price}
+            setPrice={setPrice}
+            stock={stock}
+            setStock={setStock}
+            discount={discount}
+            setDiscount={setDiscount}
+            color={color}
+            setColor={setColor}
+            image={image}
+            setImage={setImage}
+            description={description}
+            setDescription={setDescription}
+            line={line}
+            setLine={setLine}
+            handleSubmit={handleSubmit}
+            handleUpdate={handleUpdate}
+            editProduct={editProduct}
+            resetForm={handleCancel}
+            loading={loading}
+          />
+        )}
+
+        {activeSection === "list" && (
+          <ProductList
+            products={products}
+            onEdit={(product) => {
+              setActiveSection("form");
+              startEdit(product);
+            }}
+            onDelete={deleteProduct}
+            loading={loading}
+          />
+        )}
+        <Toaster toastOptions={{ duration: 1200 }} />
       </div>
     </div>
   );
 };
 
-export default AddProduct;
+export default AddProductsPage;

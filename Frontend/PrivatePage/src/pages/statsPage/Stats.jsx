@@ -1,8 +1,8 @@
 import React from "react";
-import Sidebar from "../../components/Sidebar/Sidebar"; //  Importa el sidebar
+import Sidebar from "../../components/UI/Sidebar/Sidebar"; //  Importa el sidebar
 import "./Stats.css"; //  Importa los estilos CSS
 import SalesCard from "../../components/SalesCard/SalesCard"; //  Importa la tarjeta de ventas
-import SettingsButton from "../../components/SettingsButton/SettingsButton"; //  Importa el botón de configuración
+import SettingsButton from "../../components/UI/SettingsButton/SettingsButton"; //  Importa el botón de configuración
 import AgeTargetCard from "../../components/AgeTargetCard/AgeTargetCard"; //  Importa la tarjeta de análisis de edad
 import TopSellingProducts from "../../components/TopSellingProducts/TopSellingProducts"; //  Importa el componente de productos más vendidos
 

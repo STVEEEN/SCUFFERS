@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import SettingsButton from "../../components/SettingsButton/SettingsButton";
+import Sidebar from "../../components/UI/Sidebar/Sidebar"; // Importa el componente de la barra lateral
+import SettingsButton from "../../components/UI/SettingsButton/SettingsButton"; // Importa el botón de configuración
 import "./Users.css";
 
 const initialUsers = [
