@@ -23,9 +23,7 @@ const userSchema = new Schema({
     },
     Password: {
         type: String,
-        required: function () {
-            return this.Membership > 0; // Solo requiere contraseña si tiene membresía
-        },
+        required: true,
         minlength: [6, "La contraseña debe tener al menos 6 caracteres"]
     },
     Age: {
@@ -52,15 +50,14 @@ const userSchema = new Schema({
         type: String,
         enum: ["Guest", "Customer"],
         default: "Guest"
-    },    
-    Membership: {
-        type: Number,
-        required: true,
-        min: [1, "El nivel de membresía debe ser al menos 1"]
-    } 
+    },
+    isVerified: {
+        type: Boolean,
+        default: false
+    }
 }, {
     timestamps: true,
     strict: true
 });
 
-export default model("users", userSchema);
+export default model("user", userSchema);

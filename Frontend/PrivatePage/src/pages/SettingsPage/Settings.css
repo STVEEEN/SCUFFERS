@@ -112,6 +112,7 @@
 
 .change-button:hover {
   background-color: #333; /* Cambia el color de fondo */
+  text-align: flex-start;
 }
 
 /* Sección derecha: Perfil del usuario */
@@ -154,7 +155,6 @@
   width: 100%;
   background: #fff;
   border-radius: 15px;
-  margin-top: 20px;
   padding: 15px 0 10px 0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.04);
 }

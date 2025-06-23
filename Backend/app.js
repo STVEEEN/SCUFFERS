@@ -11,6 +11,7 @@ import orderRoutes from "./src/routes/orderRoutes.js"
 import paymentsRoutes from "./src/routes/paymentsRoutes.js"
 import loginEmployeeRoutes from "./src/routes/loginEmployee.js";
 import registerEmployeesRoute from "./src/routes/registerEmployeesRoute.js";
+import passwordRecoveryRoutes from "./src/routes/passwordRecovery.js";
 
 const app = express();
 
@@ -31,10 +32,12 @@ app.use("/api/registerEmployees", registerEmployeesRoute);
 app.use("/api/user", userRoutes)
 app.use("/api/categories", categoriesRoutes)
 app.use("/api/products", productsRoutes)
+
 app.use("/api/cart", cartRoutes)
 app.use("/api/order", orderRoutes)
 app.use("/api/payments", paymentsRoutes)
 
 app.use("/api/login", loginEmployeeRoutes);
+app.use("/api/passwordRecovery", passwordRecoveryRoutes);
 
 export default app;
