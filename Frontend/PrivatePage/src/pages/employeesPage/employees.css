@@ -16,17 +16,20 @@
 /* Contenedor flexible para cards y tabla */
 .content-wrapper {
   display: flex;
-  gap: 160px;  /* Espacio entre columnas */
+  justify-content: center;   /* <-- Centra horizontalmente el contenido */
   align-items: flex-start;
+  gap: 70px;                 /* Reduce el espacio entre columnas */
+  width: 100%;
 }
 
 /* ================ SECCIÓN DE CARDS - SIN MODIFICAR ================ */
 /* Contenedor de las tarjetas estadísticas */
 .cards-column {
-  width: 350px;  /* Ancho fijo */
+  width: 320px;              /* Un poco más angosto */
+  min-width: 260px;
   display: flex;
   flex-direction: column;
-  margin-top: 50px;  /* Espaciado superior */
+  margin-top: 50px;
 }
 
 /* Estilo base de cada tarjeta */
@@ -90,6 +93,7 @@
   flex: 1;  /* Ocupa espacio restante */
   min-width: 0;  /* Previene overflow */
   margin-top: 70px;  /* Alineación vertical */
+  margin-left: 40px;  /* Espacio entre cards y tabla */
 }
 
 /* Contenedor de la tabla con sombra */
