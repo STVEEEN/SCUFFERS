@@ -9,7 +9,7 @@ import cartRoutes from "./src/routes/cartRoutes.js"
 import orderRoutes from "./src/routes/orderRoutes.js"
 import paymentsRoutes from "./src/routes/paymentsRoutes.js"
 import loginEmployeeRoutes from "./src/routes/loginEmployee.js";
-import adminAuthRoutes from "./src/middleware/adminAuth.js";
+import registerEmployeesRoute from "./src/routes/registerEmployeesRoute.js";
 
 const app = express();
 
@@ -24,6 +24,7 @@ const corsOptions = {
 app.use(express.json());
 
 app.use("/api/employees", employeesRoutes)
+app.use("/api/registerEmployees", registerEmployeesRoute);
 app.use("/api/user", userRoutes)
 app.use("/api/categories", categoriesRoutes)
 app.use("/api/products", productsRoutes)

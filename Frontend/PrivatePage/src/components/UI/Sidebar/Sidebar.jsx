@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../../../context/authContext";
 import "./Sidebar.css";
 
 const Sidebar = () => {
+  const { user } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation(); // Obtiene la ruta actual
+  const location = useLocation();
   const [showLogout, setShowLogout] = useState(false);
   const [hideElements, setHideElements] = useState(false);
 
@@ -22,6 +24,15 @@ const Sidebar = () => {
     setHideElements(false);
   };
 
+  // Si no está logueado, no mostrar sidebar
+  if (!user) return null;
+
+  // Helpers de permisos
+  const isAdmin = user.role === "Admin";
+  const isGerente = user.role === "Gerente";
+  const isEmployee = user.role === "Employee";
+  const isBodeguero = user.role === "Bodeguero";
+
   return (
     <div className="Sidebar-container">
       <nav className="Sidebar-nav">
@@ -29,42 +40,62 @@ const Sidebar = () => {
           <li className="Sidebar-logoApp">
             <img src="/src/img/LogoSideBar.png" alt="Logo" />
           </li>
-          
-          {/* Enlaces de navegación con identificador de sección activa */}
-          <li className={location.pathname === "/Stats" ? "Sidebar-active" : ""}>
-            <img src="/src/img/Stats.png" alt="Stats Icon" />
-            <Link to="/Stats">STATS</Link>
-          </li>
 
-          <li className={location.pathname === "/categories" ? "Sidebar-active" : ""}>
-            <img src="/src/img/categorias.png" alt="Categories Icon" />
-            <Link to="/categories">CATEGORIES</Link>
-          </li>
+          {/* Stats: Solo Admin y Gerente */}
+          {(isAdmin || isGerente) && (
+            <li className={location.pathname === "/Stats" ? "Sidebar-active" : ""}>
+              <img src="/src/img/Stats.png" alt="Stats Icon" />
+              <Link to="/Stats">STATS</Link>
+            </li>
+          )}
 
-          <li className={location.pathname === "/addProducts" ? "Sidebar-active" : ""}>
-            <img src="/src/img/AddPiece.png" alt="Add Piece Icon" />
-            <Link to="/addProducts">ADD PIECE</Link>
-          </li>
+          {/* Categories: Todos */}
+          {(isAdmin || isGerente || isEmployee || isBodeguero) && (
+            <li className={location.pathname === "/categories" ? "Sidebar-active" : ""}>
+              <img src="/src/img/categorias.png" alt="Categories Icon" />
+              <Link to="/categories">CATEGORIES</Link>
+            </li>
+          )}
 
-          <li className={location.pathname === "/orders" ? "Sidebar-active" : ""}>
-            <img src="/src/img/Orders.png" alt="Orders Icon" />
-            <Link to="/orders">ORDERS</Link>
-          </li>
+          {/* Add Piece: Todos */}
+          {(isAdmin || isGerente || isEmployee || isBodeguero) && (
+            <li className={location.pathname === "/addProducts" ? "Sidebar-active" : ""}>
+              <img src="/src/img/AddPiece.png" alt="Add Piece Icon" />
+              <Link to="/addProducts">ADD PIECE</Link>
+            </li>
+          )}
 
-          <li className={location.pathname === "/stock" ? "Sidebar-active" : ""}>
-            <img src="/src/img/Stock.png" alt="Stock Icon" />
-            <Link to="/stock">STOCK</Link>
-          </li>
+          {/* Orders: Admin, Gerente, Employee */}
+          {(isAdmin || isGerente || isEmployee) && (
+            <li className={location.pathname === "/orders" ? "Sidebar-active" : ""}>
+              <img src="/src/img/Orders.png" alt="Orders Icon" />
+              <Link to="/orders">ORDERS</Link>
+            </li>
+          )}
 
-          <li className={location.pathname === "/users" ? "Sidebar-active" : ""}>
-            <img src="/src/img/Users.png" alt="Users Icon" />
-            <Link to="/users">USERS</Link>
-          </li>
+          {/* Stock: Todos */}
+          {(isAdmin || isGerente || isEmployee || isBodeguero) && (
+            <li className={location.pathname === "/stock" ? "Sidebar-active" : ""}>
+              <img src="/src/img/Stock.png" alt="Stock Icon" />
+              <Link to="/stock">STOCK</Link>
+            </li>
+          )}
 
-          <li className={location.pathname === "/employees" ? "Sidebar-active" : ""}>
-            <img src="/src/img/employees.png" alt="employees Icon" />
-            <Link to="/employees">EMPLOYEES</Link>
-          </li>
+          {/* Users: Admin, gerente */}
+          {(isAdmin || isGerente) && (
+            <li className={location.pathname === "/users" ? "Sidebar-active" : ""}>
+              <img src="/src/img/Users.png" alt="Users Icon" />
+              <Link to="/users">USERS</Link>
+            </li>
+          )}
+
+          {/* Employees: Solo Admin */}
+          {isAdmin && (
+            <li className={location.pathname === "/employees" ? "Sidebar-active" : ""}>
+              <img src="/src/img/employees.png" alt="employees Icon" />
+              <Link to="/employees">EMPLOYEES</Link>
+            </li>
+          )}
         </ul>
       </nav>
 
