@@ -1,0 +1,61 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Contenedor principal */
+.first-user-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;               /* Altura exacta del viewport */
+  padding: 20px 0;
+  overflow: hidden;            /* Elimina cualquier scroll */
+}
+
+/* Encabezado compacto */
+.page-header h1 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 0 15px;
+  text-transform: uppercase;
+}
+
+/* Contenedor de cards ajustado */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;                   /* Espacio mínimo entre cards */
+  padding: 0 15px;
+  flex-grow: 1;                /* Ocupa todo el espacio disponible */
+  align-items: center;         /* Centrado vertical */
+  flex-wrap: nowrap;           /* Evita saltos de línea */
+  overflow-x: auto;            /* Scroll horizontal si es necesario */
+}
+
+/* Footer compacto */
+.page-footer {
+  padding: 15px 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: auto;            /* Lo empuja hacia abajo */
+  border-top: 1px solid #eee;
+  flex-shrink: 0;             /* Evita que se reduzca */
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .first-user-card {
+    width: 300px;
+    height: 420px;
+  }
+  .main-text {
+    font-size: 2rem;
+  }
+  .page-header h1 {
+    font-size: 2.2rem;
+  }
+}

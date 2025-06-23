@@ -1,0 +1,146 @@
+/* Establece el contenedor principal del sidebar */
+.sidebar-container {
+  width: 230px; /* Ancho fijo del sidebar */
+  height: calc(100vh - 60px); /* Altura: 100% del viewport menos la altura del navbar (60px) */
+  padding: 30px 0; /* Padding vertical de 30px, sin padding horizontal */
+  background-color: #ffffff; /* Color de fondo muy claro */
+  border-right: 1px solid #eaeaea; /* Borde derecho sutil */
+  position: fixed; /* Posición fija para que no se mueva con el scroll */
+  left: 0; /* Alineado a la izquierda de la pantalla */
+  top: 70px; /* Colocado debajo del navbar (60px de altura) */
+  z-index: 90; /* Z-index para que esté por encima del contenido pero debajo del navbar */
+  overflow-y: auto; /* Permite scroll vertical interno si el contenido excede la altura */
+  box-sizing: border-box; /* El padding y border se incluyen en el ancho/alto */
+}
+
+/* Estilo para la cabecera del sidebar (donde está el título "CATEGORIES") */
+.sidebar-header {
+  padding: 0 30px 20px; /* Padding: arriba 0, derecha/izquierda 30px, abajo 20px */
+  border-bottom: 1px solid #ffffff; /* Borde inferior sutil */
+  margin-bottom: 15px; /* Margen inferior para separar de la lista */
+}
+
+/* Estilo del título "CATEGORIES" */
+.sidebar-title {
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Fuente elegante y moderna */
+  font-weight: 500; /* Peso de fuente ligero para un look delgado */
+  font-size: 1.4rem; /* Tamaño de fuente */
+  letter-spacing: 2px; /* Espaciado entre letras para mayor legibilidad y estilo */
+  text-transform: uppercase; /* Transforma el texto a mayúsculas */
+  color: #333; /* Color de texto oscuro */
+  margin: 0; /* Elimina márgenes predeterminados */
+}
+
+/* Estilo para la lista de categorías */
+.sidebar-list {
+  list-style: none; /* Quita los estilos de lista (viñetas) */
+  padding: 0; /* Elimina padding predeterminado */
+  margin: 0; /* Elimina margen predeterminado */
+}
+
+/* Estilo para cada elemento de la lista (cada categoría) */
+.sidebar-item {
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Misma fuente que el título */
+  font-weight: 300; /* Peso ligero */
+  font-size: 1rem; /* Tamaño de fuente ligeramente menor que el título */
+  padding: 14px 30px; /* Padding vertical y horizontal */
+  color: #555; /* Color de texto gris medio */
+  cursor: pointer; /* Cambia el cursor a pointer para indicar que es clickeable */
+  transition: all 0.25s ease; /* Transición suave para efectos hover */
+  position: relative; /* Posición relativa para elementos pseudo (::before, ::after) */
+  letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+/* Efecto hover para cada elemento */
+.sidebar-item:hover {
+  background-color: rgba(0, 0, 0, 0.03); /* Fondo sutil al pasar el mouse */
+  color: #222; /* Color de texto más oscuro */
+}
+
+/* Estilo para la categoría activa */
+.sidebar-item.active {
+  color: #000; /* Color negro */
+  font-weight: 400; /* Peso de fuente un poco más grueso */
+}
+
+/* Línea negra vertical a la izquierda de la categoría activa */
+.sidebar-item.active::before {
+  content: ''; /* Necesario para pseudo-elementos */
+  position: absolute; /* Posición absoluta respecto al .sidebar-item */
+  left: 0; /* Alineado a la izquierda */
+  top: 0; /* Alineado arriba */
+  height: 100%; /* Ocupa toda la altura del elemento */
+  width: 3px; /* Ancho de la línea */
+  background-color: #000000; /* Color negro */
+}
+
+/* Subrayado animado al pasar el mouse (inicialmente invisible) */
+.sidebar-item::after {
+  content: ''; /* Necesario para pseudo-elementos */
+  position: absolute; /* Posición absoluta respecto al .sidebar-item */
+  left: 30px; /* Inicia desde el mismo padding horizontal del texto */
+  bottom: 10px; /* Ajuste vertical */
+  width: 0; /* Inicialmente sin ancho */
+  height: 1px; /* Altura del subrayado */
+  background-color: #000; /* Color negro */
+  transition: width 0.3s ease; /* Transición solo para el ancho */
+}
+
+/* Al hacer hover, el subrayado se expande hasta el ancho del elemento */
+.sidebar-item:hover::after {
+  width: calc(100% - 60px); /* Ancho: 100% menos el padding izquierdo y derecho (30px*2) */
+}
+
+/* Media query para tablets y pantallas menores a 1024px */
+@media (max-width: 1024px) {
+  .sidebar-container {
+    width: 220px; /* Reducir un poco el ancho del sidebar */
+  }
+}
+
+/* Media query para dispositivos móviles (menores a 768px) */
+@media (max-width: 768px) {
+  .sidebar-container {
+    position: relative; /* Cambia a posición relativa para fluir con el contenido */
+    width: 100%; /* Ocupa todo el ancho */
+    height: auto; /* Altura automática */
+    top: 0; /* Restablece la posición top */
+    border-right: none; /* Sin borde derecho */
+    border-bottom: 1px solid #eaeaea; /* Borde inferior en su lugar */
+    padding: 20px 0; /* Ajuste de padding */
+  }
+  
+  .sidebar-header {
+    padding: 0 20px 15px; /* Ajuste de padding */
+    text-align: center; /* Centra el texto */
+  }
+  
+  .sidebar-title {
+    font-size: 1.2rem; /* Reduce el tamaño del título */
+  }
+  
+  .sidebar-list {
+    display: flex; /* Cambia a flex para disposición horizontal */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    justify-content: center; /* Centra los elementos */
+    gap: 10px; /* Espacio entre elementos */
+    padding: 0 15px; /* Padding horizontal */
+  }
+  
+  .sidebar-item {
+    font-size: 1rem; /* Reduce el tamaño de fuente */
+    padding: 10px 15px; /* Ajuste de padding */
+    border: 1px solid #eaeaea; /* Borde sutil alrededor de cada elemento */
+    border-radius: 2px; /* Bordes ligeramente redondeados */
+  }
+  
+  /* Oculta la línea negra de la categoría activa en móvil */
+  .sidebar-item.active::before {
+    display: none;
+  }
+  
+  /* Oculta el subrayado animado en móvil */
+  .sidebar-item::after {
+    display: none;
+  }
+}

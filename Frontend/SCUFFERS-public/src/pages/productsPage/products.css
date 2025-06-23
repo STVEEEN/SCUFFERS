@@ -1,0 +1,210 @@
+/* RESET GLOBAL - Elimina márgenes y paddings predeterminados */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  overflow-x: hidden; /* Previene desplazamiento horizontal */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.products-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%; /* Cambiado de 100vw */
+  background-color: #ffffff;
+  align-items: center; /* Centra contenido horizontalmente */
+}
+
+/* CONTENIDO PRINCIPAL */
+.products-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10; /* Solo padding vertical */
+  margin-top: 60px; /* Ajuste para navbar */
+  width: 80%;
+  max-width: 1200px; /* Limita ancho máximo */
+}
+
+/* FILA DE PRODUCTOS */
+.products-row {
+  display: flex;
+  justify-content: center; /* Centra productos */
+  gap: 14px;
+  padding: 0px;
+  width: 140%;
+  flex-wrap: wrap; /* Permite que se ajusten en pantallas pequeñas */
+}
+
+/* ESTILOS PARA LAS TARJETAS DE PRODUCTO (ASUMIENDO QUE USAS .product-card) */
+.product-card {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateZ(0);
+  position: relative;
+}
+
+/* EFECTO HOVER PARA LAS TARJETAS */
+.product-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+
+/* Efecto de "levitación" */
+.product-card:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  opacity: 0;
+  animation: levitate 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+}
+
+@keyframes levitate {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Cambio de color en la sombra al hacer hover */
+.product-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1), 
+              0 0 0 1px rgba(0, 0, 0, 0.02);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .products-row {
+    justify-content: space-around;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px) scale(1.02);
+  }
+}
+
+@media (max-width: 768px) {
+  .products-content {
+    margin-top: 50px;
+    padding: 10px 0;
+  }
+  
+  .products-row {
+    padding: 15px 10px; /* Padding horizontal reducido */
+    gap: 15px;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-3px) scale(1.01);
+  }
+}
+
+@media (max-width: 480px) {
+  .products-row {
+    padding: 10px 5px; /* Mínimo padding horizontal */
+  }
+  
+  .product-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ===== ESTILOS PARA EL TEXTO DINÁMICO SOBRE LAS CARDS ===== */
+.category-header {
+  width: 135%;
+  padding: 0 0 20px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.category-title {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #222;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.category-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.category-title:hover::after {
+  transform: scaleX(1);
+}
+
+.category-description {
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* Responsive para el texto dinámico */
+@media (max-width: 1024px) {
+  .category-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .category-header {
+    padding: 0 0 15px;
+    margin-bottom: 20px;
+  }
+  
+  .category-title {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+  }
+  
+  .category-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-title {
+    font-size: 1.4rem;
+  }
+  
+  .category-description {
+    font-size: 0.9rem;
+  }
+}

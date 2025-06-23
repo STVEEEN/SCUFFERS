@@ -1,0 +1,41 @@
+.scuffers-navbar {
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Misma fuente que el título */
+  font-weight: 100; /* Peso ligero */
+  font-size: 1rem; /* Tamaño de fuente ligeramente menor que el título */
+ letter-spacing: 2px; /* Espaciado entre letras para mayor legibilidad y estilo */
+ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 0;       /* Quitamos el padding horizontal */
+  width: 80vw;          /* Ocupa todo el ancho de la pantalla */
+  background-color: #fff;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.scuffers-navbar {
+  margin-left: 0;
+  position: relative;
+  left: -3vw; /* Corre la barra hacia la izquierda */
+}
+
+/* Izquierda y derecha con padding propio */
+.left {
+  padding-left: 4px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right {
+  padding-right: 40px;
+  flex: 1;
+}
