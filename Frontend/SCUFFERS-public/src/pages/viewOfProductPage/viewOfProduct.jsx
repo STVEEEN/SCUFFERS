@@ -22,7 +22,7 @@ const ViewOfProduct = () => {
   return (
     <div className="viewOfProduct">
       <Navbar />
-      <div className="main-content">
+      <div className="main-content-viewOfProduct">
         <Sidebar />
 
         <div className="product-detail">

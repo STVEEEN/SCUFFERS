@@ -5,9 +5,10 @@
 }
 
 /* Contenedor que agrupa sidebar + detalle */
-.main-content {
+.main-content-viewOfProduct {
   display: flex;                 /* Activa distribución horizontal de los hijos */
   margin-top: -30px;             /* Deja espacio arriba para el navbar fijo */
+  margin-left: 110px; /* Desplaza el elemento hacia la derecha */
 }
 
 /* Contenedor de la imagen y la info del producto */

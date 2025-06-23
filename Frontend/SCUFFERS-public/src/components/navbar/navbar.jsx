@@ -6,12 +6,15 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleMenuClick = () => {
-    navigate("/");
+    navigate("/products");
   };
 
   const handleLogoutClick = () => {
-    // Aquí podrías limpiar el estado del usuario si tuvieras auth
     navigate("/loginAndRegister");
+  };
+
+  const handleBrandClick = () => {
+    navigate("/");
   };
 
   return (
@@ -38,7 +41,13 @@ const Navbar = () => {
       </div>
 
       <div className="nav-center">
-        <span className="brand-name">Scuffers</span>
+        <span 
+          className="brand-name"
+          onClick={handleBrandClick}
+          style={{ cursor: "pointer" }}
+        >
+          Scuffers
+        </span>
       </div>
 
       <div className="nav-right">
