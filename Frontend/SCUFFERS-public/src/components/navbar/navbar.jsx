@@ -5,15 +5,21 @@ import "./navbar.css";
 const Navbar = () => {
   const navigate = useNavigate();
 
-  // Función para manejar clic en "MENU"
   const handleMenuClick = () => {
+    navigate("/products");
+  };
+
+  const handleLogoutClick = () => {
+    navigate("/loginAndRegister");
+  };
+
+  const handleBrandClick = () => {
     navigate("/");
   };
 
   return (
     <nav className="scuffers-navbar">
       <div className="nav-left">
-        {/* Elemento MENU clickeable */}
         <span 
           className="shipping-info menu-link"
           onClick={handleMenuClick}
@@ -25,12 +31,23 @@ const Navbar = () => {
         <span className="separator">|</span>
         <span className="account-link">MY ACCOUNT</span>
         <span className="separator">|</span>
-        <span className="logout-link">LOGOUT</span>
+        <span 
+          className="logout-link"
+          onClick={handleLogoutClick}
+          style={{ cursor: "pointer" }}
+        >
+          LOGOUT
+        </span>
       </div>
 
       <div className="nav-center">
-        {/* Logo Scuffers - sin enlace */}
-        <span className="brand-name">Scuffers</span>
+        <span 
+          className="brand-name"
+          onClick={handleBrandClick}
+          style={{ cursor: "pointer" }}
+        >
+          Scuffers
+        </span>
       </div>
 
       <div className="nav-right">

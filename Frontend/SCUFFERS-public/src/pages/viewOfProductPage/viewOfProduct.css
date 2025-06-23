@@ -1,0 +1,172 @@
+/* Establece la fuente global para ambas clases principales */
+.view-product-page,
+.viewOfProduct {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Contenedor que agrupa sidebar + detalle */
+.main-content-viewOfProduct {
+  display: flex;                 /* Activa distribución horizontal de los hijos */
+  margin-top: -30px;             /* Deja espacio arriba para el navbar fijo */
+  margin-left: 110px; /* Desplaza el elemento hacia la derecha */
+}
+
+/* Contenedor de la imagen y la info del producto */
+.product-detail {
+  display: flex;                /* Divide en dos columnas: imagen e info */
+  gap: 10rem;                    /* Espacio horizontal entre imagen e info */
+  flex: 1;                      /* Permite que este bloque crezca si puede */
+  padding: 2rem;                /* Espaciado interno alrededor del contenido */
+}
+
+/* Contenedor del slider (imagen del producto con flechas) */
+.image-slider {
+  position: relative;           /* Posición relativa para que las flechas sean absolutas dentro */
+  width: 400px;                 /* Ancho fijo de la imagen del producto */
+  height: 650px;                /* Alto fijo, un poco más largo que antes */
+}
+
+/* Imagen dentro del slider */
+.image-slider img {
+  width: 100%;                  /* Ocupa todo el ancho del contenedor */
+  height: 100%;                 /* Ocupa todo el alto */
+  object-fit: cover;            /* Mantiene proporción sin deformar, recorta si es necesario */
+  /* sin border-radius para que no tenga esquinas redondeadas */
+}
+
+/* Estilo base de las flechas del slider */
+.arrow {
+  position: absolute;           /* Posicionamiento libre dentro del contenedor */
+  top: 50%;                     /* Centro vertical */
+  transform: translateY(-50%);  /* Alineación vertical precisa al centro */
+  font-size: 2rem;              /* Tamaño visual grande para la flecha */
+  color: rgba(0,0,0,0.6);       /* Color negro con transparencia */
+  cursor: pointer;              /* Cambia el cursor a dedo al pasar encima */
+  user-select: none;            /* Evita que se seleccione el carácter accidentalmente */
+}
+
+/* Flecha izquierda posicionada a la izquierda */
+.arrow.left {
+  left: -30px;
+}
+
+/* Flecha derecha posicionada a la derecha */
+.arrow.right {
+  right: -30px;
+}
+
+/* Contenedor de la información del producto */
+.product-info {
+    flex: 1;                     /* Ocupa el espacio restante junto a la imagen */
+    display: flex;
+    flex-direction: column;     /* Organiza los elementos uno bajo otro */
+    /* Opción 1: margen superior para empujar hacia abajo */
+    margin-top: 100px;
+}
+
+/* Título del producto */
+.product-title {
+  font-size: 2rem;              /* Tamaño grande y destacado */
+  font-weight: 300;             /* Peso ligero para estilo moderno */
+  margin-bottom: 1rem;          /* Espaciado inferior con el precio */
+}
+
+/* Precio del producto */
+.product-price {
+  font-size: 1.8rem;            /* Levemente menor que el título */
+  font-weight: bold;            /* Negrita para destacar */
+  margin-bottom: 1rem;
+}
+
+/* Subtítulo con detalles adicionales */
+.product-sub {
+  font-size: 0.9rem;            /* Tamaño pequeño */
+  color: #555;                  /* Gris suave para no competir visualmente */
+  margin-bottom: 2rem;
+}
+
+/* Contenedor general del selector de tallas */
+.size-selector {
+  margin-bottom: 2rem;          /* Separación antes de los botones ADD */
+}
+
+/* Texto “SIZE” */
+.size-label {
+  font-size: 0.9rem;            /* Mismo tamaño que los botones de talla */
+  letter-spacing: 1px;          /* Espaciado entre letras */
+  margin-right: 1rem;
+}
+
+/* Contenedor horizontal de los botones de talla */
+.sizes {
+  display: inline-flex;         /* Permite alineación horizontal */
+  gap: 0.5rem;                  /* Espacio entre botones */
+  margin-bottom: 0.5rem;
+}
+
+/* Estilo base de cada botón de talla */
+.size-btn {
+  padding: 0.5rem 0.8rem;       /* Espacio interno vertical y horizontal */
+  border: 1px solid #333;       /* Borde gris oscuro */
+  background: white;            /* Fondo blanco */
+  cursor: pointer;              /* Cursor clickeable */
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s; /* Transición suave */
+  border-radius: 0;             /* Esquinas cuadradas */
+}
+
+/* Estilo del botón de talla cuando está seleccionado */
+.size-btn.active {
+  background: #333;             /* Fondo oscuro */
+  color: white;                 /* Texto blanco */
+  border-color: #333;           /* Borde oscuro igual al fondo */
+}
+
+/* Enlace a la guía de tallas */
+.size-guide {
+  display: block;               /* Ocupa toda la línea */
+  font-size: 0.8rem;
+  color: #0066c0;               /* Azul estilo enlace */
+  text-decoration: none;
+}
+
+/* Contenedor de los dos botones ADD */
+.action-buttons {
+  display: flex;
+  flex-direction: column;       /* Uno encima del otro */
+  gap: 1rem;                    /* Espacio entre ambos */
+}
+
+/* Estilo general para ambos botones */
+.btn {
+  padding: 0.8rem 1rem;         /* Espaciado interior */
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  transition: background 0.2s;
+  border-radius: 0;             /* Bordes cuadrados */
+}
+
+/* Botón para añadir al carrito */
+.add-bag {
+  background: black;
+  color: white;
+}
+
+/* Botón para añadir a favoritos */
+.add-wish {
+  background: white;
+  color: black;
+  border: 1px solid #333;       /* Borde gris oscuro */
+}
+
+/* Hover para botón “ADD TO SHOPPING BAG” */
+.add-bag:hover {
+  background: #222;             /* Más oscuro al pasar el mouse */
+}
+
+/* Hover para botón “ADD TO WISHLIST” */
+.add-wish:hover {
+  background: #f5f5f5;          /* Gris muy claro al pasar el mouse */
+}

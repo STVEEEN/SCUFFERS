@@ -1,5 +1,5 @@
 import React from "react";
-import "./productCard.css";
+import "./productCard.css"; // este nombre debe coincidir con tu archivo real
 
 const StuffCard = ({ image, topText, bottomText }) => {
   return (

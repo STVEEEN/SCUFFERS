@@ -1,139 +1,147 @@
 /* RESET GLOBAL - Elimina márgenes y paddings predeterminados */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0;                     /* Elimina el margen por defecto */
+  padding: 0;                    /* Elimina el relleno por defecto */
+  box-sizing: border-box;        /* Incluye padding y border dentro del ancho/alto */
 }
 
 body, html {
-  width: 100%;
-  overflow-x: hidden; /* Previene desplazamiento horizontal */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;                   /* Ocupa todo el ancho del viewport */
+  overflow-x: hidden;            /* Previene el scroll horizontal */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente base del sitio */
 }
 
 /* CONTENEDOR PRINCIPAL */
 .products-page {
-  display: flex;
+  display: flex;                 /* Flexbox vertical */
   flex-direction: column;
-  min-height: 100vh;
-  width: 100%; /* Cambiado de 100vw */
-  background-color: #ffffff;
-  align-items: center; /* Centra contenido horizontalmente */
+  min-height: 100vh;             /* Asegura altura mínima de pantalla completa */
+  width: 100%;                   /* Ocupa todo el ancho */
+  background-color: #ffffff;     /* Fondo blanco */
+  align-items: center;           /* Centra los hijos horizontalmente */
 }
 
 /* CONTENIDO PRINCIPAL */
 .products-content {
-  flex: 1;
+  flex: 1;                       /* Ocupa el espacio restante vertical */
   display: flex;
   flex-direction: column;
-  padding: 20px 10; /* Solo padding vertical */
-  margin-top: 60px; /* Ajuste para navbar */
-  width: 80%;
-  max-width: 1200px; /* Limita ancho máximo */
+  padding: 20px 10;              /* Padding vertical, pero falta 'px' en horizontal (error menor) */
+  margin-top: 60px;              /* Deja espacio para el navbar fijo */
+  width: 80%;                    /* Ocupa el 80% del ancho del contenedor principal */
+  max-width: 1200px;             /* Limita el ancho máximo para pantallas grandes */
 }
 
 /* FILA DE PRODUCTOS */
 .products-row {
   display: flex;
-  justify-content: center; /* Centra productos */
-  gap: 14px;
+  justify-content: center;       /* Centra las tarjetas en línea */
+  gap: 14px;                     /* Espacio entre tarjetas */
   padding: 0px;
-  width: 140%;
-  flex-wrap: wrap; /* Permite que se ajusten en pantallas pequeñas */
+  width: 140%;                   /* Intencionalmente más ancho para crear desbordamiento horizontal */
+  flex-wrap: wrap;               /* Permite que las tarjetas salten a una nueva fila si es necesario */
 }
 
-/* ESTILOS PARA LAS TARJETAS DE PRODUCTO (ASUMIENDO QUE USAS .product-card) */
+/* TARJETAS DE PRODUCTO */
 .product-card {
-  background: white;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform: translateZ(0);
-  position: relative;
+  background: white;             /* Fondo blanco para cada tarjeta */
+  border-radius: 4px;            /* Bordes ligeramente redondeados */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Sombra suave para dar profundidad */
+  overflow: hidden;              /* Oculta contenido que desborda */
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transición suave en transformaciones */
+  transform: translateZ(0);      /* Mejora el rendimiento de animación */
+  position: relative;            /* Permite usar posicionamiento absoluto en hijos */
 }
 
-/* EFECTO HOVER PARA LAS TARJETAS */
+/* EFECTO HOVER SOBRE LA TARJETA */
 .product-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-  z-index: 10;
+  transform: translateY(-8px) scale(1.02); /* Eleva y agranda ligeramente la tarjeta */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12); /* Aumenta la sombra */
+  z-index: 10;                     /* La eleva sobre otros elementos cercanos */
 }
 
-/* Efecto de "levitación" */
+/* EFECTO DE “LEVITACIÓN” EXTRA EN HOVER */
 .product-card:hover::before {
-  content: '';
+  content: '';                    /* Elemento decorativo vacío */
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Sombra más profunda */
   border-radius: 4px;
   opacity: 0;
-  animation: levitate 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+  animation: levitate 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) infinite; /* Animación que se repite infinitamente */
 }
 
+/* ANIMACIÓN: LEVITATE */
 @keyframes levitate {
   0% {
     opacity: 0;
-    transform: translateY(0);
+    transform: translateY(0);       /* Posición inicial */
   }
   50% {
-    opacity: 1;
+    opacity: 1;                     /* Mitad visible */
   }
   100% {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-10px);   /* Se eleva hacia arriba y desaparece */
   }
 }
 
-/* Cambio de color en la sombra al hacer hover */
+/* AJUSTE ADICIONAL DE SOMBRA AL HOVER */
 .product-card:hover {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1), 
-              0 0 0 1px rgba(0, 0, 0, 0.02);
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.1),   /* Sombra principal */
+    0 0 0 1px rgba(0, 0, 0, 0.02);    /* Borde suave adicional */
 }
 
-/* RESPONSIVE */
+/* MEDIA QUERIES: RESPONSIVE */
+
+/* Ajustes para pantallas menores o iguales a 1024px */
 @media (max-width: 1024px) {
   .products-row {
-    justify-content: space-around;
+    justify-content: space-around;  /* Distribuye tarjetas con más separación */
   }
-  
+
   .product-card:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-5px) scale(1.02); /* Efecto hover más sutil */
   }
 }
 
+/* Ajustes para pantallas menores a 768px */
 @media (max-width: 768px) {
   .products-content {
     margin-top: 50px;
     padding: 10px 0;
   }
-  
+
   .products-row {
-    padding: 15px 10px; /* Padding horizontal reducido */
+    padding: 15px 10px;
     gap: 15px;
   }
-  
+
   .product-card:hover {
     transform: translateY(-3px) scale(1.01);
   }
 }
 
+/* Ajustes para pantallas menores a 480px */
 @media (max-width: 480px) {
   .products-row {
-    padding: 10px 5px; /* Mínimo padding horizontal */
+    padding: 10px 5px;
   }
-  
+
   .product-card:hover {
     transform: translateY(-2px);
   }
 }
 
-/* ===== ESTILOS PARA EL TEXTO DINÁMICO SOBRE LAS CARDS ===== */
+/* ============================
+   TEXTO SUPERIOR DE LA SECCIÓN
+   ============================ */
 .category-header {
-  width: 135%;
+  width: 135%;                  /* Más ancho de lo normal para estilizar */
   padding: 0 0 20px;
   margin-bottom: 25px;
   text-align: center;
@@ -147,25 +155,25 @@ body, html {
   text-transform: uppercase;
   color: #222;
   margin: 0;
-  position: relative;
+  position: relative;           /* Necesario para la línea inferior animada */
   display: inline-block;
 }
 
 .category-title::after {
-  content: '';
+  content: '';                  /* Línea decorativa inferior */
   position: absolute;
   left: 0;
   bottom: -10px;
   width: 100%;
   height: 2px;
   background-color: #000;
-  transform: scaleX(0);
+  transform: scaleX(0);         /* Oculta la línea al inicio */
   transform-origin: center;
   transition: transform 0.3s ease;
 }
 
 .category-title:hover::after {
-  transform: scaleX(1);
+  transform: scaleX(1);         /* Expande la línea al pasar el mouse */
 }
 
 .category-description {
@@ -176,7 +184,7 @@ body, html {
   font-style: italic;
 }
 
-/* Responsive para el texto dinámico */
+/* Responsive para el título y la descripción */
 @media (max-width: 1024px) {
   .category-title {
     font-size: 1.8rem;
@@ -188,12 +196,12 @@ body, html {
     padding: 0 0 15px;
     margin-bottom: 20px;
   }
-  
+
   .category-title {
     font-size: 1.6rem;
     letter-spacing: 1px;
   }
-  
+
   .category-description {
     font-size: 1rem;
   }
@@ -203,7 +211,7 @@ body, html {
   .category-title {
     font-size: 1.4rem;
   }
-  
+
   .category-description {
     font-size: 0.9rem;
   }
