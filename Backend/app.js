@@ -1,7 +1,8 @@
 import express from "express"
 import cors from "cors";
+import cookieParser from "cookie-parser";
 // Importing routes
-import employeesRoutes from "./src/routes/EmployeesRoutes.js"
+import employeesRoutes from "./src/routes/employeesRoutes.js"
 import userRoutes from "./src/routes/userRoutes.js"
 import categoriesRoutes from "./src/routes/categoriesRoutes.js"
 import productsRoutes from "./src/routes/productsRoutes.js"
@@ -22,6 +23,8 @@ const corsOptions = {
   app.use(cors(corsOptions));
 
 app.use(express.json());
+
+app.use(cookieParser());
 
 app.use("/api/employees", employeesRoutes)
 app.use("/api/registerEmployees", registerEmployeesRoute);

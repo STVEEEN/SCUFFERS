@@ -13,12 +13,15 @@ export default function Settings() {
   const [dui, setDui] = useState("");
   const [address, setAddress] = useState("");
   const [birthday, setBirthday] = useState("");
-  const [hireDate, setHireDate] = useState("");
   const [name, setName] = useState("");
-  const [fullName, setFullName] = useState("");
-  const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
+  const [hireDate, setHireDate] = useState(""); // solo para mostrar
   const [message, setMessage] = useState("");
+
+  // Cambio de contraseña solo para Admin
+  const [showPasswordInput, setShowPasswordInput] = useState(false);
+  const [newPassword, setNewPassword] = useState("");
+  const [passwordMessage, setPasswordMessage] = useState("");
 
   useEffect(() => {
     if (profile) {
@@ -27,14 +30,13 @@ export default function Settings() {
       setDui(profile.dui || "");
       setAddress(profile.address || "");
       setBirthday(profile.birthday ? profile.birthday.substring(0, 10) : "");
-      setHireDate(profile.hireDate ? profile.hireDate.substring(0, 10) : "");
       setName(profile.name || "");
-      setFullName(profile.fullName || "");
       setRole(profile.Role || profile.role || "");
+      setHireDate(profile.hireDate ? profile.hireDate.substring(0, 10) : "");
     }
   }, [profile]);
 
-  // --- Logout funcional
+  // Logout funcional
   const handleLogout = async () => {
     await fetch("http://localhost:4000/api/logout", {
       method: "POST",
@@ -45,17 +47,7 @@ export default function Settings() {
     navigate("/login");
   };
 
-  // --- Cambiar contraseña: admin cambia aquí, otros redirige a recuperación
-  const handlePasswordChange = () => {
-    if (role === "Admin") {
-      // Aquí iría el fetch real de cambio de contraseña (implementa tu lógica real)
-      setMessage("Función para cambiar la contraseña de admin (implementa tu lógica aquí)");
-    } else {
-      navigate("/passwordRecovery"); // O el link que prefieras
-    }
-  };
-
-  // --- Guardar cambios de datos personales
+  // Guardar cambios de datos personales
   const handleSave = async (e) => {
     e.preventDefault();
     setMessage("");
@@ -65,14 +57,40 @@ export default function Settings() {
       dui,
       address,
       birthday,
-      hireDate,
       name,
-      fullName,
-      // No actualices role ni password aquí
+      // No actualices role, hireDate ni password aquí
     };
     const result = await updateProfile(updates);
     if (result.success) setMessage("Datos actualizados correctamente");
     else setMessage(result.error || "Error al actualizar datos");
+  };
+
+  // Cambiar contraseña: Admin puede, otros redirige
+  const handlePasswordChange = async (e) => {
+    e.preventDefault();
+    setPasswordMessage("");
+    if (role === "Admin") {
+      if (!newPassword || newPassword.length < 6) {
+        setPasswordMessage("La contraseña debe tener al menos 6 caracteres.");
+        return;
+      }
+      try {
+        const res = await fetch("http://localhost:4000/api/employees/me/change-password", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({ newPassword }),
+        });
+        if (!res.ok) throw new Error("No se pudo cambiar la contraseña");
+        setPasswordMessage("Contraseña cambiada correctamente.");
+        setNewPassword("");
+        setShowPasswordInput(false);
+      } catch (err) {
+        setPasswordMessage(err.message || "Error al cambiar contraseña.");
+      }
+    } else {
+      navigate("/passwordRecovery");
+    }
   };
 
   if (loading) return <div className="settings-page"><p>Cargando...</p></div>;
@@ -93,94 +111,117 @@ export default function Settings() {
       <div className="settings-page">
         <div className="container">
           {/* Sección para cambiar datos */}
-          <form className="data-section" onSubmit={handleSave}>
-            <h2>CHANGE YOUR DATA</h2>
+          <div style={{ width: "45%" }}>
+            <form className="data-section" onSubmit={handleSave}>
+              <h2>CHANGE YOUR DATA</h2>
 
-            <div className="input-group">
-              <label>NAME</label>
-              <input type="text" value={name} onChange={e => setName(e.target.value)} />
+              <div className="input-group">
+                <label>NAME</label>
+                <input type="text" value={name} onChange={e => setName(e.target.value)} />
+              </div>
+              <div className="input-group">
+                <label>EMAIL</label>
+                <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
+              </div>
+              <div className="input-group">
+                <label>PHONE NUMBER</label>
+                <input type="text" value={phone} onChange={e => setPhone(e.target.value)} />
+              </div>
+              <div className="input-group">
+                <label>DUI</label>
+                <input type="text" value={dui} onChange={e => setDui(e.target.value)} />
+              </div>
+              <div className="input-group">
+                <label>ADDRESS</label>
+                <input type="text" value={address} onChange={e => setAddress(e.target.value)} />
+              </div>
+              <div className="input-group">
+                <label>BIRTHDAY</label>
+                <input type="date" value={birthday} onChange={e => setBirthday(e.target.value)} />
+              </div>
+              <div className="input-group">
+                <label>ROLE</label>
+                <input
+                  type="text"
+                  value={role}
+                  disabled
+                  style={{ background: "#eee", color: "#666", cursor: "not-allowed" }}
+                />
+              </div>
+              <button className="change-button" type="submit">CHANGE CREDENTIALS</button>
+              {message && (
+                <p style={{ marginTop: 10, color: message.includes("error") ? "red" : "green" }}>
+                  {message}
+                </p>
+              )}
+            </form>
+            {/* Miniformulario de cambio de contraseña */}
+            <div className="password-section">
+              <h3 style={{ marginTop: 30,}}>CAMBIAR CONTRASEÑA</h3>
+              {role === "Admin" ? (
+                !showPasswordInput ? (
+                  <button
+                    className="change-button"
+                    style={{ background: "#ff6600", margin: "20px auto 0 auto", display: "block" }}
+                    type="button"
+                    onClick={() => setShowPasswordInput(true)}
+                  >
+                    CAMBIAR CONTRASEÑA
+                  </button>
+                ) : (
+                  <form onSubmit={handlePasswordChange} style={{ marginTop: 18 }}>
+                    <div className="input-group" style={{ width: "80%" }}>
+                      <label>NUEVA CONTRASEÑA</label>
+                      <input
+                        type="password"
+                        value={newPassword}
+                        onChange={e => setNewPassword(e.target.value)}
+                        autoFocus
+                      />
+                    </div>
+                    <button
+                      className="change-button"
+                      style={{ background: "#ff6600", marginTop: 10 }}
+                      type="submit"
+                    >
+                      GUARDAR CONTRASEÑA
+                    </button>
+                    <button
+                      type="button"
+                      className="change-button"
+                      style={{ background: "#888", marginTop: 10, marginLeft: 8 }}
+                      onClick={() => { setShowPasswordInput(false); setNewPassword(""); setPasswordMessage(""); }}
+                    >
+                      CANCELAR
+                    </button>
+                    {passwordMessage && (
+                      <p style={{ marginTop: 10, color: passwordMessage.includes("correcta") ? "green" : "red" }}>
+                        {passwordMessage}
+                      </p>
+                    )}
+                  </form>
+                )
+              ) : (
+                <>
+                  <button
+                    className="change-button"
+                    style={{ background: "#ff6600", margin: "20px auto 0 auto", display: "block" }}
+                    type="button"
+                    onClick={handlePasswordChange}
+                  >
+                    RECUPERAR CONTRASEÑA
+                  </button>
+                  <span style={{ fontSize: 12, color: "#888", display: "block", textAlign: "center", marginTop: 6 }}>
+                    Solo el admin puede cambiar la contraseña aquí. Haz click para ir a recuperación de contraseña.
+                  </span>
+                </>
+              )}
             </div>
-            <div className="input-group">
-              <label>FULL NAME</label>
-              <input type="text" value={fullName} onChange={e => setFullName(e.target.value)} />
-            </div>
-            <div className="input-group">
-              <label>EMAIL</label>
-              <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-            </div>
-            <div className="input-group">
-              <label>PHONE NUMBER</label>
-              <input type="text" value={phone} onChange={e => setPhone(e.target.value)} />
-            </div>
-            <div className="input-group">
-              <label>DUI</label>
-              <input type="text" value={dui} onChange={e => setDui(e.target.value)} />
-            </div>
-            <div className="input-group">
-              <label>ADDRESS</label>
-              <input type="text" value={address} onChange={e => setAddress(e.target.value)} />
-            </div>
-            <div className="input-group">
-              <label>BIRTHDAY</label>
-              <input type="date" value={birthday} onChange={e => setBirthday(e.target.value)} />
-            </div>
-            <div className="input-group">
-              <label>HIRE DATE</label>
-              <input type="date" value={hireDate} onChange={e => setHireDate(e.target.value)} />
-            </div>
-            <div className="input-group">
-              <label>ROLE</label>
-              <input
-                type="text"
-                value={role}
-                disabled
-                style={{ background: "#eee", color: "#666", cursor: "not-allowed" }}
-              />
-            </div>
-            <div className="input-group">
-              <label>PASSWORD</label>
-              <input
-                type="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                className="password-input"
-                disabled={role !== "Admin"}
-              />
-            </div>
-
-            <button className="change-button" type="submit">CHANGE CREDENTIALS</button>
-
-            <button
-              className="change-button"
-              style={{ background: "#ff6600", marginTop: 10 }}
-              type="button"
-              onClick={handlePasswordChange}
-            >
-              {role === "Admin"
-                ? "CHANGE PASSWORD"
-                : "RECOVER PASSWORD"}
-            </button>
-            {role !== "Admin" && (
-              <span style={{ fontSize: 12, color: "#888" }}>
-                Solo el admin puede cambiar la contraseña aquí. Haz click para ir a recuperación de contraseña.
-              </span>
-            )}
-
-            {message && (
-              <p style={{ marginTop: 10, color: message.includes("error") ? "red" : "green" }}>
-                {message}
-              </p>
-            )}
-          </form>
-          
+          </div>
           {/* Sección de perfil del usuario */}
           <div className="profile-section">
             <img src="/src/img/Users.png" alt="User" />
             <h2>{name}</h2>
-            <div className="profile-item">
-              <img src="/src/img/Face.png" alt="Face" />
-              <p>{fullName}</p>
-            </div>
             <div className="profile-item">
               <img src="/src/img/Calendar.png" alt="Calendar" />
               <p>{birthday ? birthday.split("-").reverse().join("/") : ""}</p>

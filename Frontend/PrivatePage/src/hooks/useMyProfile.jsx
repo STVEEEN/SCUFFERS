@@ -14,7 +14,7 @@ export default function useMyProfile() {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("http://localhost:4000/api/employees", {
+      const res = await fetch("http://localhost:4000/api/employees/me", {
         credentials: "include",
       });
       if (!res.ok) {
@@ -34,11 +34,15 @@ export default function useMyProfile() {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("http://localhost:4000/api/employees", {
+      // Elimina hireDate y fullName si accidentalmente llegan en updates
+      const sanitizedUpdates = { ...updates };
+      delete sanitizedUpdates.hireDate;
+      delete sanitizedUpdates.fullName;
+      const res = await fetch("http://localhost:4000/api/employees/me", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
-        body: JSON.stringify(updates),
+        body: JSON.stringify(sanitizedUpdates),
       });
       if (!res.ok) {
         throw new Error("No se pudo actualizar el perfil");
