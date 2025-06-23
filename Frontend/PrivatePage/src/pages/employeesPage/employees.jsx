@@ -317,7 +317,6 @@ const Employees = () => {
                     disabled={!selectedEmployeeId}
                   >
                     <option value="">Select role</option>
-                    <option value="Admin">Admin</option>
                     <option value="Employee">Employee</option>
                     <option value="Gerente">Gerente</option>
                     <option value="Bodeguero">Bodeguero</option>
