@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/navbar";
 import Sidebar from "../../components/sidebar/sidebar";
 import ProductCard from "../../components/productCard/productCard";
 import "./products.css";
 
 const Products = () => {
-  const [activeCategory, setActiveCategory] = useState('STATEMENT PIECES');
-  
+  const [activeCategory, setActiveCategory] = useState("STATEMENT PIECES");
+  const navigate = useNavigate();
+
   // Datos de ejemplo para las cards
   const productCards = [
     {
@@ -86,14 +88,14 @@ const Products = () => {
   return (
     <div className="products-page">
       <Navbar />
-      
+
       {/* Contenedor principal con Sidebar y contenido */}
       <div className="main-content-container">
-        <Sidebar 
-          activeCategory={activeCategory} 
-          setActiveCategory={setActiveCategory} 
+        <Sidebar
+          activeCategory={activeCategory}
+          setActiveCategory={setActiveCategory}
         />
-        
+
         <main className="products-content">
           {/* Título dinámico basado en la categoría activa */}
           <div className="category-header">
@@ -102,15 +104,20 @@ const Products = () => {
               Explore our curated collection of premium {activeCategory.toLowerCase()}
             </p>
           </div>
-          
+
           <div className="products-row">
             {productCards.map((product) => (
-              <ProductCard
+              <div
                 key={product.id}
-                image={product.image}
-                topText={product.topText}
-                bottomText={product.bottomText}
-              />
+                onClick={() => navigate("/viewOfProduct")}
+                style={{ cursor: "pointer" }}
+              >
+                <ProductCard
+                  image={product.image}
+                  topText={product.topText}
+                  bottomText={product.bottomText}
+                />
+              </div>
             ))}
           </div>
         </main>
