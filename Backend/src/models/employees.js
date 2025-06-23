@@ -59,6 +59,10 @@ const employeeSchema = new Schema({
     type: String,
     enum: ["Employee", "Admin", "Gerente", "Bodeguero"],
     default: "Employee"
+  },
+  active: { // <---- Nuevo campo para soft delete
+    type: Boolean,
+    default: true
   }
 }, {
   timestamps: true,

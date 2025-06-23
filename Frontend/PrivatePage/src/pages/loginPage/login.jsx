@@ -23,6 +23,10 @@ export default function Login() {
       return;
     }
 
+    // Guarda email e id del usuario logueado para usar en Employees.jsx
+    localStorage.setItem("userEmail", result.email);
+    localStorage.setItem("userId", result.id);
+
     // Redirección por rol
     if (result.role === "Admin" || result.role === "Gerente") {
       navigate("/Stats");

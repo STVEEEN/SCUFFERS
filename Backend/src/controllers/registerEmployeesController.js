@@ -16,7 +16,8 @@ registerEmployeesController.registerEmployee = async (req, res) => {
     password,
     phoneNumber,
     dui,
-    Role // Puede ser opcional, por defecto "Employee"
+    Role,   // Puede ser opcional, por defecto "Employee"
+    active  // Nuevo campo, opcional, por defecto true
   } = req.body;
 
   // Validación de campos requeridos
@@ -43,7 +44,7 @@ registerEmployeesController.registerEmployee = async (req, res) => {
     // Hash de contraseña
     const passwordHash = await bcryptjs.hash(password, 10);
 
-    // Crea el nuevo empleado
+    // Crea el nuevo empleado con todos los campos
     const newEmployee = new employeesModel({
       name,
       birthday,
@@ -53,7 +54,8 @@ registerEmployeesController.registerEmployee = async (req, res) => {
       password: passwordHash,
       phoneNumber,
       dui,
-      Role // opcional, si no lo mandas, toma el default ("Employee")
+      Role,                  // opcional, si no lo mandas, toma el default ("Employee")
+      active: active !== undefined ? active : true // por defecto true si no se manda
     });
     await newEmployee.save();
 

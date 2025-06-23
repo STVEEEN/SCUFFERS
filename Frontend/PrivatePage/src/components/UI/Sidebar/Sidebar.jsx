@@ -81,8 +81,8 @@ const Sidebar = () => {
             </li>
           )}
 
-          {/* Users: Solo Admin */}
-          {isAdmin && (
+          {/* Users: Admin, gerente */}
+          {(isAdmin || isGerente) && (
             <li className={location.pathname === "/users" ? "Sidebar-active" : ""}>
               <img src="/src/img/Users.png" alt="Users Icon" />
               <Link to="/users">USERS</Link>
