@@ -1,0 +1,25 @@
+.my-orders__layout {
+  display: flex;
+  padding-top: 20px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ letter-spacing: 2px; /* Espaciado entre letras para mayor legibilidad y estilo */
+}
+
+.my-orders__main {
+  flex: 1;
+  padding: 24px 40px;
+  background-color: #fff;
+}
+
+.my-orders__title {
+  font-size: 20px;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.my-orders__placeholder {
+  margin-top: 40px;
+  text-align: center;
+  color: #555;
+  font-size: 14px;
+}

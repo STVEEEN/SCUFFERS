@@ -17,6 +17,14 @@ const Navbar = () => {
     navigate("/");
   };
 
+  const handleAccountClick = () => {
+    navigate("/myAccount");
+  };
+
+  const handleBagClick = () => {
+    navigate("/shoppingCart");
+  };
+
   return (
     <nav className="scuffers-navbar">
       <div className="nav-left">
@@ -29,7 +37,13 @@ const Navbar = () => {
         <span className="separator">|</span>
         <span className="shipping-info">SHIPPING TO SAN SALVADOR</span>
         <span className="separator">|</span>
-        <span className="account-link">MY ACCOUNT</span>
+        <span 
+          className="account-link"
+          onClick={handleAccountClick}
+          style={{ cursor: "pointer" }}
+        >
+          MY ACCOUNT
+        </span>
         <span className="separator">|</span>
         <span 
           className="logout-link"
@@ -51,7 +65,13 @@ const Navbar = () => {
       </div>
 
       <div className="nav-right">
-        <span className="bag-indicator">BAG (0)</span>
+        <span 
+          className="bag-indicator"
+          onClick={handleBagClick}
+          style={{ cursor: "pointer" }}
+        >
+          BAG (0)
+        </span>
       </div>
     </nav>
   );

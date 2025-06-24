@@ -1,11 +1,14 @@
 // src/pages/LoginAndRegister/LoginAndRegister.jsx
 
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/navbar";
 import Sidebar from "../../components/sidebar/sidebar";
 import "./LoginAndRegister.css";
 
 const LoginAndRegister = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -25,6 +28,11 @@ const LoginAndRegister = () => {
     console.log("Login:", formData);
   };
 
+  const handleForgotPasswordClick = (e) => {
+    e.preventDefault();
+    navigate("/recover");
+  };
+
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
   const months = [
     "January", "February", "March", "April", "May", "June",
@@ -33,38 +41,38 @@ const LoginAndRegister = () => {
   const years = Array.from({ length: 106 }, (_, i) => 2025 - i);
 
   return (
-    <div className="login-register-page">
+    <div className="loginRegister-page">
       <Navbar />
-      <div className="main-content">
+      <div className="loginRegister-main-content">
         <Sidebar />
 
         {/* Login */}
-        <div className="login-form-container">
-          <form onSubmit={handleSubmit} className="login-form">
-            <h2 className="form-title">LOGIN</h2>
+        <div className="loginRegister-login-container">
+          <form onSubmit={handleSubmit} className="loginRegister-login-form">
+            <h2 className="loginRegister-form-title">LOGIN</h2>
 
-            <label className="form-label">EMAIL</label>
+            <label className="loginRegister-form-label">EMAIL</label>
             <input
               type="email"
               name="email"
-              className="form-input"
+              className="loginRegister-form-input"
               value={formData.email}
               onChange={handleChange}
               required
             />
 
-            <label className="form-label">PASSWORD</label>
+            <label className="loginRegister-form-label">PASSWORD</label>
             <input
               type="password"
               name="password"
-              className="form-input"
+              className="loginRegister-form-input"
               value={formData.password}
               onChange={handleChange}
               required
             />
 
-            <div className="form-row">
-              <label className="checkbox">
+            <div className="loginRegister-form-row">
+              <label className="loginRegister-checkbox">
                 <input
                   type="checkbox"
                   name="remember"
@@ -73,48 +81,52 @@ const LoginAndRegister = () => {
                 />
                 <span>REMEMBER ME</span>
               </label>
-              <a href="#" className="forgot-password">
+              <a
+                href="#"
+                className="loginRegister-forgot-password"
+                onClick={handleForgotPasswordClick}
+              >
                 FORGOT PASSWORD?
               </a>
             </div>
 
-            <button type="submit" className="login-btn">
+            <button type="submit" className="loginRegister-login-btn">
               LOGIN
             </button>
           </form>
         </div>
 
         {/* Registro */}
-        <div className="register-form-container">
-          <form className="register-form">
-            <h2 className="form-title">NEW CUSTOMER</h2>
+        <div className="loginRegister-register-container">
+          <form className="loginRegister-register-form">
+            <h2 className="loginRegister-form-title">NEW CUSTOMER</h2>
 
-            <label className="form-label">EMAIL</label>
-            <input type="email" className="form-input" required />
+            <label className="loginRegister-form-label">EMAIL</label>
+            <input type="email" className="loginRegister-form-input" required />
 
-            <label className="form-label">PASSWORD</label>
-            <input type="password" className="form-input" required />
+            <label className="loginRegister-form-label">PASSWORD</label>
+            <input type="password" className="loginRegister-form-input" required />
 
-            <label className="form-label">CONFIRM PASSWORD</label>
-            <input type="password" className="form-input" required />
+            <label className="loginRegister-form-label">CONFIRM PASSWORD</label>
+            <input type="password" className="loginRegister-form-input" required />
 
-            <label className="form-label">BIRTHDATE</label>
-            <div className="birthdate-selects">
-              <select className="birth-select" required>
+            <label className="loginRegister-form-label">BIRTHDATE</label>
+            <div className="loginRegister-birthdate-selects">
+              <select className="loginRegister-birth-select" required>
                 <option value="">Day</option>
                 {days.map((day) => (
                   <option key={day} value={day}>{day}</option>
                 ))}
               </select>
 
-              <select className="birth-select" required>
+              <select className="loginRegister-birth-select" required>
                 <option value="">Month</option>
                 {months.map((month, index) => (
                   <option key={month} value={index + 1}>{month}</option>
                 ))}
               </select>
 
-              <select className="birth-select" required>
+              <select className="loginRegister-birth-select" required>
                 <option value="">Year</option>
                 {years.map((year) => (
                   <option key={year} value={year}>{year}</option>
@@ -122,14 +134,14 @@ const LoginAndRegister = () => {
               </select>
             </div>
 
-            <div className="terms-row">
+            <div className="loginRegister-terms-row">
               <input type="checkbox" required />
-              <label className="terms-label">
-                I read and accept the <span className="underline">terms and conditions</span>
+              <label className="loginRegister-terms-label">
+                I read and accept the <span className="loginRegister-underline">terms and conditions</span>
               </label>
             </div>
 
-            <button type="submit" className="register-btn">
+            <button type="submit" className="loginRegister-register-btn">
               CREATE
             </button>
           </form>

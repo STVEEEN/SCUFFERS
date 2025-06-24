@@ -1,0 +1,87 @@
+.editProfile-container {
+  display: flex; /* Usa flexbox para estructurar el contenedor principal */
+  flex-direction: column; /* Acomoda todo en una columna vertical */
+  align-items: center; /* Centra horizontalmente los elementos hijos */
+  padding-top: 100px; /* Espacio superior (posiblemente por el navbar) */
+  background-color: #fff; /* Fondo blanco para claridad */
+  min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+}
+
+.editProfile-title {
+  font-size: 1.4rem; /* Tamaño de fuente del título */
+  font-weight: 400; /* Peso medio para resaltar sin ser bold total */
+  letter-spacing: 2px; /* Espaciado extra entre letras para estilo */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  margin-bottom: 2rem; /* Separación del siguiente bloque (formulario) */
+}
+
+.editProfile-form {
+  width: 340px; /* Ancho fijo del formulario para buena legibilidad */
+  display: flex; /* Flexbox para organizar en columna */
+  flex-direction: column;
+}
+
+.editProfile-label {
+  font-size: 0.9rem; /* Tamaño más pequeño pero legible para las etiquetas */
+  margin-bottom: 0.2rem; /* Espacio debajo del label */
+  font-weight: 400; /* Peso ligero */
+  letter-spacing: 2px; /* Espaciado extra para estilo */
+  color: #333; /* Gris oscuro legible */
+  text-align: left; /* Alineación a la izquierda del texto */
+  display: block; /* Para asegurar que se coloque encima del input */
+}
+
+.editProfile-input {
+  padding: 0.7rem; /* Relleno interior del input */
+  margin-bottom: 1.2rem; /* Espacio con el siguiente input o label */
+  border: 1px solid #ccc; /* Borde gris claro */
+  font-size: 0.95rem; /* Tamaño cómodo para escribir */
+  outline: none; /* Elimina el borde azul de enfoque predeterminado */
+}
+
+.editProfile-input:focus {
+  border-color: black; /* Resalta el input enfocado con borde negro */
+}
+
+.editProfile-birthdate {
+  display: flex; /* Permite alinear los selects en una fila */
+  gap: 0.5rem; /* Espacio horizontal entre cada select */
+  margin-bottom: 1.2rem; /* Separación del siguiente elemento */
+}
+
+.editProfile-birthdate select {
+  flex: 1; /* Cada select ocupa el mismo espacio */
+  padding: 0.7rem; /* Espacio interno del select */
+  font-size: 0.9rem; /* Tamaño de texto dentro del select */
+  border: 1px solid #ccc; /* Borde sutil */
+  font-family: inherit; /* Usa la fuente base del contenedor */
+}
+
+.editProfile-privacy {
+  display: flex; /* Alinea checkbox y texto en fila */
+  align-items: center; /* Centra verticalmente el contenido */
+  gap: 0.5rem; /* Espacio entre checkbox y texto */
+  font-size: 0.8rem; /* Letra pequeña para texto legal */
+  margin-bottom: 1.5rem; /* Separación del botón */
+  letter-spacing: 1px; /* Espaciado ligero para estilo */
+  color: #333; /* Texto en gris oscuro */
+}
+
+.editProfile-button {
+  padding: 0.8rem 1rem; /* Relleno interno del botón */
+  background-color: black; /* Fondo sólido y elegante */
+  color: white; /* Contraste alto con el fondo */
+  border: none; /* Elimina bordes predeterminados */
+  font-size: 0.95rem; /* Texto claro y legible */
+  cursor: pointer; /* Muestra el cursor de “clic” */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  transition: background 0.3s ease; /* Animación suave al hacer hover */
+  width: 60%; /* El botón ocupa el 60% del ancho del formulario */
+  align-self: center; /* Centra el botón dentro del form */
+  letter-spacing: 2px; /* Estética visual más elegante */
+  border-radius: 0; /* ✅ Sin bordes redondeados, look plano */
+}
+
+.editProfile-button:hover {
+  background-color: #222; /* Color ligeramente más claro al pasar el mouse */
+}

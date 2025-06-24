@@ -1,192 +1,161 @@
-/* Contenedor general de la pantalla login/register */
-.login-register-page {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  /* Contenedor que agrupa sidebar + formulario */
-  .main-content {
-    display: flex; /* Coloca Sidebar y form en fila */
-    margin-top: -300px; /* Espacio para el navbar superior fijo */
-    margin-left: 110px; /* Desplaza el elemento hacia la derecha */
+.loginRegister-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-  }
-  
-  /* Contenedor del formulario login */
-  .login-form-container {
-    flex: 1;                     /* Toma el espacio disponible al lado del Sidebar */
-    display: flex;              /* Para centrar contenido */
-    justify-content: center;    /* Centra el formulario horizontalmente */
-    align-items: center;        /* Centra el formulario verticalmente */
-    padding: 2rem;              /* Espacio interno general */
-    min-height: 80vh;           /* Asegura espacio vertical para centrarlo visualmente */
-  }
-  
-  /* Formulario de login en sí */
-  .login-form {
-    width: 330px;               /* Ancho fijo para mantener proporción */
-    display: flex;
-    flex-direction: column;     /* Elementos uno debajo del otro */
-  }
-  
-  /* Título del formulario ("LOGIN") */
-  .form-title {
-    font-size: 1.4rem;          /* Tamaño prominente */
-    margin-bottom: 2rem;        /* Separación con los campos */
-    text-align: left;           /* Alineado a la izquierda como pediste */
-    letter-spacing: 2px; /* Espaciado entre letras para mayor legibilidad y estilo */
-    font-weight: 500; /* Peso de fuente ligero para un look delgado */
-  }
-  
-  /* Etiquetas de los campos ("EMAIL", "PASSWORD") */
-  .form-label {
-    font-size: 0.9rem;          /* Tamaño ligeramente reducido */
-    margin-bottom: 0.2rem;      /* Espacio entre texto e input */
-    font-weight: 400;           /* Peso medio para destacar */
-    color: #333;                /* Gris oscuro para contraste sin ser negro absoluto */
-    text-align: left;           /* Alinea el texto a la izquierda */
-    letter-spacing: 2px; /* Espaciado entre letras para mayor legibilidad y estilo */
-    
-  }
-  
-  /* Campos de entrada de texto */
-  .form-input {
-    padding: 0.7rem;            /* Espaciado interno cómodo */
-    margin-bottom: 1.2rem;      /* Espacio entre campos */
-    border: 1px solid #ccc;     /* Borde gris claro estándar */
-    font-size: 0.95rem;         /* Tamaño de fuente neutral */
-    outline: none;              /* Elimina borde azul al hacer clic */
-  }
-  
-  /* Resalta el borde cuando el input está enfocado */
-  .form-input:focus {
-    border-color: black;        /* Borde negro al enfocar */
-  }
-  
-  /* Fila que contiene el checkbox y el enlace "FORGOT PASSWORD?" */
-  .form-row {
-    display: flex;
-    justify-content: space-between; /* Separa checkbox y link a los extremos */
-    align-items: center;
-    margin-bottom: 1.5rem;
-    letter-spacing: 2px; /* Espaciado entre letras para mayor legibilidad y estilo */
-    
-  }
-  
-  /* Contenedor del checkbox "REMEMBER ME" */
-  .checkbox {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;               /* Espacio entre caja y texto */
-    font-size: 0.8rem;
-    cursor: pointer;           /* Cursor tipo clic */
-  }
-  
-  /* Enlace "FORGOT PASSWORD?" */
-  .forgot-password {
-    font-size: 0.8rem;
-    text-decoration: none;     /* Sin subrayado */
-    color: black;
-    letter-spacing: 2px; /* Espaciado entre letras para mayor legibilidad y estilo */
-  }
-  
-  /* Botón de login */
-  .login-btn {
-    padding: 0.8rem 1rem;       /* Relleno interno vertical y horizontal */
-    background: black;          /* Fondo oscuro sólido */
-    color: white;               /* Texto blanco */
-    border: none;               /* Sin borde exterior */
-    font-size: 0.95rem;         /* Tamaño del texto del botón */
-    cursor: pointer;            /* Cursor tipo clic */
-    text-transform: uppercase;  /* Convierte el texto en mayúsculas */
-    transition: background 0.3s ease; /* Suaviza el cambio al hacer hover */
-    border-radius: 0;           /* Esquinas rectas (sin redondear) */
-    width: 60%;        
-    align-self: flex-start;     /* Alineado a la izquierda dentro del form */
-    letter-spacing: 2px; /* Espaciado entre letras para mayor legibilidad y estilo */
-     align-self: center;      /* ← Esto lo centra dentro del form */
-  }
-  
-  /* Hover del botón LOGIN */
-  .login-btn:hover {
-    background: #222;           /* Un tono más claro de negro al pasar el mouse */
-  }
+.loginRegister-main-content {
+  display: flex;
+  margin-top: -300px;
+  margin-left: 110px;
+}
 
-  
+.loginRegister-login-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-height: 80vh;
+}
 
+.loginRegister-login-form {
+  width: 330px;
+  display: flex;
+  flex-direction: column;
+}
 
-  /* Contenedor del formulario de registro */
-.register-form-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;         /* Alineación vertical superior */
-    padding: 18rem;
-    transform: translateY(85px);     /* ← mueve solo este contenedor hacia abajo */
-    margin-right: 40px;
-  }
-  
-  /* Estilo base del formulario de registro */
-  .register-form {
-    width: 330px;                /* Ancho fijo, igual que el formulario de login para balance visual */
-    display: flex;
-    flex-direction: column;      /* Organiza los elementos verticalmente */
-  }
-  
-  /* Contenedor de los 3 selects para la fecha de nacimiento */
-  .birthdate-selects {
-    display: flex;               /* Organiza los selectores en fila */
-    gap: 0.5rem;                 /* Espaciado horizontal entre cada selector */
-    margin-bottom: 1rem;         /* Espacio debajo del grupo completo */
-  }
-  
-  /* Estilo común para cada selector de día, mes y año */
-  .birth-select {
-    flex: 1;                     /* Cada selector toma el mismo espacio disponible */
-    padding: 0.7rem;             /* Relleno interno para mayor área clickeable */
-    font-size: 0.9rem;           /* Tamaño de fuente consistente */
-    border: 1px solid #ccc;      /* Borde gris claro para coherencia con inputs */
-    font-family: inherit;        /* Hereda la fuente del formulario */
-  }
-  
-  /* Fila que contiene el checkbox y el texto de términos */
-  .terms-row {
-    display: flex;               /* Organiza el checkbox y texto en fila */
-    align-items: center;         /* Alineación vertical de los elementos */
-    gap: 0.5rem;                 /* Separación entre checkbox y texto */
-    font-size: 0.8rem;           /* Tamaño de letra reducido */
-    margin-bottom: 1.5rem;       /* Espacio inferior antes del botón */
-    letter-spacing: 2px;         /* Espaciado entre letras para estilo limpio */
-  }
-  
-  /* Estilo del texto que acompaña el checkbox */
-  .terms-label {
-    color: #333;                 /* Gris oscuro para buena legibilidad */
-  }
-  
-  /* Subrayado para destacar "terms and conditions" */
-  .underline {
-    text-decoration: underline;  /* Subraya el texto para dar sensación de link */
-  }
-  
-  /* Botón de "CREATE" en el formulario de registro */
-  .register-btn {
-    padding: 0.8rem 1rem;        /* Relleno vertical y horizontal equilibrado */
-    background: black;           /* Fondo oscuro sólido */
-    color: white;                /* Texto blanco */
-    border: none;                /* Sin borde */
-    font-size: 0.95rem;          /* Tamaño consistente con botón de login */
-    cursor: pointer;             /* Cursor tipo clic */
-    text-transform: uppercase;   /* Texto en mayúsculas para fuerza visual */
-    transition: background 0.3s ease; /* Transición suave al pasar el mouse */
-    border-radius: 0;            /* Bordes rectos */
-    width: 60%;                  /* Ancho definido para consistencia con login */
-    align-self: center;          /* Centrado dentro del formulario */
-    letter-spacing: 2px;         /* Espaciado entre letras para estética moderna */
-  }
-  
-  /* Hover del botón "CREATE" */
-  .register-btn:hover {
-    background: #222;            /* Fondo ligeramente más claro al pasar el mouse */
-  }
-  
-  
+.loginRegister-form-title {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  text-align: left;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+.loginRegister-form-label {
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+  font-weight: 400;
+  color: #333;
+  text-align: left;
+  letter-spacing: 2px;
+}
+
+.loginRegister-form-input {
+  padding: 0.7rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.loginRegister-form-input:focus {
+  border-color: black;
+}
+
+.loginRegister-form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.loginRegister-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.loginRegister-forgot-password {
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: black;
+  letter-spacing: 2px;
+}
+
+.loginRegister-login-btn {
+  padding: 0.8rem 1rem;
+  background: black;
+  color: white;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+  border-radius: 0;
+  width: 60%;
+  align-self: center;
+  letter-spacing: 2px;
+}
+
+.loginRegister-login-btn:hover {
+  background: #222;
+}
+
+.loginRegister-register-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 18rem;
+  transform: translateY(85px);
+  margin-right: 40px;
+}
+
+.loginRegister-register-form {
+  width: 330px;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginRegister-birthdate-selects {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.loginRegister-birth-select {
+  flex: 1;
+  padding: 0.7rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+.loginRegister-terms-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.loginRegister-terms-label {
+  color: #333;
+}
+
+.loginRegister-underline {
+  text-decoration: underline;
+}
+
+.loginRegister-register-btn {
+  padding: 0.8rem 1rem;
+  background: black;
+  color: white;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+  border-radius: 0;
+  width: 60%;
+  align-self: center;
+  letter-spacing: 2px;
+}
+
+.loginRegister-register-btn:hover {
+  background: #222;
+}

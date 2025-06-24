@@ -1,0 +1,80 @@
+.my-address__layout {
+  display: flex; /* Layout horizontal con sidebar y contenido principal */
+  padding-top: 20px; /* Espacio superior para separación del navbar */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 2px; /* Espaciado entre letras para mayor legibilidad y estilo */
+}
+
+.my-address__main {
+  flex: 1; /* Ocupa todo el espacio disponible restante */
+  padding: 24px 40px; /* Espaciado interno del contenido */
+  background-color: #fff; /* Fondo blanco limpio */
+}
+
+.my-address__header {
+  font-size: 20px; /* Tamaño del título principal */
+  margin-bottom: 16px; /* Espacio debajo del título */
+  font-weight: 400; /* Peso moderado para destacarlo */
+}
+
+.my-address__form {
+  max-width: 460px; /* Limita el ancho del formulario para buena legibilidad */
+  display: flex; /* Layout en columna */
+  flex-direction: column;
+  gap: 16px; /* Espacio vertical entre campos */
+}
+
+.my-address__row {
+  display: flex; /* Fila para colocar múltiples campos en línea */
+  gap: 12px; /* Espaciado entre esos campos */
+}
+
+.my-address__field {
+  display: flex; /* Layout en columna para label + input */
+  flex-direction: column;
+  flex: 1; /* Ocupa proporción equitativa en su fila */
+}
+
+.my-address__field label {
+  margin-bottom: 4px; /* Espacio entre etiqueta y input */
+  font-size: 13px; /* Tamaño reducido pero legible */
+  font-weight: 400; /* Un poco más marcado para claridad */
+  color: #333; /* Gris oscuro para accesibilidad visual */
+  text-align: left; /* ✅ Alineado a la izquierda */
+}
+
+.my-address__field input,
+.my-address__field select {
+  padding: 8px; /* Espaciado interno cómodo */
+  font-size: 14px; /* Tamaño uniforme en todos los campos */
+  border-radius: 4px; /* Borde redondeado ligero (ajustable) */
+  border: 1px solid #ccc; /* Contorno sutil pero definido */
+}
+
+.my-address__checkbox {
+  display: flex; /* Alinea checkbox con el texto */
+  align-items: flex-start; /* Alinea el checkbox al tope del texto */
+  font-size: 12px; /* Tamaño más pequeño para nota legal */
+  gap: 8px; /* Espacio entre checkbox y texto */
+}
+
+.my-address__checkbox a {
+  text-decoration: underline; /* Indica que es un enlace */
+}
+
+.my-address__button {
+  margin-top: 8px; /* Separación del checkbox o campo anterior */
+  padding: 10px; /* Relleno interno para hacerlo clickeable */
+  background-color: black; /* Fondo sólido para resaltar */
+  color: white; /* Contraste claro */
+  font-weight: bold; /* Resalta la acción */
+  font-size: 14px;
+  border: none; /* Elimina bordes por defecto */
+  border-radius: 0; /* ✅ Borde recto como solicitaste */
+  cursor: pointer; /* Cambia el cursor a “mano” al pasar encima */
+  width: fit-content; /* Tamaño ajustado al contenido del texto */
+}
+
+.my-address__button:hover {
+  background-color: #222; /* Oscurece el botón en hover para dar feedback visual */
+}
