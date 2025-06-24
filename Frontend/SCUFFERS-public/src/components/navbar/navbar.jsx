@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   const handleLogoutClick = () => {
-    navigate("/loginAndRegister");
+    navigate("/login-and-register");
   };
 
   const handleBrandClick = () => {
@@ -36,7 +36,7 @@ const Navbar = () => {
           onClick={handleLogoutClick}
           style={{ cursor: "pointer" }}
         >
-          LOGOUT
+          LOGIN
         </span>
       </div>
 

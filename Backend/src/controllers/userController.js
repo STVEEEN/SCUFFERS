@@ -10,28 +10,6 @@ usersController.getUsers = async (req, res) => {
     }
 };
 
-usersController.postUsers = async (req, res) => {
-    try {
-        const { Name, Email, Password, Age, Gender, PhoneNumber, role, Membership } = req.body;
-
-        const newUser = new userModel({
-            Name,
-            Email,
-            Password,
-            Age,
-            Gender,
-            PhoneNumber,
-            role,
-            Membership
-        });
-
-        await newUser.save();
-        res.status(201).json({ message: "OK" });
-    } catch (error) {
-        res.status(400).json({ message: "Bad Request", error });
-    }
-};
-
 usersController.putUsers = async (req, res) => {
     try {
         const updatedUser = await userModel.findByIdAndUpdate(
