@@ -9,6 +9,7 @@ import AddProducts from "./pages/addProductsPage/addProducts";
 import Stats from "./pages/statsPage/Stats";
 import CategoriesPage from "./pages/CategoriesPage/CategoriesPage";
 import Stock from "./pages/stockPage/stock";
+import StockCategoryPage from "./components/stockPage/StockCategoryPage";
 import Users from "./pages/usersPage/users";
 import Employees from "./pages/employeesPage/employees";
 import Orders from "./pages/ordersPage/orders";
@@ -98,6 +99,14 @@ export default function App() {
             element={
               <ProtectedRoute allowedRoles={["Admin", "Gerente", "Employee"]}>
                 <Settings />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/stock/category/:categoryId"
+            element={
+              <ProtectedRoute allowedRoles={["Admin", "Gerente", "Employee", "Bodeguero"]}>
+                <StockCategoryPage />
               </ProtectedRoute>
             }
           />

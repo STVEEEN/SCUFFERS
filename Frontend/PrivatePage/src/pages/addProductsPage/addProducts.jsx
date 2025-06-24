@@ -23,8 +23,8 @@ const AddProductsPage = () => {
     setName,
     price,
     setPrice,
-    stock,
-    setStock,
+    variants,
+    setVariants,
     discount,
     setDiscount,
     color,
@@ -86,8 +86,8 @@ const AddProductsPage = () => {
             setName={setName}
             price={price}
             setPrice={setPrice}
-            stock={stock}
-            setStock={setStock}
+            variants={variants}
+            setVariants={setVariants}
             discount={discount}
             setDiscount={setDiscount}
             color={color}

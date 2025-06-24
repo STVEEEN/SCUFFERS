@@ -1,5 +1,17 @@
 import { Schema, model } from "mongoose";
 
+const variantSchema = new Schema({
+  size: {
+    type: String, // "S", "M", "L", "única", "40", etc.
+    required: true
+  },
+  stock: {
+    type: Number,
+    required: true,
+    min: [0, "Stock no puede ser negativo"]
+  }
+}, { _id: false });
+
 const productSchema = new Schema({
     categoryId: {
         type: Schema.Types.ObjectId,
@@ -16,11 +28,6 @@ const productSchema = new Schema({
         type: Number,
         required: true,
         min: [0, "El precio no puede ser negativo"]
-    },
-    stock: {
-        type: Number,
-        required: true,
-        min: [0, "Stock no puede ser negativo"]
     },
     discount: {
         type: Number,
@@ -42,6 +49,10 @@ const productSchema = new Schema({
     line: { // <--- Usando "line" en vez de "collection"
         type: String,
         default: ""
+    },
+    variants: {
+        type: [variantSchema],
+        required: true
     }
 }, {
     timestamps: true,

@@ -22,10 +22,14 @@ productsController.getProducts = async (req, res) => {
   }
 };
 
-// Crear nuevo producto (una imagen, un color)
+// Crear nuevo producto (con variantes de tallas y stock)
 productsController.createProduct = async (req, res) => {
   try {
-    const { categoryId, name, price, stock, discount, color, description, line } = req.body;
+    const { categoryId, name, price, discount, color, description, line, variants } = req.body;
+
+    // Debug: Log lo que llega
+    console.log('CREATE req.body:', req.body);
+
     let imageUrl = "";
 
     if (req.file) {
@@ -39,32 +43,55 @@ productsController.createProduct = async (req, res) => {
       return res.status(400).json({ message: "La imagen es obligatoria" });
     }
 
+    let parsedVariants = variants;
+    if (typeof variants === "string") {
+      parsedVariants = JSON.parse(variants);
+    }
+    // Debug: log variantes parseadas
+    console.log('PARSED VARIANTS:', parsedVariants);
+
+    // Validación manual para ayudar al debug
+    if (!Array.isArray(parsedVariants) || parsedVariants.length === 0) {
+      return res.status(400).json({ message: "Debes agregar al menos una variante válida." });
+    }
+    if (parsedVariants.some(v => !v.size || v.stock === undefined || v.stock === "" || isNaN(Number(v.stock)))) {
+      return res.status(400).json({ message: "Cada variante debe tener una talla (size) y un stock numérico." });
+    }
+
     const newProduct = new ProductModel({
       categoryId,
       name,
       price,
-      stock,
       discount,
       color,
       image: imageUrl,
       description,
       line,
+      variants: parsedVariants
     });
 
     await newProduct.save();
     res.status(201).json(newProduct);
   } catch (error) {
-    res.status(400).json({ message: "Error al crear producto", error });
+    // Mejor manejo de errores de Mongoose
+    if (error.errors) {
+      const messages = Object.values(error.errors).map(e => e.message);
+      return res.status(400).json({ message: "Error al crear producto", errors: messages });
+    }
+    return res.status(400).json({ message: "Error al crear producto", error: error.message || error });
   }
 };
 
-// Actualizar producto
+// Actualizar producto (incluye variantes)
 productsController.updateProduct = async (req, res) => {
   try {
-    const { categoryId, name, price, stock, discount, color, description, line } = req.body;
+    const { categoryId, name, price, discount, color, description, line, variants } = req.body;
+
+    // Debug: Log lo que llega
+    console.log('UPDATE req.body:', req.body);
+
     let imageUrl = "";
 
-    // Si hay nueva imagen, sube a Cloudinary y borra la vieja
     if (req.file) {
       const product = await ProductModel.findById(req.params.id);
       if (product && product.image) {
@@ -80,8 +107,21 @@ productsController.updateProduct = async (req, res) => {
       await fs.unlink(req.file.path);
     }
 
+    let parsedVariants = variants;
+    if (typeof variants === "string") {
+      parsedVariants = JSON.parse(variants);
+    }
+    console.log('PARSED VARIANTS:', parsedVariants);
+
+    if (!Array.isArray(parsedVariants) || parsedVariants.length === 0) {
+      return res.status(400).json({ message: "Debes agregar al menos una variante válida." });
+    }
+    if (parsedVariants.some(v => !v.size || v.stock === undefined || v.stock === "" || isNaN(Number(v.stock)))) {
+      return res.status(400).json({ message: "Cada variante debe tener una talla (size) y un stock numérico." });
+    }
+
     const updateData = {
-      categoryId, name, price, stock, discount, color, description, line
+      categoryId, name, price, discount, color, description, line, variants: parsedVariants
     };
     if (imageUrl) updateData.image = imageUrl;
 
@@ -97,7 +137,11 @@ productsController.updateProduct = async (req, res) => {
 
     res.json(updatedProduct);
   } catch (error) {
-    res.status(400).json({ message: "Error al actualizar producto", error });
+    if (error.errors) {
+      const messages = Object.values(error.errors).map(e => e.message);
+      return res.status(400).json({ message: "Error al actualizar producto", errors: messages });
+    }
+    return res.status(400).json({ message: "Error al actualizar producto", error: error.message || error });
   }
 };
 

@@ -1,79 +1,55 @@
-import React, { useState } from "react";
-import "./ProductsCard.css";
+import "../../pages/addProductsPage/addProducts.css";
 
-const ProductsCard = ({ product, onEdit, onDelete }) => {
-  const [imgIndex, setImgIndex] = useState(0);
-  const [selectedColor, setSelectedColor] = useState(product.colors?.[0] || "");
-
-  const images = (product.images && product.images[selectedColor]) || [];
-
-  const nextImg = () => setImgIndex((prev) => (prev + 1) % images.length);
-  const prevImg = () => setImgIndex((prev) => (prev - 1 + images.length) % images.length);
-
-  // Cambia el color y reinicia el índice de imagen
-  const handleColorChange = (color) => {
-    setSelectedColor(color);
-    setImgIndex(0);
-  };
-
+export default function ProductList({ products, onEdit, onDelete, loading }) {
   return (
-    <div className="product-card">
-      <div className="product-card-carousel">
-        {images.length > 0 ? (
-          <>
-            <img
-              src={images[imgIndex]}
-              alt={product.garmentName}
-              className="product-card-img"
-            />
-            {images.length > 1 && (
-              <>
-                <button className="carousel-btn left" onClick={prevImg}>&lt;</button>
-                <button className="carousel-btn right" onClick={nextImg}>&gt;</button>
-              </>
-            )}
-          </>
-        ) : (
-          <div className="product-card-img-placeholder">No Image</div>
-        )}
-      </div>
-      {/* Selector de color */}
-      {product.colors && product.colors.length > 1 && (
-        <div className="product-card-colors">
-          {product.colors.map((color) => (
-            <span
-              key={color}
-              className={`color-dot${color === selectedColor ? " selected" : ""}`}
-              style={{ background: color }}
-              title={color}
-              onClick={() => handleColorChange(color)}
-            />
-          ))}
-        </div>
-      )}
-      <h4>{product.garmentName}</h4>
-      <p>{product.description}</p>
-      <p><b>Category:</b> {product.category}</p>
-      <p><b>Price:</b> ${product.price}</p>
-      <p><b>Collection:</b> {product.collection}</p>
-      <div>
-        <button
-          className="btn btn-sm btn-warning"
-          style={{ backgroundColor: "#000", color: "#fff", marginRight: 6, borderRadius: "0.75rem" }}
-          onClick={() => onEdit(product)}
-        >
-          Edit
-        </button>
-        <button
-          className="btn btn-sm btn-danger"
-          style={{ backgroundColor: "#000", color: "#fff", borderRadius: "0.75rem", marginLeft: 6 }}
-          onClick={() => onDelete(product._id)}
-        >
-          Delete
-        </button>
+    <div className="ProductList">
+      {loading && <p>Cargando productos...</p>}
+      {!loading && products.length === 0 && <p>No hay productos.</p>}
+      <div className="ProductList-grid">
+        {products.map(product => (
+          <div key={product._id} className="ProductCard">
+            <img src={product.image} alt={product.name} className="ProductCard-img" />
+            <div className="ProductCard-info">
+              <div className="ProductCard-row">
+                <span className="ProductCard-name">{product.name}</span>
+                <span
+                  className="ProductCard-color"
+                  title={product.color}
+                  style={{ background: product.color }}
+                />
+              </div>
+              <div>
+                <span className="ProductCard-price">${product.price}</span>
+                {product.variants?.length > 0 ? (
+                  <span className="ProductCard-stock">
+                    ({product.variants.reduce((acc, v) => acc + Number(v.stock || 0), 0)} en stock)
+                  </span>
+                ) : null}
+              </div>
+              {/* Variantes */}
+              {product.variants?.length > 0 && (
+                <div className="ProductCard-variants" style={{ marginTop: 6, fontSize: "0.94em" }}>
+                  <b>Tallas:</b>{" "}
+                  {product.variants.map((v, i) =>
+                    <span key={i} style={{ marginRight: 10 }}>
+                      {v.size} <span style={{ color: "#666" }}>({v.stock})</span>
+                    </span>
+                  )}
+                </div>
+              )}
+              {product.discount > 0 && (
+                <div className="ProductCard-discount">Descuento: {product.discount}%</div>
+              )}
+              <div className="ProductCard-line">{product.line}</div>
+              <div className="ProductCard-desc">{product.description}</div>
+              <div className="ProductCard-actions">
+                <button className="edit-btn" onClick={() => onEdit(product)}>Editar</button>
+                <button className="del-btn" onClick={() => onDelete(product._id)}>Eliminar</button>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
-};
-
-export default ProductsCard;
+}
