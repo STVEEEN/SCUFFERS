@@ -7,7 +7,7 @@
   .main-content {
     display: flex; /* Coloca Sidebar y form en fila */
     margin-top: -300px; /* Espacio para el navbar superior fijo */
-    margin-left: 110px; /* Desplaza el elemento hacia la derecha */
+ /* Desplaza el elemento hacia la derecha */
 
   }
   

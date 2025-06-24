@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useMyProfile from "../../hooks/useMyProfile";
+import Swal from "sweetalert2";
 import "./Settings.css";
 
+// Componente que permite ver, editar y actualizar la información del perfil,
+// cambiar contraseña (si es admin) y cerrar sesión.
 export default function Settings() {
   const navigate = useNavigate();
   const { profile, loading, error, updateProfile } = useMyProfile();
 
-  // Estados para los campos editables
+  // Estados del formulario
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [dui, setDui] = useState("");
@@ -15,42 +18,51 @@ export default function Settings() {
   const [birthday, setBirthday] = useState("");
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
-  const [hireDate, setHireDate] = useState(""); // solo para mostrar
-  const [message, setMessage] = useState("");
+  const [hireDate, setHireDate] = useState("");
 
-  // Cambio de contraseña solo para Admin
+  // Cambio de contraseña
   const [showPasswordInput, setShowPasswordInput] = useState(false);
   const [newPassword, setNewPassword] = useState("");
-  const [passwordMessage, setPasswordMessage] = useState("");
 
+  // Cargar datos del perfil
   useEffect(() => {
     if (profile) {
       setEmail(profile.email || "");
       setPhone(profile.phoneNumber || "");
       setDui(profile.dui || "");
       setAddress(profile.address || "");
-      setBirthday(profile.birthday ? profile.birthday.substring(0, 10) : "");
+      setBirthday(profile.birthday?.substring(0, 10) || "");
       setName(profile.name || "");
       setRole(profile.Role || profile.role || "");
-      setHireDate(profile.hireDate ? profile.hireDate.substring(0, 10) : "");
+      setHireDate(profile.hireDate?.substring(0, 10) || "");
     }
   }, [profile]);
 
-  // Logout funcional
+  // Confirmar cierre de sesión
   const handleLogout = async () => {
-    await fetch("http://localhost:4000/api/logout", {
-      method: "POST",
-      credentials: "include",
+    const result = await Swal.fire({
+      title: "¿Cerrar sesión?",
+      text: "Se cerrará tu sesión actual.",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Sí, cerrar",
+      cancelButtonText: "Cancelar",
+      confirmButtonColor: "#d33",
     });
-    localStorage.removeItem("userEmail");
-    localStorage.removeItem("userId");
-    navigate("/login");
+    if (result.isConfirmed) {
+      await fetch("http://localhost:4000/api/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+      localStorage.removeItem("userEmail");
+      localStorage.removeItem("userId");
+      navigate("/login");
+    }
   };
 
-  // Guardar cambios de datos personales
+  // Guardar cambios en perfil
   const handleSave = async (e) => {
     e.preventDefault();
-    setMessage("");
     const updates = {
       email,
       phoneNumber: phone,
@@ -58,20 +70,21 @@ export default function Settings() {
       address,
       birthday,
       name,
-      // No actualices role, hireDate ni password aquí
     };
     const result = await updateProfile(updates);
-    if (result.success) setMessage("Datos actualizados correctamente");
-    else setMessage(result.error || "Error al actualizar datos");
+    if (result.success) {
+      Swal.fire("¡Éxito!", "Datos actualizados correctamente.", "success");
+    } else {
+      Swal.fire("Error", result.error || "No se pudo actualizar.", "error");
+    }
   };
 
-  // Cambiar contraseña: Admin puede, otros redirige
+  // Cambio de contraseña
   const handlePasswordChange = async (e) => {
     e.preventDefault();
-    setPasswordMessage("");
     if (role === "Admin") {
       if (!newPassword || newPassword.length < 6) {
-        setPasswordMessage("La contraseña debe tener al menos 6 caracteres.");
+        Swal.fire("Atención", "La contraseña debe tener al menos 6 caracteres.", "warning");
         return;
       }
       try {
@@ -82,11 +95,12 @@ export default function Settings() {
           body: JSON.stringify({ newPassword }),
         });
         if (!res.ok) throw new Error("No se pudo cambiar la contraseña");
-        setPasswordMessage("Contraseña cambiada correctamente.");
+
+        Swal.fire("Éxito", "Contraseña actualizada correctamente.", "success");
         setNewPassword("");
         setShowPasswordInput(false);
       } catch (err) {
-        setPasswordMessage(err.message || "Error al cambiar contraseña.");
+        Swal.fire("Error", err.message || "Algo salió mal.", "error");
       }
     } else {
       navigate("/passwordRecovery");
@@ -98,66 +112,32 @@ export default function Settings() {
 
   return (
     <div className="Settings-page">
-      {/* Flecha en la esquina superior izquierda */}
       <div className="back-arrow" onClick={() => navigate("/stats")}>
         <img src="/src/img/Flecha.png" />
       </div>
-
-      {/* Contenedor del logo */}
       <div className="logo-container">
         <img src="/src/img/Logo.png" alt="Logo" />
       </div>
-
       <div className="settings-page">
         <div className="container">
-          {/* Sección para cambiar datos */}
           <div style={{ width: "45%" }}>
             <form className="data-section" onSubmit={handleSave}>
               <h2>CHANGE YOUR DATA</h2>
-
-              <div className="input-group">
-                <label>NAME</label>
-                <input type="text" value={name} onChange={e => setName(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>EMAIL</label>
-                <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>PHONE NUMBER</label>
-                <input type="text" value={phone} onChange={e => setPhone(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>DUI</label>
-                <input type="text" value={dui} onChange={e => setDui(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>ADDRESS</label>
-                <input type="text" value={address} onChange={e => setAddress(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>BIRTHDAY</label>
-                <input type="date" value={birthday} onChange={e => setBirthday(e.target.value)} />
-              </div>
+              <div className="input-group"><label>NAME</label><input type="text" value={name} onChange={e => setName(e.target.value)} /></div>
+              <div className="input-group"><label>EMAIL</label><input type="email" value={email} onChange={e => setEmail(e.target.value)} /></div>
+              <div className="input-group"><label>PHONE NUMBER</label><input type="text" value={phone} onChange={e => setPhone(e.target.value)} /></div>
+              <div className="input-group"><label>DUI</label><input type="text" value={dui} onChange={e => setDui(e.target.value)} /></div>
+              <div className="input-group"><label>ADDRESS</label><input type="text" value={address} onChange={e => setAddress(e.target.value)} /></div>
+              <div className="input-group"><label>BIRTHDAY</label><input type="date" value={birthday} onChange={e => setBirthday(e.target.value)} /></div>
               <div className="input-group">
                 <label>ROLE</label>
-                <input
-                  type="text"
-                  value={role}
-                  disabled
-                  style={{ background: "#eee", color: "#666", cursor: "not-allowed" }}
-                />
+                <input type="text" value={role} disabled style={{ background: "#eee", color: "#666", cursor: "not-allowed" }} />
               </div>
               <button className="change-button" type="submit">CHANGE CREDENTIALS</button>
-              {message && (
-                <p style={{ marginTop: 10, color: message.includes("error") ? "red" : "green" }}>
-                  {message}
-                </p>
-              )}
             </form>
-            {/* Miniformulario de cambio de contraseña */}
-            <div className="password-section">
-              <h3 style={{ marginTop: 30,}}>CAMBIAR CONTRASEÑA</h3>
+                        {/* Sección de cambio de contraseña */}
+                        <div className="password-section">
+              <h3 style={{ marginTop: 30 }}>CAMBIAR CONTRASEÑA</h3>
               {role === "Admin" ? (
                 !showPasswordInput ? (
                   <button
@@ -179,26 +159,17 @@ export default function Settings() {
                         autoFocus
                       />
                     </div>
-                    <button
-                      className="change-button"
-                      style={{ background: "#ff6600", marginTop: 10 }}
-                      type="submit"
-                    >
+                    <button className="change-button" style={{ background: "#ff6600", marginTop: 10 }} type="submit">
                       GUARDAR CONTRASEÑA
                     </button>
                     <button
                       type="button"
                       className="change-button"
                       style={{ background: "#888", marginTop: 10, marginLeft: 8 }}
-                      onClick={() => { setShowPasswordInput(false); setNewPassword(""); setPasswordMessage(""); }}
+                      onClick={() => { setShowPasswordInput(false); setNewPassword(""); }}
                     >
                       CANCELAR
                     </button>
-                    {passwordMessage && (
-                      <p style={{ marginTop: 10, color: passwordMessage.includes("correcta") ? "green" : "red" }}>
-                        {passwordMessage}
-                      </p>
-                    )}
                   </form>
                 )
               ) : (
@@ -211,14 +182,15 @@ export default function Settings() {
                   >
                     RECUPERAR CONTRASEÑA
                   </button>
-                  <span style={{ fontSize: 12, color: "#888", display: "block", textAlign: "center", marginTop: 6 }}>
-                    Solo el admin puede cambiar la contraseña aquí. Haz click para ir a recuperación de contraseña.
+                  <span style={{ fontSize: 12, color: "#888", textAlign: "center", display: "block", marginTop: 6 }}>
+                    Solo el admin puede cambiar la contraseña aquí. Haz clic para ir a recuperación.
                   </span>
                 </>
               )}
             </div>
           </div>
-          {/* Sección de perfil del usuario */}
+
+          {/* Vista de perfil del usuario */}
           <div className="profile-section">
             <img src="/src/img/Users.png" alt="User" />
             <h2>{name}</h2>
@@ -235,7 +207,7 @@ export default function Settings() {
               <p>{phone}</p>
             </div>
             <div className="profile-item">
-              <img src="/src/img/Lock.png" alt="Lock" />
+              <img src="/src/img/Lock.png" alt="Password" />
               <p>********</p>
             </div>
             <div className="profile-item">
@@ -247,16 +219,13 @@ export default function Settings() {
               <p>{dui}</p>
             </div>
             <div className="profile-item">
-              <img src="/src/img/Work.png" alt="Hire Date" />
-              <p>{hireDate ? hireDate.split("-").reverse().join("/") : ""}</p>
-            </div>
-            <div className="profile-item">
               <img src="/src/img/Role.png" alt="Role" />
               <p>{role}</p>
             </div>
           </div>
         </div>
-        {/* Botón de logout funcional */}
+
+        {/* Botón para cerrar sesión */}
         <button className="logout-button" onClick={handleLogout}>
           LOGOUT
         </button>
