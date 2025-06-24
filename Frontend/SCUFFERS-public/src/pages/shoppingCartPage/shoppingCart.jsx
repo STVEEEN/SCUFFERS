@@ -1,17 +1,20 @@
 // src/components/shoppingCart/ShoppingCart.jsx
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom"; // ✅ useNavigate agregado
 import Navbar from "../../components/navbar/navbar";
 import Sidebar from "../../components/sidebar/sidebar";
 import SelectedProductCard from "../../components/selectedProductCard/selectedProductCard";
+import { useCart } from "../../context/CartContext"; // ✅ contexto global importado
 import "./ShoppingCart.css";
 
 const ShoppingCart = () => {
   const { state: newItem } = useLocation();
+  const navigate = useNavigate(); // ✅ navegación activada
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const { setCartItems: setGlobalCart, setTotal: setGlobalTotal } = useCart(); // ✅ acceso al contexto
 
-  // Cargar desde localStorage
+  // Cargar desde localStorage al montar
   useEffect(() => {
     const stored = localStorage.getItem("cartItems");
     if (stored) {
@@ -21,18 +24,18 @@ const ShoppingCart = () => {
     }
   }, []);
 
-  // Calcular precio total
+  // Calcular total
   const calculateTotal = (items) => {
     const total = items.reduce((sum, item) => {
-      // Manejar valores con comas como separador de miles
       const priceString = item.bottomText.replace(/[^0-9.,]/g, '');
       const price = parseFloat(priceString.replace(/,/g, ''));
       return sum + (price * (item.quantity || 1));
     }, 0);
     setTotalPrice(total);
+    setGlobalTotal(total); // ✅ actualiza total en el contexto global
   };
 
-  // Agregar nuevo ítem
+  // Agregar nuevo producto
   useEffect(() => {
     if (newItem) {
       setCartItems((prev) => {
@@ -52,25 +55,30 @@ const ShoppingCart = () => {
 
         localStorage.setItem("cartItems", JSON.stringify(updated));
         calculateTotal(updated);
+        setGlobalCart(updated); // ✅ sincroniza carrito global
         return updated;
       });
     }
   }, [newItem]);
 
+  // Remover ítem
   const handleRemove = (index) => {
     const updated = [...cartItems];
     updated.splice(index, 1);
     setCartItems(updated);
     localStorage.setItem("cartItems", JSON.stringify(updated));
     calculateTotal(updated);
+    setGlobalCart(updated); // ✅ contexto actualizado
   };
 
+  // Cambiar cantidad
   const handleQuantityChange = (index, change) => {
     const updated = [...cartItems];
     updated[index].quantity = Math.max(1, updated[index].quantity + change);
     setCartItems(updated);
     localStorage.setItem("cartItems", JSON.stringify(updated));
     calculateTotal(updated);
+    setGlobalCart(updated); // ✅ sincroniza cantidad en contexto también
   };
 
   return (
@@ -97,7 +105,7 @@ const ShoppingCart = () => {
               </div>
             )}
           </div>
-          
+
           {cartItems.length > 0 && (
             <div className="order-summary">
               <h3 className="summary-title">ORDER SUMMARY</h3>
@@ -119,7 +127,11 @@ const ShoppingCart = () => {
                   <span>${totalPrice.toLocaleString()}</span>
                 </div>
               </div>
-              <button className="checkout-btn">PROCEED TO CHECKOUT</button>
+
+              {/* ✅ Navegación activada */}
+              <button className="checkout-btn" onClick={() => navigate("/paymentMethod")}>
+                PROCEED TO CHECKOUT
+              </button>
             </div>
           )}
         </div>
