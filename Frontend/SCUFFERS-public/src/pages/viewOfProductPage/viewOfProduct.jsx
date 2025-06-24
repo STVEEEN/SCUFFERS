@@ -12,12 +12,27 @@ const ViewOfProduct = () => {
   const { state: product } = useLocation();
   const [selectedSize, setSelectedSize] = useState(null);
 
-  // Redirige si no viene producto
+  // Redirige si no hay producto
   useEffect(() => {
     if (!product) navigate("/products", { replace: true });
   }, [product, navigate]);
 
   if (!product) return <p className="loading">Cargando producto…</p>;
+
+  // Maneja agregar al carrito
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      alert("Please select a size before adding to your bag.");
+      return;
+    }
+
+    const itemWithSize = {
+      ...product,
+      selectedSize,
+    };
+
+    navigate("/shoppingCart", { state: itemWithSize });
+  };
 
   return (
     <div className="viewOfProduct">
@@ -26,14 +41,14 @@ const ViewOfProduct = () => {
         <Sidebar />
 
         <div className="product-detail">
-          {/* IMAGEN */}  
+          {/* IMAGEN */}
           <div className="image-slider">
             <span className="arrow left">&#8249;</span>
             <img src={product.image} alt={product.topText} />
             <span className="arrow right">&#8250;</span>
           </div>
 
-          {/* DETALLE */}  
+          {/* DETALLE */}
           <div className="product-info">
             <h1 className="product-title">{product.topText}</h1>
             <p className="product-price">{product.bottomText}</p>
@@ -41,7 +56,7 @@ const ViewOfProduct = () => {
               * Taxes & shipping calculated at checkout
             </p>
 
-            {/* TALLAS */}  
+            {/* TALLAS */}
             <div className="size-selector">
               <span className="size-label">SIZE</span>
               <div className="sizes">
@@ -62,9 +77,11 @@ const ViewOfProduct = () => {
               </a>
             </div>
 
-            {/* BOTONES */}  
+            {/* BOTONES */}
             <div className="action-buttons">
-              <button className="btn add-bag">ADD TO SHOPPING BAG</button>
+              <button className="btn add-bag" onClick={handleAddToCart}>
+                ADD TO SHOPPING BAG
+              </button>
               <button className="btn add-wish">ADD TO WISHLIST</button>
             </div>
           </div>

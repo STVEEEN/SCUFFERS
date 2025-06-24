@@ -1,0 +1,130 @@
+.sidebarMyAccount-container {
+  width: 230px;
+  height: calc(100vh - 60px);
+  padding: 30px 0;
+  background-color: #ffffff;
+  border-right: 1px solid #eaeaea;
+  position: fixed;
+  left: 0;
+  top: 70px;
+  z-index: 90;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.sidebarMyAccount-header {
+  padding: 0 30px 20px;
+  border-bottom: 1px solid #ffffff;
+  margin-bottom: 15px;
+}
+
+.sidebarMyAccount-title {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #333;
+  margin: 0;
+}
+
+.sidebarMyAccount-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebarMyAccount-item {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 14px 30px;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+.sidebarMyAccount-item:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  color: #222;
+}
+
+.sidebarMyAccount-item.active {
+  color: #000;
+  font-weight: 400;
+}
+
+.sidebarMyAccount-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #000000;
+}
+
+.sidebarMyAccount-item::after {
+  content: '';
+  position: absolute;
+  left: 30px;
+  bottom: 10px;
+  width: 0;
+  height: 1px;
+  background-color: #000;
+  transition: width 0.3s ease;
+}
+
+.sidebarMyAccount-item:hover::after {
+  width: calc(100% - 60px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sidebarMyAccount-container {
+    width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebarMyAccount-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: 0;
+    border-right: none;
+    border-bottom: 1px solid #eaeaea;
+    padding: 20px 0;
+  }
+
+  .sidebarMyAccount-header {
+    padding: 0 20px 15px;
+    text-align: center;
+  }
+
+  .sidebarMyAccount-title {
+    font-size: 1.2rem;
+  }
+
+  .sidebarMyAccount-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 15px;
+  }
+
+  .sidebarMyAccount-item {
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: 1px solid #eaeaea;
+    border-radius: 2px;
+  }
+
+  .sidebarMyAccount-item.active::before,
+  .sidebarMyAccount-item::after {
+    display: none;
+  }
+}
