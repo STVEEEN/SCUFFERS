@@ -27,12 +27,12 @@ function App() {
             <Route path="/login-and-register" element={<LoginAndRegister />} />
             <Route path="/verify-email" element={<VerifyEmail />} />
             <Route path="/recover" element={<PasswordRecovery />} />
-            <Route path="/shopping-cart" element={<ShoppingCart />} />
-            <Route path="/my-account" element={<MyAccount />} />
-            <Route path="/edit-profile" element={<EditProfile />} />
-            <Route path="/my-address" element={<MyAddress />} />
-            <Route path="/my-orders" element={<MyOrders />} />
-            <Route path="/payment-method" element={<PaymentMethod />} />
+            <Route path="/shoppingCart" element={<ShoppingCart />} />
+            <Route path="/myAccount" element={<MyAccount />} />
+            <Route path="/editProfile" element={<EditProfile />} />
+            <Route path="/myAddress" element={<MyAddress />} />
+            <Route path="/myOrders" element={<MyOrders />} />
+            <Route path="/paymentMethod" element={<PaymentMethod />} />
           </Routes>
         </div>
       </Router>
