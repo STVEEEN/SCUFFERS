@@ -12,7 +12,7 @@ const FirstUser = () => {
       <div className="cards-container">
         <FirstUserCard 
           image="/src/img/MAN.png" 
-          mainText="MAN" 
+          mainText="SEE ALL" 
           buttonText="SHOP NOW" 
         />
         <FirstUserCard 
@@ -22,7 +22,7 @@ const FirstUser = () => {
         />
         <FirstUserCard 
           image="/src/img/COLLECTIONS.png" 
-          mainText="COLLECTIONS" 
+          mainText="STATEMENT PIECES" 
           buttonText="SHOP NOW" 
         />
       </div>

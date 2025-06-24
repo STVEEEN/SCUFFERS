@@ -1,69 +1,98 @@
-// src/pages/productsPage/Products.jsx
-
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/navbar";
 import Sidebar from "../../components/sidebar/sidebar";
-import ProductCard from "../../components/productCard/productCard";
+import ProductCard from "../../components/productsPage/productCard";
+import useProductsAndCategories from "../../hooks/useProductsAndCategories";
 import "./products.css";
 
 const Products = () => {
-  const [activeCategory, setActiveCategory] = useState("STATEMENT PIECES");
+  const { products, categories, loading } = useProductsAndCategories();
+  const [activeCategory, setActiveCategory] = useState(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const navigate = useNavigate();
 
-  // Datos de ejemplo para las cards
-  const productCards = [
-    { id: 1,  image: "/src/img/rick.png", topText: "STUFF",   bottomText: "$1000000" },
-    { id: 2,  image: "/src/img/rick.png", topText: "PREMIUM", bottomText: "$1500000" },
-    { id: 3,  image: "/src/img/rick.png", topText: "ELITE",   bottomText: "$2000000" },
-    { id: 4,  image: "/src/img/rick.png", topText: "DELUXE",  bottomText: "$2500000" },
-    { id: 5,  image: "/src/img/rick.png", topText: "STUFF",   bottomText: "$1000000" },
-    { id: 6,  image: "/src/img/rick.png", topText: "PREMIUM", bottomText: "$1500000" },
-    { id: 7,  image: "/src/img/rick.png", topText: "ELITE",   bottomText: "$2000000" },
-    { id: 8,  image: "/src/img/rick.png", topText: "DELUXE",  bottomText: "$2500000" },
-    { id: 9,  image: "/src/img/rick.png", topText: "STUFF",   bottomText: "$1000000" },
-    { id: 10, image: "/src/img/rick.png", topText: "PREMIUM", bottomText: "$1500000" },
-    { id: 11, image: "/src/img/rick.png", topText: "ELITE",   bottomText: "$2000000" },
-    { id: 12, image: "/src/img/rick.png", topText: "DELUXE",  bottomText: "$2500000" },
-  ];
+  useEffect(() => {
+    if (!activeCategory && categories.length > 0) {
+      setActiveCategory(categories[0].name);
+    }
+  }, [categories, activeCategory]);
 
-  // Al hacer click, navegamos y pasamos el producto como state
+  const filteredProducts = useMemo(() => {
+    if (!activeCategory)
+      return products.slice().sort((a, b) => a.name.localeCompare(b.name));
+    return products
+      .filter((p) => p.categoryId?.name === activeCategory)
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [products, activeCategory]);
+
   const handleCardClick = (product) => {
-    navigate("/viewOfProduct", { state: product });
+    navigate("/viewOfProduct", {
+      state: {
+        ...product,
+        topText: product.name,
+        bottomText: `$${product.price}`,
+      },
+    });
   };
 
-  return (
-    <div className="products-page">
-      <Navbar />
+  if (loading) {
+    return (
+      <div className="products-page">
+        <Navbar />
+        <div className="products-loading">Loading...</div>
+      </div>
+    );
+  }
 
-      <div className="main-content-container">
+  return (
+    <div className="products-root">
+      <Navbar />
+      <button
+        className="sidebar-toggle"
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+      >
+        <span className="sidebar-toggle-bar"></span>
+        <span className="sidebar-toggle-bar"></span>
+        <span className="sidebar-toggle-bar"></span>
+      </button>
+      <div className="products-layout">
         <Sidebar
+          categories={categories.map((cat) => cat.name)}
           activeCategory={activeCategory}
           setActiveCategory={setActiveCategory}
+          sidebarOpen={sidebarOpen}
+          setSidebarOpen={setSidebarOpen}
         />
-
-        <main className="products-content">
-          <div className="category-header">
-            <h2 className="category-title">{activeCategory}</h2>
-            <p className="category-description">
-              Explore our curated collection of premium {activeCategory.toLowerCase()}
-            </p>
-          </div>
-
-          <div className="products-row">
-            {productCards.map((product) => (
-              <div
-                key={product.id}
-                onClick={() => handleCardClick(product)}
-                style={{ cursor: "pointer" }}
-              >
-                <ProductCard
-                  image={product.image}
-                  topText={product.topText}
-                  bottomText={product.bottomText}
-                />
+        <main className="products-main">
+          <div className="products-content">
+            <div className="products-header">
+              <div className="products-title">
+                {activeCategory || "ALL PRODUCTS"}
               </div>
-            ))}
+              <div className="products-desc">
+                Explore our curated collection of premium{" "}
+                {activeCategory ? activeCategory.toLowerCase() : "products"}
+              </div>
+            </div>
+            <div className="products-grid">
+              {filteredProducts.length > 0 ? (
+                filteredProducts.map((product) => (
+                  <ProductCard
+                    key={product._id}
+                    image={product.image}
+                    topText={product.name}
+                    bottomText={`$${product.price}`}
+                    onClick={() => handleCardClick(product)}
+                  />
+                ))
+              ) : (
+                <div className="no-products">
+                  No products found in this category.
+                </div>
+              )}
+            </div>
           </div>
         </main>
       </div>

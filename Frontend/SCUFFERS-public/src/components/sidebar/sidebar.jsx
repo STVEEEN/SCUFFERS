@@ -1,44 +1,39 @@
 import React from 'react';
 import './Sidebar.css';
 
-const Sidebar = ({ activeCategory, setActiveCategory }) => {
-  const categories = [
-    'STATEMENT PIECES',
-    'JUST WOMAN',
-    'HOODIES',
-    'LONGSLEEVES',
-    'PUFFERS',
-    'JACKETS',
-    'ACCESSORIES',
-    'T-SHIRT',
-    'PANTS',
-    'SHORTS',
-    'TANK-TOPS'
-  ];
-  
+const Sidebar = ({
+  categories = [],
+  activeCategory,
+  setActiveCategory,
+  sidebarOpen,
+  setSidebarOpen
+}) => {
   return (
-    <div className="sidebar-container">
-      <div className="sidebar-header">
-        <h2 className="sidebar-title">CATEGORIES</h2>
-      </div>
-      
-      <ul className="sidebar-list">
-        {categories.map((category) => (
-          <li 
-            key={category}
-            className={`sidebar-item ${activeCategory === category ? 'active' : ''}`}
-            onClick={() => {
-              // Solo actualiza si es una categoría diferente
-              if (activeCategory !== category) {
+    <>
+      {/* Overlay para cerrar el sidebar en móvil */}
+      <div
+        className={`sidebar-backdrop${sidebarOpen ? " open" : ""}`}
+        onClick={() => setSidebarOpen(false)}
+      />
+      <aside className={`sidebar-animated${sidebarOpen ? " open" : ""}`}>
+        <div className="sidebar-title">CATEGORIES</div>
+        <ul className="sidebar-list">
+          {categories.map((category, idx) => (
+            <li 
+              key={category}
+              className={`sidebar-item${activeCategory === category ? ' active' : ''}`}
+              style={{ animationDelay: `${idx * 0.04 + 0.15}s` }}
+              onClick={() => {
                 setActiveCategory(category);
-              }
-            }}
-          >
-            {category}
-          </li>
-        ))}
-      </ul>
-    </div>
+                setSidebarOpen(false); // cerrar menú en móvil al seleccionar
+              }}
+            >
+              {category}
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </>
   );
 };
 
