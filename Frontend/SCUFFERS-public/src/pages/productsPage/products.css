@@ -1,218 +1,84 @@
-/* RESET GLOBAL - Elimina márgenes y paddings predeterminados */
-* {
-  margin: 0;                     /* Elimina el margen por defecto */
-  padding: 0;                    /* Elimina el relleno por defecto */
-  box-sizing: border-box;        /* Incluye padding y border dentro del ancho/alto */
+.products-layout {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  background: #fff;
 }
 
-body, html {
-  width: 100%;                   /* Ocupa todo el ancho del viewport */
-  overflow-x: hidden;            /* Previene el scroll horizontal */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente base del sitio */
-}
-
-/* CONTENEDOR PRINCIPAL */
-.products-page {
-  display: flex;                 /* Flexbox vertical */
-  flex-direction: column;
-  min-height: 100vh;             /* Asegura altura mínima de pantalla completa */
-  width: 100%;                   /* Ocupa todo el ancho */
-  background-color: #ffffff;     /* Fondo blanco */
-  align-items: center;           /* Centra los hijos horizontalmente */
-}
-
-/* CONTENIDO PRINCIPAL */
-.products-content {
-  flex: 1;                       /* Ocupa el espacio restante vertical */
+.products-main {
+  flex: 1;
+  margin-left: 180px; /* El ancho de tu sidebar */
+  padding: 56px 0 0 0; /* SIN padding a la izquierda */
   display: flex;
   flex-direction: column;
-  padding: 20px 10;              /* Padding vertical, pero falta 'px' en horizontal (error menor) */
-  margin-top: 60px;              /* Deja espacio para el navbar fijo */
-  width: 80%;                    /* Ocupa el 80% del ancho del contenedor principal */
-  max-width: 1200px;             /* Limita el ancho máximo para pantallas grandes */
+  min-height: 100vh;
 }
 
-/* FILA DE PRODUCTOS */
-.products-row {
-  display: flex;
-  justify-content: center;       /* Centra las tarjetas en línea */
-  gap: 14px;                     /* Espacio entre tarjetas */
-  padding: 0px;
-  width: 140%;                   /* Intencionalmente más ancho para crear desbordamiento horizontal */
-  flex-wrap: wrap;               /* Permite que las tarjetas salten a una nueva fila si es necesario */
-}
-
-/* TARJETAS DE PRODUCTO */
-.product-card {
-  background: white;             /* Fondo blanco para cada tarjeta */
-  border-radius: 4px;            /* Bordes ligeramente redondeados */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Sombra suave para dar profundidad */
-  overflow: hidden;              /* Oculta contenido que desborda */
-  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transición suave en transformaciones */
-  transform: translateZ(0);      /* Mejora el rendimiento de animación */
-  position: relative;            /* Permite usar posicionamiento absoluto en hijos */
-}
-
-/* EFECTO HOVER SOBRE LA TARJETA */
-.product-card:hover {
-  transform: translateY(-8px) scale(1.02); /* Eleva y agranda ligeramente la tarjeta */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12); /* Aumenta la sombra */
-  z-index: 10;                     /* La eleva sobre otros elementos cercanos */
-}
-
-/* EFECTO DE “LEVITACIÓN” EXTRA EN HOVER */
-.product-card:hover::before {
-  content: '';                    /* Elemento decorativo vacío */
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Sombra más profunda */
-  border-radius: 4px;
-  opacity: 0;
-  animation: levitate 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) infinite; /* Animación que se repite infinitamente */
-}
-
-/* ANIMACIÓN: LEVITATE */
-@keyframes levitate {
-  0% {
-    opacity: 0;
-    transform: translateY(0);       /* Posición inicial */
-  }
-  50% {
-    opacity: 1;                     /* Mitad visible */
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-10px);   /* Se eleva hacia arriba y desaparece */
-  }
-}
-
-/* AJUSTE ADICIONAL DE SOMBRA AL HOVER */
-.product-card:hover {
-  box-shadow: 
-    0 12px 24px rgba(0, 0, 0, 0.1),   /* Sombra principal */
-    0 0 0 1px rgba(0, 0, 0, 0.02);    /* Borde suave adicional */
-}
-
-/* MEDIA QUERIES: RESPONSIVE */
-
-/* Ajustes para pantallas menores o iguales a 1024px */
-@media (max-width: 1024px) {
-  .products-row {
-    justify-content: space-around;  /* Distribuye tarjetas con más separación */
-  }
-
-  .product-card:hover {
-    transform: translateY(-5px) scale(1.02); /* Efecto hover más sutil */
-  }
-}
-
-/* Ajustes para pantallas menores a 768px */
-@media (max-width: 768px) {
-  .products-content {
-    margin-top: 50px;
-    padding: 10px 0;
-  }
-
-  .products-row {
-    padding: 15px 10px;
-    gap: 15px;
-  }
-
-  .product-card:hover {
-    transform: translateY(-3px) scale(1.01);
-  }
-}
-
-/* Ajustes para pantallas menores a 480px */
-@media (max-width: 480px) {
-  .products-row {
-    padding: 10px 5px;
-  }
-
-  .product-card:hover {
-    transform: translateY(-2px);
-  }
-}
-
-/* ============================
-   TEXTO SUPERIOR DE LA SECCIÓN
-   ============================ */
-.category-header {
-  width: 135%;                  /* Más ancho de lo normal para estilizar */
-  padding: 0 0 20px;
-  margin-bottom: 25px;
-  text-align: center;
-}
-
-.category-title {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 400;
-  font-size: 1.5rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #222;
-  margin: 0;
-  position: relative;           /* Necesario para la línea inferior animada */
-  display: inline-block;
-}
-
-.category-title::after {
-  content: '';                  /* Línea decorativa inferior */
-  position: absolute;
-  left: 0;
-  bottom: -10px;
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 320px);
+  gap: 22px 18px;
+  justify-content: start;          /* <-- Aquí el truco: pegado a la izquierda */
+  align-items: start;
+  padding-bottom: 64px;
+  padding-left: 40px;              /* Opcional: ajusta el "pegado" al sidebar aquí */
   width: 100%;
-  height: 2px;
-  background-color: #000;
-  transform: scaleX(0);         /* Oculta la línea al inicio */
-  transform-origin: center;
-  transition: transform 0.3s ease;
+  min-height: 60vh;
 }
 
-.category-title:hover::after {
-  transform: scaleX(1);         /* Expande la línea al pasar el mouse */
+@media (max-width: 1100px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 320px);
+    gap: 20px 12px;
+    padding-left: 24px;
+  }
 }
 
-.category-description {
-  font-weight: 300;
-  font-size: 1.1rem;
-  color: #666;
-  margin-top: 15px;
+@media (max-width: 700px) {
+  .products-main {
+    margin-left: 0;
+    padding-top: 30px;
+  }
+  .products-grid {
+    grid-template-columns: repeat(1, 92vw);
+    gap: 14px 0;
+    padding-left: 0;
+  }
+}
+
+.products-content {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: 40px; /* igual que el padding-left del grid */
+  /* o usa padding-left si prefieres */
+}
+
+.products-header {
+  width: 100%;
+  margin-bottom: 28px;
+  text-align: left; /* Cambia de center a left */
+  /* Si quieres centrar dentro del área del grid/columnas, usa flex: */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Cambia de center a flex-start */
+}
+
+.products-title {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 2.2px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.products-desc {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.96rem;
+  color: #7b7b7b;
   font-style: italic;
-}
-
-/* Responsive para el título y la descripción */
-@media (max-width: 1024px) {
-  .category-title {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .category-header {
-    padding: 0 0 15px;
-    margin-bottom: 20px;
-  }
-
-  .category-title {
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-  }
-
-  .category-description {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .category-title {
-    font-size: 1.4rem;
-  }
-
-  .category-description {
-    font-size: 0.9rem;
-  }
+  font-weight: 300;
+  margin-bottom: 0;
+  letter-spacing: 0.1px;
 }

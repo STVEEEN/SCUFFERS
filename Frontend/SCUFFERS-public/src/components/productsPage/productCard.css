@@ -1,0 +1,95 @@
+.product-card {
+  width: 320px;
+  height: 410px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition: box-shadow 0.18s, transform 0.13s;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+  transform: translateY(-7px) scale(1.022);
+}
+
+.product-card-image-container {
+  width: 100%;
+  height: 265px;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Cambia a contain para que nunca se corte la gorra */
+  object-position: center;
+  transition: transform 0.19s;
+}
+
+.product-card-info {
+  width: 100%;
+  text-align: center;
+  padding: 18px 12px 14px 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-card-title {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.11rem;
+  letter-spacing: 0.8px;
+  font-weight: 400;
+  color: #232323;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+  text-align: center;
+}
+
+.product-card-price {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: #232323;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .product-card, .product-card-image-container {
+    width: 320px;
+  }
+  .product-card {
+    height: 380px;
+  }
+  .product-card-image-container {
+    height: 200px;
+  }
+}
+
+@media (max-width: 700px) {
+  .product-card, .product-card-image-container {
+    width: 94vw;
+    min-width: 0;
+    max-width: 100vw;
+  }
+  .product-card {
+    height: 280px;
+    border-radius: 11px;
+  }
+  .product-card-image-container {
+    height: 130px;
+  }
+}
