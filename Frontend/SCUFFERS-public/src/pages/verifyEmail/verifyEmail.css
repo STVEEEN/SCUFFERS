@@ -1,27 +1,120 @@
-.verify-email__wrapper {
+.ve-bg {
   min-height: 100vh;
+  background: #fff; /* Fondo blanco plano */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #222;
 }
-.verify-email__card {
+
+.ve-card {
   background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 4px 36px #0001;
-  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 22px;
+  box-shadow: 0 4px 32px 0 rgba(80, 61, 255, 0.10), 0 1.5px 6px 0 rgba(60,60,100,0.09);
+  padding: 2.8rem 2.1rem 2.3rem 2.1rem;
+  min-width: 340px;
+  max-width: 380px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: ve-fadein 0.7s cubic-bezier(.61,.56,.37,1.25);
 }
-.verify-email__card h2 {
+@keyframes ve-fadein {
+  from { opacity: 0; transform: translateY(32px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.ve-icon {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 1.1rem;
+  display: block;
+}
+.ve-icon-info circle { fill: #fff; stroke: #b6a3fa; stroke-width: 4; }
+.ve-icon-info rect { fill: #7c3aed; }
+
+.ve-card h2 {
+  color: #232323;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+  font-size: 1.28rem;
+  letter-spacing: 0.01em;
+}
+
+.ve-desc {
+  color: #3b3b45;
+  font-size: 1.04rem;
   margin-bottom: 1rem;
+  margin-top: .15rem;
 }
-.verify-email__card button {
-  margin-top: 1.5rem;
-  padding: 0.7rem 2rem;
-  background: #181818;
+
+.ve-btn {
+  background: linear-gradient(90deg, #7c3aed 0%, #a78bfa 100%);
   color: #fff;
   border: none;
   border-radius: 8px;
+  padding: 0.69rem 2rem;
+  font-size: 1.07rem;
+  font-weight: 700;
+  margin-top: 1.03rem;
+  margin-bottom: 0.7rem;
   cursor: pointer;
+  box-shadow: 0 1px 6px #b6a3fa24;
+  transition: background 0.18s, box-shadow 0.18s;
+  outline: none;
+}
+.ve-btn:active {
+  background: linear-gradient(90deg, #7c3aed 60%, #6d28d9 100%);
+}
+
+.ve-btn-secondary {
+  background: transparent;
+  color: #232323;
+  border: 1.5px solid #a78bfa;
+  border-radius: 8px;
+  padding: 0.61rem 1.7rem;
+  font-size: 1.02rem;
+  margin-top: 0.9rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: border 0.18s, color 0.18s, background 0.18s;
+}
+.ve-btn-secondary:hover {
+  background: #f3f0fd;
+  border-color: #7c3aed;
+  color: #7c3aed;
+}
+
+.ve-input {
+  width: 100%;
+  padding: 0.68rem 1rem;
   font-size: 1rem;
+  border-radius: 8px;
+  border: 1.5px solid #ede9fe;
+  margin-top: 0.61rem;
+  margin-bottom: .7rem;
+  outline: none;
+  background: #faf9ff;
+  color: #232323;
+  transition: border 0.18s, background 0.18s;
+  text-align: center;
+  font-weight: 500;
+}
+.ve-input:focus {
+  border-color: #a78bfa;
+  background: #ffffff;
+}
+
+.ve-loader {
+  width: 38px;
+  height: 38px;
+  border: 3px solid #ede9fe;
+  border-top: 3px solid #7c3aed;
+  border-radius: 50%;
+  margin: 1.1rem auto 0 auto;
+  animation: ve-spin 1s linear infinite;
+}
+@keyframes ve-spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
 }

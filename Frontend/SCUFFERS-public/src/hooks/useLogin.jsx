@@ -3,7 +3,6 @@ import { useState } from "react";
 export default function useLogin() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [user, setUser] = useState(null);
 
   const login = async (email, password) => {
     setLoading(true);
@@ -12,20 +11,22 @@ export default function useLogin() {
       const response = await fetch("http://localhost:4000/api/authUser/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({ Email: email, Password: password }),
-        credentials: "include"
       });
       const data = await response.json();
-      if (!response.ok) throw new Error(data.message || "Login failed");
-      setUser(data.user);
-      return { success: true, user: data.user, message: data.message };
+      if (!response.ok) {
+        setError(data.message || "Error al iniciar sesión");
+        return { success: false, message: data.message };
+      }
+      return { success: true, user: data.user, token: data.token };
     } catch (err) {
-      setError(err.message);
-      return { success: false, message: err.message };
+      setError("Error de red");
+      return { success: false, message: "Error de red" };
     } finally {
       setLoading(false);
     }
   };
 
-  return { loading, error, user, login };
+  return { loading, error, login };
 }

@@ -119,11 +119,11 @@
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: flex-start;         /* Alineación vertical superior */
-    padding: 18rem;
-    transform: translateY(85px);     /* ← mueve solo este contenedor hacia abajo */
+    align-items: flex-start;
+    padding: 0;
     margin-right: 40px;
-  }
+    /* transform: none; */
+}
   
   /* Estilo base del formulario de registro */
   .register-form {
